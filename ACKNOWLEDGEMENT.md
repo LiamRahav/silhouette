@@ -6,7 +6,7 @@ Here I will be giving credit to the wonderful authors of the free assets I've be
 
 ### Audio
 
-Kevin MacLeod (http://incompetech.com): 
+Kevin MacLeod - [website](http://incompetech.com): 
 
 - Disquiet
 
