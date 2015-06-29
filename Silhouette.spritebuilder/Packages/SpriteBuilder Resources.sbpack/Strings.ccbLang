@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>activeLanguages</key>
+	<array>
+		<string>en</string>
+		<string>es</string>
+		<string>ja</string>
+		<string>he</string>
+		<string>de</string>
+		<string>ar</string>
+		<string>fr</string>
+		<string>zh-Hans</string>
+		<string>ko</string>
+	</array>
+	<key>fileType</key>
+	<string>SpriteBuilderTranslations</string>
+	<key>fileVersion</key>
+	<integer>1</integer>
+	<key>translations</key>
+	<array>
+		<dict>
+			<key>comment</key>
+			<string>Presents word on opening screen</string>
+			<key>key</key>
+			<string>Presents</string>
+			<key>translations</key>
+			<dict>
+				<key>ar</key>
+				<string>يعرض</string>
+				<key>de</key>
+				<string>Präsentiert</string>
+				<key>en</key>
+				<string>Presents</string>
+				<key>es</key>
+				<string>Presenta</string>
+				<key>fr</key>
+				<string>Présente</string>
+				<key>he</key>
+				<string>מציג</string>
+				<key>ja</key>
+				<string>プレゼンツ</string>
+				<key>ko</key>
+				<string>선물</string>
+				<key>zh-Hans</key>
+				<string>介绍</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>This will only be translated to hebrew</string>
+			<key>key</key>
+			<string>Liam Rahav</string>
+			<key>translations</key>
+			<dict>
+				<key>ar</key>
+				<string>Liam Rahav</string>
+				<key>de</key>
+				<string>Liam Rahav</string>
+				<key>en</key>
+				<string>Liam Rahav</string>
+				<key>es</key>
+				<string>Liam Rahav</string>
+				<key>fr</key>
+				<string>Liam Rahav</string>
+				<key>he</key>
+				<string> ליעמ רהב</string>
+				<key>ja</key>
+				<string>Liam Rahav</string>
+				<key>ko</key>
+				<string>Liam Rahav</string>
+				<key>zh-Hans</key>
+				<string>Liam Rahav</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

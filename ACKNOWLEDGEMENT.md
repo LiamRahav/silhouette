@@ -13,3 +13,9 @@ Kevin MacLeod - [website](http://incompetech.com):
 ------------------------------------
 
 ## Sprites
+
+------------------------------------
+
+## Fonts
+
+- Merriweather Font - Included under the SIL Open Font License (OFL)
