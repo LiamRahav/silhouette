@@ -5,6 +5,7 @@
 // Creative Commons Attribution-NonCommercial 4.0 International License.
 
 import Foundation
+import UIKit
 
 class GameScene: CCNode, WTMGlyphDelegate {
   weak var testObstacle: Obstacle!
