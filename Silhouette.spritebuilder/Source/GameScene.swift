@@ -18,29 +18,28 @@ class GameScene: CCNode, WTMGlyphDelegate {
   
   func initGestureDetector() {
     glyphDetector = WTMGlyphDetector.detector() as! WTMGlyphDetector
-//    glyphDetector.delegate = self
+    glyphDetector.delegate = self
     glyphDetector.addGlyphFromJSON(testObstacle.convertGlyphToJSON(testObstacle.currentShape), name: testObstacle.currentShape.toString)
   }
   
-  override func onEnter() {
-    super.onEnter()
-    glyphDetector.delegate = self
-  }
-  
   override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+    println("touch has begun")
     glyphDetector.addPoint(touch.locationInView(touch.view))
   }
   
   override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+    println("touch is moving")
     glyphDetector.addPoint(touch.locationInView(touch.view))
   }
   
   override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+    println("touch has ended")
     glyphDetector.addPoint(touch.locationInView(touch.view))
     glyphDetector.detectGlyph()
   }
   
   override func touchCancelled(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+    println("touch has ended")
     glyphDetector.detectGlyph()
   }
   

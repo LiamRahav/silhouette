@@ -54,11 +54,11 @@
     
     // permute over all possible directions (heapPermute)
     [self permuteStrokeOrders:[strokeOrders count]];
-    DebugLog(@"Permuted stroke orders %@", permutedStrokeOrders);
+    NSLog(@"Permuted stroke orders %@", permutedStrokeOrders);
     
     // create WTMGlyphTemplates from all unistrokes
     [self createUnistrokes];
-    DebugLog(@"Unistrokes %@", unistrokes);
+    NSLog(@"Unistrokes %@", unistrokes);
     
     // actually create the templates from unistrokes
     for (int i = 0; i < [unistrokes count]; i++) {
@@ -66,14 +66,14 @@
                                                                         points:[unistrokes objectAtIndex:i]];
         [self.templates addObject:newTemplate];
     }
-    DebugLog(@"Templates %@", self.templates);
-    DebugLog(@"Template count %i", [self.templates count]);
+    NSLog(@"Templates %@", self.templates);
+    NSLog(@"Template count %i", [self.templates count]);
 }
 
 - (void)createTemplatesFromJSONData:(NSData *)jsonData {
     NSError *error = nil;
 	NSArray *arr = [[CJSONDeserializer deserializer] deserializeAsArray:jsonData error:&error];
-	DebugLog(@"json data %@", arr);
+	NSLog(@"json data %@", arr);
     int i = 0;
     for (NSArray *strokePoints in arr) {
         WTMGlyphStroke *stroke = [[WTMGlyphStroke alloc] init];
@@ -85,8 +85,8 @@
         i++;
 	}
     
-   DebugLog(@"Strokes %@", self.strokes);
-    DebugLog(@"Initial stroke orders %@", strokeOrders);
+   NSLog(@"Strokes %@", self.strokes);
+    NSLog(@"Initial stroke orders %@", strokeOrders);
 	
     [self createTemplates];
 }

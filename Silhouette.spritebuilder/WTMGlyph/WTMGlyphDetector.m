@@ -103,7 +103,7 @@
 #pragma mark - Detection
 
 - (void)addPoint:(CGPoint)point {
-    DebugLog(@"Adding point to detector: %@", [NSValue valueWithCGPoint:point]);
+    NSLog(@"Adding point to detector: %@", [NSValue valueWithCGPoint:point]);
     
     lastPointTime = [[NSDate date] timeIntervalSince1970];
     
@@ -144,7 +144,7 @@
     
     while ((glyph = (WTMGlyph *)[eachGlyph nextObject])) {
         float score = 1 / [glyph recognize:inputTemplate];
-        DebugLog(@"Glyph: %@ Score: %f", glyph.name, score);
+        NSLog(@"Glyph: %@ Score: %f", glyph.name, score);
         result = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:glyph.name, [NSNumber numberWithFloat:score], nil] 
                                              forKeys:[NSArray arrayWithObjects:@"name", @"score", nil]];
         [results addObject:result];
@@ -154,7 +154,7 @@
             bestMatch = glyph;
         }
     }
-    DebugLog(@"Best Glyph: %@ with a Score of: %f", bestMatch.name, highestScore);
+    NSLog(@"Best Glyph: %@ with a Score of: %f", bestMatch.name, highestScore);
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"score" ascending:NO];
     NSArray *sortedResults = [results sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
@@ -191,7 +191,7 @@
 
 - (void)detectIfTimedOut {
     if ([self hasTimedOut]) {
-        DebugLog(@"Running detection");
+        NSLog(@"Running detection");
         [self detectGlyph];
     }
 }
@@ -209,9 +209,9 @@
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
     NSInteger elapsed = now - lastPointTime;
     
-    DebugLog(@"Elapsed time since last point is: %i", elapsed);
+    NSLog(@"Elapsed time since last point is: %i", elapsed);
     if (elapsed >= self.timeoutSeconds) {
-        DebugLog(@"Timeout detected");
+        NSLog(@"Timeout detected");
         return YES;
     }
     
