@@ -512,9 +512,9 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				FA703DA81B42D35400E615E0 /* GameScene.swift */,
+				FA703DA01B42C8A700E615E0 /* Obstacle.swift */,
 				FAA9F5EC1B442928006C9CCC /* Keys.swift */,
 				FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */,
-				FA703DA01B42C8A700E615E0 /* Obstacle.swift */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
 			name = Source;

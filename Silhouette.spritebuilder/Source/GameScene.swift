@@ -5,11 +5,12 @@
 // Creative Commons Attribution-NonCommercial 4.0 International License.
 
 import Foundation
-import UIKit
 
 class GameScene: CCNode, WTMGlyphDelegate {
   weak var testObstacle: Obstacle!
   var glyphDetector: WTMGlyphDetector!
+  
+  var jsonDict: [String:NSData] = ["":NSData()]
   
   func didLoadFromCCB() {
     userInteractionEnabled = true
@@ -19,32 +20,57 @@ class GameScene: CCNode, WTMGlyphDelegate {
   func initGestureDetector() {
     glyphDetector = WTMGlyphDetector.detector() as! WTMGlyphDetector
     glyphDetector.delegate = self
-    glyphDetector.addGlyphFromJSON(testObstacle.convertGlyphToJSON(testObstacle.currentShape), name: testObstacle.currentShape.toString)
+    // Just to be safe, make sure the Glyph detector is empty when they load in
+    glyphDetector.removeAllGlyphs()
+    
+    for (str, shape) in testObstacle.glyphDict {
+      let json = testObstacle.convertGlyphToJSON(shape)
+      jsonDict[str] = json
+    }
   }
   
   override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-    println("touch has begun")
-    glyphDetector.addPoint(touch.locationInView(touch.view))
+    touchParticleEffect(touch)
+    glyphDetector.addPoint(touch.locationInWorld())
   }
   
   override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-    println("touch is moving")
-    glyphDetector.addPoint(touch.locationInView(touch.view))
+    touchParticleEffect(touch)
+    glyphDetector.addPoint(touch.locationInWorld())
   }
   
   override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-    println("touch has ended")
-    glyphDetector.addPoint(touch.locationInView(touch.view))
+    touchParticleEffect(touch)
+    glyphDetector.addPoint(touch.locationInWorld())
+    glyphDetector.addGlyphFromJSON(jsonDict[testObstacle.currentShape.toString], name: testObstacle.currentShape.toString)
     glyphDetector.detectGlyph()
   }
   
   override func touchCancelled(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-    println("touch has ended")
+    glyphDetector.addGlyphFromJSON(jsonDict[testObstacle.currentShape.toString], name: testObstacle.currentShape.toString)
     glyphDetector.detectGlyph()
   }
   
+  func touchParticleEffect(touch: CCTouch) {
+    let touchParticle = CCBReader.load("TouchParticle") as! CCParticleSystem
+    touchParticle.autoRemoveOnFinish = true
+    touchParticle.position = CGPoint(x: touch.locationInWorld().x, y: touch.locationInWorld().y)
+    self.addChild(touchParticle)
+  }
+  
   func glyphDetected(glyph: WTMGlyph!, withScore score: Float) {
-    println("You drew a \((glyph.name).uppercaseString) with an accuracy score of: \(String(stringInterpolationSegment: score).uppercaseString)")
+    if score >= 0.68 {
+      println("\n\nPASS\n\n")
+    } else {
+      println("\n\nFAIL\n\n")
+    }
+    
+    var glyphDict = testObstacle.glyphDict
+    glyphDict.removeValueForKey(testObstacle.currentShape.toString)
+    let keysArray = glyphDict.keys.array
+    testObstacle.currentShape = glyphDict[keysArray[Int(arc4random_uniform(UInt32(keysArray.count)))]]!
+    
+    glyphDetector.removeAllGlyphs()
   }
   
 }

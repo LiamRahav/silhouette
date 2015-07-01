@@ -51,7 +51,7 @@
 				<key>displayName</key>
 				<string>Obstacle</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>testObstacle</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -100,6 +100,8 @@
 						<string>Obstacle.ccb</string>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -484,7 +486,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string></string>
+		<string>GameScene</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>

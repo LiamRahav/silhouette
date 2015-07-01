@@ -8,7 +8,6 @@ import Foundation
 
 class MenuScene: CCNode {
   weak var buttonsBox: CCLayoutBox!
-  
   func didLoadFromCCB() {
     userInteractionEnabled = true
     schedule("fadeInButtons", interval: 1.29)
@@ -21,18 +20,10 @@ class MenuScene: CCNode {
   }
   
   func play() {
-    schedule("turnOffAudio", interval: 1)
+    let audio = OALSimpleAudio.sharedInstance()
+    audio.stopBg()
     let nextScene = CCBReader.loadAsScene("GameScene")
     CCDirector.sharedDirector().replaceScene(nextScene)
   }
   
-  func turnOffAudio() {
-    let audio = OALSimpleAudio.sharedInstance()
-    audio.bgVolume -= 1
-    println(audio.bgVolume)
-    if audio.bgVolume == 0 {
-      audio.stopBg()
-      unschedule("turnOffAudio")
-    }
-  }
 }

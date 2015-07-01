@@ -6,21 +6,23 @@
 
 import Foundation
 
+// Be sure to add new shapes to the Dictionary in Obstacle
 enum Glyph {
   case Square
   case Triangle
-  case Cirlce
+  case Circle
   case Diamond
   
   // Convert to string by typing shape.toString
   var toString: String {
     switch self {
-      case .Cirlce: return "Cirlce"
+      case .Circle: return "Circle"
       case .Triangle: return "Triangle"
       case .Diamond: return "Diamond"
       case .Square: return "Square"
     }
   }
+  
 }
 
 class Obstacle: CCNode {
@@ -33,6 +35,14 @@ class Obstacle: CCNode {
     }
   }
   
+  // Add new shapes here and in the Enum
+  var glyphDict = [
+    "Square" : Glyph.Square,
+    "Triangle" : Glyph.Triangle,
+    "Circle" : Glyph.Circle,
+    "Diamond" :Glyph.Diamond
+  ]
+  
   /**
   This function takes in a Glyph enum and spits back the matching JSON file (if it exists)
   
@@ -41,6 +51,11 @@ class Obstacle: CCNode {
   */
   func convertGlyphToJSON(glyph: Glyph) -> NSData {
     let path = NSBundle.mainBundle().pathForResource("JSON/\((glyph.toString).lowercaseString)", ofType: "json")
+    
+    // DEBUG
+    // println("\nSHAPE: \(glyph.toString)")
+    // println("\nPATH: \(path)")
+    
     let data = NSData(contentsOfMappedFile: path!)
     return data!
   }
