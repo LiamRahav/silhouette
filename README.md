@@ -1,7 +1,7 @@
 Silhouette
 ==========
 
-Although this is a paid game on the iOS App Store, I thought it would be a nice gesture to the community if I open sourced the code I used to make the game.
+Although this is a free game on the iOS App Store, I thought it would be a nice gesture to the community if I open sourced the code I used to make the game.
 
 This game does include some lesser known topics such as shape recognition when a user draws on the screen. Feel free to look through the code for inspiration, assistance, etc. You can check [my projects page](http://liamrahav.me/projects) for more information about this app, as well as other projects I have done in the past.
 
@@ -27,7 +27,7 @@ For this reason, **all assets used are free for use** by anyone. However, you **
 
 -------------------------
 
-Sorry for all the legal talk, but it's necessary when open sourcing a paid application. It is important to not that you **cannot, under any circumstance, introduce a free version of this application to the app store** If you have any questions feel free to send me a message. If you see any issues in the code, feel free to open up an issue. And, most importantly, feel to clone or branch this repo and see what you can do with the app. 
+Sorry for all the legal talk, but it's necessary when open sourcing an application on the market. It is important to not that you **cannot, under any circumstance, introduce a free version of this application to the app store** If you have any questions feel free to send me a message. If you see any issues in the code, feel free to open up an issue. And, most importantly, feel to clone or branch this repo and see what you can do with the app. 
 
 ##Enjoy!
 
