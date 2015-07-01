@@ -74,6 +74,34 @@
 				<string>Liam Rahav</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>comment</key>
+			<string>The title of the game</string>
+			<key>key</key>
+			<string>Silhouette</string>
+			<key>translations</key>
+			<dict>
+				<key>ar</key>
+				<string>Silhouette</string>
+				<key>de</key>
+				<string>Silhouette</string>
+				<key>en</key>
+				<string>Silhouette</string>
+				<key>es</key>
+				<string>Silueta</string>
+				<key>fr</key>
+				<string>Silhouette
+</string>
+				<key>he</key>
+				<string>צללית</string>
+				<key>ja</key>
+				<string>シルエット</string>
+				<key>ko</key>
+				<string>실루엣</string>
+				<key>zh-Hans</key>
+				<string>侧影</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

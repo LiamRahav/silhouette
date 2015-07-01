@@ -93,7 +93,11 @@
 		BC5399DA1A44DCC90063F482 /* GLActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D51A44DCC90063F482 /* GLActivityKit.framework */; };
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
+		FA703DA11B42C8A700E615E0 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA703DA01B42C8A700E615E0 /* Obstacle.swift */; };
+		FA703DA71B42CFF200E615E0 /* JSON in Resources */ = {isa = PBXBuildFile; fileRef = FA703DA61B42CFF200E615E0 /* JSON */; };
+		FA703DA91B42D35400E615E0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA703DA81B42D35400E615E0 /* GameScene.swift */; };
 		FAA608351B417D6800AB3889 /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = FAA608341B417D6800AB3889 /* Audio */; };
+		FAC21DDB1B41C74B00CF1F82 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +142,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = D2FEB60D194F6C9E00FC0574;
 			remoteInfo = cocos2dAndroid;
+		};
+		FA716B761B43005F0027171E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA716B711B43005F0027171E /* WTMGlyph.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EA6C92F6136DA457008AD709;
+			remoteInfo = WTMGlyph;
+		};
+		FA716B781B43005F0027171E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA716B711B43005F0027171E /* WTMGlyph.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EA6C9303136DA457008AD709;
+			remoteInfo = WTMGlyphTests;
 		};
 		FAA608381B417D6800AB3889 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -212,7 +230,12 @@
 		BC5399D61A44DCC90063F482 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
+		FA703DA01B42C8A700E615E0 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Obstacle.swift; path = Source/Obstacle.swift; sourceTree = "<group>"; };
+		FA703DA61B42CFF200E615E0 /* JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSON; sourceTree = "<group>"; };
+		FA703DA81B42D35400E615E0 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = Source/GameScene.swift; sourceTree = "<group>"; };
+		FA716B711B43005F0027171E /* WTMGlyph.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WTMGlyph.xcodeproj; path = Source/libs/WTMGlyph.xcodeproj; sourceTree = "<group>"; };
 		FAA608341B417D6800AB3889 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
+		FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = Source/MenuScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,6 +451,7 @@
 		9222E2B918734FF800A246C7 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				FA716B711B43005F0027171E /* WTMGlyph.xcodeproj */,
 				B7378940180761A80076A88C /* cocos2d.xcodeproj */,
 			);
 			name = libs;
@@ -438,6 +462,9 @@
 			children = (
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
+				FA703DA81B42D35400E615E0 /* GameScene.swift */,
+				FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */,
+				FA703DA01B42C8A700E615E0 /* Obstacle.swift */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
 			name = Source;
@@ -517,6 +544,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA703DA61B42CFF200E615E0 /* JSON */,
 				FAA608341B417D6800AB3889 /* Audio */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
 				5B12100D197483EE004C1E1D /* res */,
@@ -537,6 +565,15 @@
 				B73789861807631A0076A88C /* Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA716B721B43005F0027171E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA716B771B43005F0027171E /* libWTMGlyph.a */,
+				FA716B791B43005F0027171E /* WTMGlyphTests.octest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -636,6 +673,10 @@
 					ProductGroup = 7A9790F619E62E3F001FFC4D /* Products */;
 					ProjectRef = B7378940180761A80076A88C /* cocos2d.xcodeproj */;
 				},
+				{
+					ProductGroup = FA716B721B43005F0027171E /* Products */;
+					ProjectRef = FA716B711B43005F0027171E /* WTMGlyph.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -666,6 +707,20 @@
 			fileType = archive.ar;
 			path = "libcocos2d-mac.a";
 			remoteRef = 7A97910319E62E40001FFC4D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FA716B771B43005F0027171E /* libWTMGlyph.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libWTMGlyph.a;
+			remoteRef = FA716B761B43005F0027171E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FA716B791B43005F0027171E /* WTMGlyphTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = WTMGlyphTests.octest;
+			remoteRef = FA716B781B43005F0027171E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		FAA608391B417D6800AB3889 /* cocos2dMacFramework.framework */ = {
@@ -727,6 +782,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA703DA71B42CFF200E615E0 /* JSON in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
@@ -816,7 +872,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA703DA91B42D35400E615E0 /* GameScene.swift in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				FAC21DDB1B41C74B00CF1F82 /* MenuScene.swift in Sources */,
+				FA703DA11B42C8A700E615E0 /* Obstacle.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 			);
