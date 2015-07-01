@@ -51,6 +51,7 @@ class MainScene: CCNode {
     var p = CCBReader.load("TouchParticle") as! CCParticleSystem
     p.autoRemoveOnFinish = true
     p.position = touch.locationInWorld()
+    self.addChild(p)
   }
   
   
