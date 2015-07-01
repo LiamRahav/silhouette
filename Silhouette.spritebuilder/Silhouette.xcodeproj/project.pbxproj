@@ -99,7 +99,6 @@
 		FAA608351B417D6800AB3889 /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = FAA608341B417D6800AB3889 /* Audio */; };
 		FAA9F5ED1B442928006C9CCC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9F5EC1B442928006C9CCC /* Keys.swift */; };
 		FAC21DDB1B41C74B00CF1F82 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */; };
-		FADD82C81B4424FB00E6F52D /* WTMGlyph in Resources */ = {isa = PBXBuildFile; fileRef = FADD82C71B4424FB00E6F52D /* WTMGlyph */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,7 +238,6 @@
 		FAA608341B417D6800AB3889 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 		FAA9F5EC1B442928006C9CCC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = Source/Keys.swift; sourceTree = "<group>"; };
 		FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = Source/MenuScene.swift; sourceTree = "<group>"; };
-		FADD82C71B4424FB00E6F52D /* WTMGlyph */ = {isa = PBXFileReference; lastKnownFileType = folder; name = WTMGlyph; path = Source/WTMGlyph; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,7 +462,6 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				FADD82C71B4424FB00E6F52D /* WTMGlyph */,
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				FA703DA81B42D35400E615E0 /* GameScene.swift */,
@@ -794,7 +791,6 @@
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
 				B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */,
-				FADD82C81B4424FB00E6F52D /* WTMGlyph in Resources */,
 				B71F5916188484E7003F4D28 /* iPhone-old@2x.png in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				FAA608351B417D6800AB3889 /* Audio in Resources */,
