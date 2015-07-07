@@ -120,7 +120,7 @@
 				<key>type</key>
 				<string>Float</string>
 				<key>value</key>
-				<real>150</real>
+				<real>300</real>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -136,7 +136,7 @@
 				<key>type</key>
 				<string>Integer</string>
 				<key>value</key>
-				<integer>50</integer>
+				<integer>20</integer>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -145,8 +145,8 @@
 				<string>FloatVar</string>
 				<key>value</key>
 				<array>
-					<real>0.5</real>
-					<real>1.3999999761581421</real>
+					<real>0.10000000149011612</real>
+					<real>3</real>
 				</array>
 			</dict>
 			<dict>
@@ -318,8 +318,6 @@
 				<string>ccbResources/ccbParticleMagic.png</string>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

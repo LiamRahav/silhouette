@@ -43,3 +43,6 @@ xcuserdata
 *.pyc
 *.orig
 *.ninja_log
+
+# JetBrains IDE Settings
+.idea

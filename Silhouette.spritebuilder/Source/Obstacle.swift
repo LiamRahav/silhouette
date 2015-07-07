@@ -10,15 +10,15 @@ import Foundation
 enum Glyph {
   case Square
   case Triangle
-  case Circle
-  case Diamond
+  case Z
+  case L
   
   // Convert to string by typing shape.toString
   var toString: String {
     switch self {
-      case .Circle: return "Circle"
+      case .Z: return "Z"
       case .Triangle: return "Triangle"
-      case .Diamond: return "Diamond"
+      case .L: return "L"
       case .Square: return "Square"
     }
   }
@@ -39,8 +39,8 @@ class Obstacle: CCNode {
   var glyphDict = [
     "Square" : Glyph.Square,
     "Triangle" : Glyph.Triangle,
-    "Circle" : Glyph.Circle,
-    "Diamond" :Glyph.Diamond
+    "Z" : Glyph.Z,
+    "L" :Glyph.L
   ]
   
   /**

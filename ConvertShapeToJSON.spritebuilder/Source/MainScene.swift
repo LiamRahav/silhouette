@@ -3,6 +3,7 @@ import Foundation
 class MainScene: CCNode {
   var dict: [Int:Int] = [0:0]
   var dictString: String = ""
+  weak var introLabel: CCLabelTTF!
   
   func didLoadFromCCB() {
     userInteractionEnabled = true
@@ -12,6 +13,9 @@ class MainScene: CCNode {
     dict[Int(touch.locationInWorld().x)] = Int(touch.locationInWorld().y)
     particles(touch)
     format(dict)
+    if introLabel != nil {
+      introLabel.removeFromParent()
+    }
   }
   
   override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -25,6 +29,7 @@ class MainScene: CCNode {
     particles(touch)
     format(dict)
     println(dictString)
+    dict = [0:0]
   }
   
   override func touchCancelled(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -32,9 +37,11 @@ class MainScene: CCNode {
     format(dict)
     particles(touch)
     println(dictString)
+    dict = [0:0]
   }
   
   func format(dict: [Int:Int]) {
+    // Add the proper syntax to the dictionary to make it into JSON
     dictString = dict.description
     dictString = "[\n[\n" + (dictString) + "\n]\n]"
     dictString = dictString.stringByReplacingOccurrencesOfString(",",
@@ -43,6 +50,20 @@ class MainScene: CCNode {
       range: nil)
     dictString = dictString.stringByReplacingOccurrencesOfString(":",
       withString: ",",
+      options: NSStringCompareOptions.LiteralSearch,
+      range: nil)
+    
+    // Remove the beginning state from the JSON
+    dictString = dictString.stringByReplacingOccurrencesOfString("[ 0, 0],",
+      withString: "",
+      options: NSStringCompareOptions.LiteralSearch,
+      range: nil)
+    dictString = dictString.stringByReplacingOccurrencesOfString("[ 0, 0] ",
+      withString: "",
+      options: NSStringCompareOptions.LiteralSearch,
+      range: nil)
+    dictString = dictString.stringByReplacingOccurrencesOfString("[0, 0],",
+      withString: "",
       options: NSStringCompareOptions.LiteralSearch,
       range: nil)
   }
