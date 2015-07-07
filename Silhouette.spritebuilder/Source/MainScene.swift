@@ -36,6 +36,7 @@ class MainScene: CCNode {
     // Load up the next scene and remove this function from the scheduler
     let newScene = CCBReader.loadAsScene("MenuScene")
     CCDirector.sharedDirector().replaceScene(newScene)
+    
     unschedule("moveToNextScene")
   }
 }

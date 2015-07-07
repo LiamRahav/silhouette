@@ -8,7 +8,15 @@ import Foundation
 
 class GameScene: CCNode, WTMGlyphDelegate {
   // Sample obstalce used to test shape recognition
-  weak var testObstacle: Obstacle!
+  weak var line: CCNode!
+  weak var obstacleNode: CCNode!
+  var currentObstacle: Obstacle!
+  var obstacleList: [Obstacle] = [] {
+    didSet {
+      currentObstacle = obstacleList[0]
+    }
+  }
+  var distanceBetweenObstacles: CGFloat = 320
   
   var glyphDetector: WTMGlyphDetector!
   var jsonDict: [String:NSData] = ["":NSData()]
@@ -16,6 +24,24 @@ class GameScene: CCNode, WTMGlyphDelegate {
   func didLoadFromCCB() {
     userInteractionEnabled = true
     initGestureDetector()
+    
+    // Populate obstacle list 
+    obstacleList[0] = Obstacle()
+    for _ in 0...4 {
+      addNewObstacle()
+    }
+  }
+  
+  func addNewObstacle() {
+    var previousObstaclePosition = currentObstacle.position.x
+    if obstacleList.count > 0 {
+      previousObstaclePosition = obstacleList.last!.position.x
+    }
+    
+    let obstacle = CCBReader.load("Obstacle") as! Obstacle
+    obstacle.position = ccp(previousObstaclePosition + distanceBetweenObstacles, line.position.y)
+    obstacleNode.addChild(obstacle)
+    obstacleList.append(obstacle)
   }
   
   func initGestureDetector() {
@@ -25,8 +51,8 @@ class GameScene: CCNode, WTMGlyphDelegate {
     // Just to be safe, make sure the Glyph detector is empty when they load in
     glyphDetector.removeAllGlyphs()
     
-    for (str, shape) in testObstacle.glyphDict {
-      let json = testObstacle.convertGlyphToJSON(shape)
+    for (str, shape) in currentObstacle.glyphDict {
+      let json = currentObstacle.convertGlyphToJSON(shape)
       
       // This line is for only having 1 glyph loaded at a time
 //      jsonDict[str] = json
@@ -77,16 +103,16 @@ class GameScene: CCNode, WTMGlyphDelegate {
     println("\nSHAPE: \(glyph.name)")
     println("\nSCORE: \(score)")
     
-//    if score >= 1 && glyph.name.lowercaseString == testObstacle.shapeLabel.string.lowercaseString {
-//      println("\n\nPASS\n\n")
-//    } else {
-//      println("\n\nFAIL\n\n")
-//    }
+    if score >= 1.5 && glyph.name.lowercaseString == currentObstacle.shapeLabel.string.lowercaseString {
+      println("\nPASS\n\n")
+    } else {
+      println("\nFAIL\n")
+    }
     
-    var glyphDict = testObstacle.glyphDict
-    glyphDict.removeValueForKey(testObstacle.currentShape.toString)
+    var glyphDict = currentObstacle.glyphDict
+    glyphDict.removeValueForKey(currentObstacle.currentShape.toString)
     let keysArray = glyphDict.keys.array
-    testObstacle.currentShape = glyphDict[keysArray[Int(arc4random_uniform(UInt32(keysArray.count)))]]!
+    currentObstacle.currentShape = glyphDict[keysArray[Int(arc4random_uniform(UInt32(keysArray.count)))]]!
     
     // Remove all glyphs to make sure only 1 will be loaded at a time
 //    glyphDetector.removeAllGlyphs()
