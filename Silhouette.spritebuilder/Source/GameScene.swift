@@ -23,13 +23,14 @@ class GameScene: CCNode, WTMGlyphDelegate {
   
   func didLoadFromCCB() {
     userInteractionEnabled = true
-    initGestureDetector()
     
     // Populate obstacle list 
-    obstacleList[0] = Obstacle()
+    obstacleList.append(CCBReader.load("Obstacle") as! Obstacle)
     for _ in 0...4 {
       addNewObstacle()
     }
+    
+    initGestureDetector()
   }
   
   func addNewObstacle() {
