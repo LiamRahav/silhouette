@@ -36,7 +36,7 @@ class Obstacle: CCNode {
   }
   
   // Add new shapes here and in the Enum
-  var glyphDict = [
+  static var glyphDict = [
     "Square" : Glyph.Square,
     "Triangle" : Glyph.Triangle,
     "Z" : Glyph.Z,
@@ -49,7 +49,7 @@ class Obstacle: CCNode {
   :param: Glyph
   :returns: JSON data
   */
-  func convertGlyphToJSON(glyph: Glyph) -> NSData {
+  static func convertGlyphToJSON(glyph: Glyph) -> NSData {
     let path = NSBundle.mainBundle().pathForResource("JSON/\((glyph.toString).lowercaseString)", ofType: "json")
     
     // DEBUG

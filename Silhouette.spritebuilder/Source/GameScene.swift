@@ -115,10 +115,12 @@ class GameScene: CCNode, WTMGlyphDelegate {
     let keysArray = glyphDict.keys.array
     currentObstacle.currentShape = glyphDict[keysArray[Int(arc4random_uniform(UInt32(keysArray.count)))]]!
     
-    // Remove all glyphs to make sure only 1 will be loaded at a time
-//    glyphDetector.removeAllGlyphs()
     
     glyphDetector.removeAllPoints()
+    
+    for o in obstacleList {
+      print(o.currentShape.toString)
+    }
   }
   
 }

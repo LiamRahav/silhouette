@@ -93,6 +93,7 @@
 		BC5399DA1A44DCC90063F482 /* GLActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D51A44DCC90063F482 /* GLActivityKit.framework */; };
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
+		FA0F10511B4D8C61005B467B /* GameSceneCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F10501B4D8C61005B467B /* GameSceneCopy.swift */; };
 		FA266C701B443CBC007BB050 /* WTMGlyph in Resources */ = {isa = PBXBuildFile; fileRef = FA266C6F1B443CBC007BB050 /* WTMGlyph */; };
 		FA266C791B443D00007BB050 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FA266C711B443D00007BB050 /* CDataScanner.m */; };
 		FA266C7A1B443D00007BB050 /* WTMDetectionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA266C721B443D00007BB050 /* WTMDetectionResult.m */; };
@@ -240,6 +241,7 @@
 		BC5399D61A44DCC90063F482 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
+		FA0F10501B4D8C61005B467B /* GameSceneCopy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneCopy.swift; sourceTree = "<group>"; };
 		FA266C6F1B443CBC007BB050 /* WTMGlyph */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WTMGlyph; sourceTree = "<group>"; };
 		FA266C711B443D00007BB050 /* CDataScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CDataScanner.m; path = WTMGlyph/CDataScanner.m; sourceTree = "<group>"; };
 		FA266C721B443D00007BB050 /* WTMDetectionResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WTMDetectionResult.m; path = WTMGlyph/WTMDetectionResult.m; sourceTree = "<group>"; };
@@ -658,6 +660,7 @@
 			children = (
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				FA703DA81B42D35400E615E0 /* GameScene.swift */,
+				FA0F10501B4D8C61005B467B /* GameSceneCopy.swift */,
 				FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */,
 			);
 			name = Scenes;
@@ -963,6 +966,7 @@
 				FA266C881B443D46007BB050 /* CJSONDeserializer.m in Sources */,
 				FA266C891B443D46007BB050 /* CJSONScanner.m in Sources */,
 				FA266C8A1B443D46007BB050 /* CJSONSerializer.m in Sources */,
+				FA0F10511B4D8C61005B467B /* GameSceneCopy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
