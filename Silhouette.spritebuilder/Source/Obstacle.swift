@@ -8,7 +8,6 @@ import Foundation
 
 // Be sure to add new shapes to the Dictionary in Obstacle
 enum Glyph {
-  case Square
   case Triangle
   case Z
   case L
@@ -19,7 +18,6 @@ enum Glyph {
       case .Z: return "Z"
       case .Triangle: return "Triangle"
       case .L: return "L"
-      case .Square: return "Square"
     }
   }
   
@@ -37,11 +35,16 @@ class Obstacle: CCNode {
   
   // Add new shapes here and in the Enum
   static var glyphDict = [
-    "Square" : Glyph.Square,
     "Triangle" : Glyph.Triangle,
     "Z" : Glyph.Z,
     "L" :Glyph.L
   ]
+  
+  func randomizeCurrentShape() {
+    let keyList = Obstacle.glyphDict.keys.array
+    let randomKey = keyList[Int(arc4random_uniform(UInt32(keyList.count)))]
+    currentShape = Obstacle.glyphDict[randomKey]!
+  }
   
   /**
   This function takes in a Glyph enum and spits back the matching JSON file (if it exists)
@@ -51,11 +54,6 @@ class Obstacle: CCNode {
   */
   static func convertGlyphToJSON(glyph: Glyph) -> NSData {
     let path = NSBundle.mainBundle().pathForResource("JSON/\((glyph.toString).lowercaseString)", ofType: "json")
-    
-    // DEBUG
-    // println("\nSHAPE: \(glyph.toString)")
-    // println("\nPATH: \(path)")
-    
     let data = NSData(contentsOfMappedFile: path!)
     return data!
   }

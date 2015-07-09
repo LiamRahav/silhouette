@@ -6,15 +6,17 @@
 
 import Foundation
 
-class GameSceneCopy: CCNode, WTMGlyphDelegate {
+class GameScene: CCNode, WTMGlyphDelegate {
   weak var line: CCNode!
   weak var obstacleNode: CCNode!
+  var obstacleArray: [Obstacle] = []
   var currentObstacle: Obstacle!
   var glyphDetector: WTMGlyphDetector!
   
   func didLoadFromCCB() {
     userInteractionEnabled = true
     setUpGlyphDetector()
+    setUpObstacleArray(numberOfObstacles: 5)
   }
   
   func setUpGlyphDetector() {
@@ -27,6 +29,16 @@ class GameSceneCopy: CCNode, WTMGlyphDelegate {
       let json = Obstacle.convertGlyphToJSON(shape)
       glyphDetector.addGlyphFromJSON(json, name: string)
     }
+  }
+  
+  func setUpObstacleArray(#numberOfObstacles: Int) {
+    for _ in 1...numberOfObstacles {
+      let newObstacle = CCBReader.load("Obstacle") as! Obstacle
+      newObstacle.randomizeCurrentShape()
+      newObstacle.position = CGPoint(x: 350, y: 64)
+      obstacleArray.append(newObstacle)
+    }
+    obstacleNode.addChild(obstacleArray[0])
   }
   
   override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -57,7 +69,25 @@ class GameSceneCopy: CCNode, WTMGlyphDelegate {
   }
   
   func glyphDetected(glyph: WTMGlyph!, withScore score: Float) {
-    
+    if score > 1.75  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
+      println("PASS")
+    } else {
+      println("FAIL")
+    }
+    glyphDetector.removeAllPoints()
+    shuffleObstacleArray()
+    for o in obstacleArray {
+      println(o.currentShape.toString)
+    }
+  }
+  
+  func shuffleObstacleArray() {
+    let o = obstacleArray[0]
+    obstacleArray.removeAtIndex(0)
+    o.randomizeCurrentShape()
+    obstacleArray.append(o)
+    obstacleNode.removeAllChildren()
+    obstacleNode.addChild(obstacleArray[0])
   }
 
 }
