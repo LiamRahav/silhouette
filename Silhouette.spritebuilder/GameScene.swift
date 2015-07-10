@@ -7,16 +7,25 @@
 import Foundation
 
 class GameScene: CCNode, WTMGlyphDelegate {
+  // MARK: Variables
+  // Code Connections
   weak var line: CCNode!
+  weak var character: CCSprite!
   weak var obstacleNode: CCNode!
+  // Obstacle related logic
   var obstacleArray: [Obstacle] = []
   var currentObstacle: Obstacle!
   var glyphDetector: WTMGlyphDetector!
+  let numberOfObstaclesInArray = 5
+  // Scrolling related logic
+  var shapeCorrect = false
+  var scrollSpeed = 20
   
+  // MARK: Setup Functions
   func didLoadFromCCB() {
     userInteractionEnabled = true
     setUpGlyphDetector()
-    setUpObstacleArray(numberOfObstacles: 5)
+    setUpObstacleArray(numberOfObstacles: numberOfObstaclesInArray)
   }
   
   func setUpGlyphDetector() {
@@ -41,18 +50,36 @@ class GameScene: CCNode, WTMGlyphDelegate {
     obstacleNode.addChild(obstacleArray[0])
   }
   
+  // MARK: Update functions
+  override func update(delta: CCTime) {
+    super.update(delta)
+    // Check if the player hits the obstacle in front of them
+    if character.position.x + (character.contentSize.width / 2) == obstacleArray[0].position.x {
+      if shapeCorrect {
+        shapeCorrect = false
+      } else {
+        println("GAME OVER")
+      }
+    }
+    moveWorld()
+  }
+  
+  func moveWorld() {
+    obstacleNode.position = ccp(obstacleNode.position.x - 5 , obstacleNode.position.y)
+  }
+  
   override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-    touchParticleEffect(touch)
+    ParticleEffects.createParticleEffectAtTouch(touch, asChildOf: self)
     glyphDetector.addPoint(touch.locationInWorld())
   }
   
   override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-    touchParticleEffect(touch)
+    ParticleEffects.createParticleEffectAtTouch(touch, asChildOf: self)
     glyphDetector.addPoint(touch.locationInWorld())
   }
   
   override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-    touchParticleEffect(touch)
+    ParticleEffects.createParticleEffectAtTouch(touch, asChildOf: self)
     glyphDetector.addPoint(touch.locationInWorld())
     glyphDetector.detectGlyph()
   }
@@ -61,16 +88,11 @@ class GameScene: CCNode, WTMGlyphDelegate {
     glyphDetector.detectGlyph()
   }
   
-  func touchParticleEffect(touch: CCTouch) {
-    let touchParticle = CCBReader.load("TouchParticle") as! CCParticleSystem
-    touchParticle.autoRemoveOnFinish = true
-    touchParticle.position = CGPoint(x: touch.locationInWorld().x, y: touch.locationInWorld().y)
-    self.addChild(touchParticle)
-  }
-  
+  // MARK: Callbacks
   func glyphDetected(glyph: WTMGlyph!, withScore score: Float) {
-    if score > 1.75  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
+    if score > 1.55  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
       println("PASS")
+      shapeCorrect = true
     } else {
       println("FAIL")
     }

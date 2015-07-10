@@ -397,7 +397,7 @@
 				<key>displayName</key>
 				<string>run-1@4x</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>character</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -497,6 +497,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

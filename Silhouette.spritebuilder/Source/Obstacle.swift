@@ -24,12 +24,12 @@ enum Glyph {
 }
 
 class Obstacle: CCNode {
-  weak var shapeLabel: CCLabelTTF!
+  weak var shapeImage: CCSprite!
   
   // Make sure the string always matches the shape
   var currentShape: Glyph =  .Triangle {
     didSet {
-      shapeLabel.string = currentShape.toString
+      shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/\(currentShape.toString.lowercaseString).png")
     }
   }
   
