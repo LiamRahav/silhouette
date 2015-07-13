@@ -52,7 +52,6 @@ class GameScene: CCNode, WTMGlyphDelegate {
   
   // MARK: Update functions
   override func update(delta: CCTime) {
-    super.update(delta)
     // Check if the player hits the obstacle in front of them
     if character.position.x + (character.contentSize.width / 2) == obstacleArray[0].position.x {
       if shapeCorrect {
@@ -61,10 +60,6 @@ class GameScene: CCNode, WTMGlyphDelegate {
         println("GAME OVER")
       }
     }
-    moveWorld()
-  }
-  
-  func moveWorld() {
     obstacleNode.position = ccp(obstacleNode.position.x - 5 , obstacleNode.position.y)
   }
   
