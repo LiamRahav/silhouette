@@ -14,7 +14,7 @@ Kevin MacLeod - [website](http://incompetech.com):
 
 ## Graphics
 
-Icons8 - [website](http://icons8.com)
+Icy by Mateo Zlatar from the Noun Project
 
 ------------------------------------
 

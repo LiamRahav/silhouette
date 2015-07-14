@@ -670,7 +670,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>145</real>
+									<real>136</real>
 									<real>20</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -695,8 +695,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>1</real>
-									<real>1</real>
+									<real>1.3900989294052124</real>
+									<real>-1.1228187084197998</real>
 									<false/>
 									<integer>0</integer>
 								</array>
@@ -753,7 +753,7 @@
 								<string>String</string>
 								<key>value</key>
 								<array>
-									<string>Play</string>
+									<string></string>
 									<false/>
 								</array>
 							</dict>
@@ -765,7 +765,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonNormal.png</string>
+									<string>assets/play.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -963,8 +963,6 @@
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -998,7 +996,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>262</real>
+									<real>244</real>
 									<real>20</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -1303,14 +1301,6 @@
 				<integer>1</integer>
 				<key>properties</key>
 				<array>
-					<dict>
-						<key>name</key>
-						<string>visible</string>
-						<key>type</key>
-						<string>Check</string>
-						<key>value</key>
-						<false/>
-					</dict>
 					<dict>
 						<key>name</key>
 						<string>name</string>

@@ -22,8 +22,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   // Scrolling related logic
   var shouldMove = true
   var scrollSpeed = 2
-  var offset = 420 // Blaze it
-  var startingObstaclePosition = 420 // Blaze it
+  let offset = 420 // Blaze it
+  let startingObstaclePosition = 420 // Blaze it
   var lastObstaclePosition = 0
   var lastObstacleNodePosition: CGFloat = 0
   // Other
@@ -50,7 +50,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       glyphDetector.addGlyphFromJSON(json, name: string)
     }
   }
-  
+
   func setUpObstacleArray(#numberOfObstacles: Int) {
     // Spawn the set number of obstacles
     for offsetMultiplier in 0..<numberOfObstacles {
@@ -103,7 +103,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   override func touchCancelled(touch: CCTouch!, withEvent event: CCTouchEvent!) {
     glyphDetector.detectGlyph()
   }
-  
+
   // MARK: Callbacks
   func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, character: CCNode!, obstacle: CCNode!) -> Bool {
     // Stop the sprite from moving
