@@ -25,6 +25,7 @@ enum Glyph {
 
 class Obstacle: CCNode {
   weak var shapeImage: CCSprite!
+  weak var blueBar: CCNodeColor!
   
   // Make sure the string always matches the shape
   var currentShape: Glyph =  .Triangle {

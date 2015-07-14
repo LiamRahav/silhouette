@@ -6,24 +6,34 @@
 
 import Foundation
 
-class GameScene: CCNode, WTMGlyphDelegate {
+class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   // MARK: Variables
   // Code Connections
   weak var line: CCNode!
   weak var character: CCSprite!
   weak var obstacleNode: CCNode!
+  weak var gamePhysicsNode: CCPhysicsNode!
+  weak var scoreLabel: CCLabelTTF!
   // Obstacle related logic
   var obstacleArray: [Obstacle] = []
   var currentObstacle: Obstacle!
   var glyphDetector: WTMGlyphDetector!
   let numberOfObstaclesInArray = 5
   // Scrolling related logic
-  var shapeCorrect = false
-  var scrollSpeed = 20
+  var shouldMove = true
+  var scrollSpeed = 2
+  var offset = 350
+  var startingObstaclePosition = 420 // Blaze it
+  var lastObstaclePosition = 0
+  // Other
+  var audio = OALSimpleAudio.sharedInstance()
+  let audioFiles = ["disquiet" : "Disquiet.mp3"]
+  var score: Double = 0
   
   // MARK: Setup Functions
   func didLoadFromCCB() {
     userInteractionEnabled = true
+    gamePhysicsNode.collisionDelegate = self
     setUpGlyphDetector()
     setUpObstacleArray(numberOfObstacles: numberOfObstaclesInArray)
   }
@@ -41,26 +51,32 @@ class GameScene: CCNode, WTMGlyphDelegate {
   }
   
   func setUpObstacleArray(#numberOfObstacles: Int) {
-    for _ in 1...numberOfObstacles {
+    for offsetMultiplier in 0..<numberOfObstacles {
       let newObstacle = CCBReader.load("Obstacle") as! Obstacle
+      newObstacle.physicsBody.sensor = true
       newObstacle.randomizeCurrentShape()
-      newObstacle.position = CGPoint(x: 350, y: 64)
+      newObstacle.position = CGPoint(x: startingObstaclePosition + (offsetMultiplier * offset), y: 64)
       obstacleArray.append(newObstacle)
+      obstacleNode.addChild(newObstacle)
+      lastObstaclePosition = Int(newObstacle.position.x)
     }
-    obstacleNode.addChild(obstacleArray[0])
   }
   
   // MARK: Update functions
   override func update(delta: CCTime) {
-    // Check if the player hits the obstacle in front of them
-    if character.position.x + (character.contentSize.width / 2) == obstacleArray[0].position.x {
-      if shapeCorrect {
-        shapeCorrect = false
-      } else {
-        println("GAME OVER")
-      }
+    if shouldMove {
+      obstacleNode.position = ccp(obstacleNode.position.x - CGFloat(scrollSpeed) , obstacleNode.position.y)
+      score += 0.1
+      let formattedString = NSString(format: "%.1f", score)
+      scoreLabel.string = "\(formattedString)m"
     }
-    obstacleNode.position = ccp(obstacleNode.position.x - 5 , obstacleNode.position.y)
+  }
+  
+  func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, character: CCNode!, obstacle: CCNode!) -> Bool {
+    shouldMove = false
+    let gameOverScreen = CCBReader.load("GameOverScreen") as! GameOverScreen
+    self.addChild(gameOverScreen)
+    return true
   }
   
   override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -87,24 +103,23 @@ class GameScene: CCNode, WTMGlyphDelegate {
   func glyphDetected(glyph: WTMGlyph!, withScore score: Float) {
     if score > 1.55  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
       println("PASS")
-      shapeCorrect = true
+      shuffleObstacleArray()
     } else {
       println("FAIL")
     }
     glyphDetector.removeAllPoints()
-    shuffleObstacleArray()
-    for o in obstacleArray {
-      println(o.currentShape.toString)
-    }
   }
   
   func shuffleObstacleArray() {
-    let o = obstacleArray[0]
+    // Randomize it
+    obstacleArray[0].randomizeCurrentShape()
+    // Set the current obstacle's position forward
+    obstacleArray[0].position.x = CGFloat(lastObstaclePosition + offset)
+    lastObstaclePosition = Int(obstacleArray[0].position.x)
+    // Add it to the end of the array
+    obstacleArray.append(obstacleArray[0])
+    // Delete it from the front of the array
     obstacleArray.removeAtIndex(0)
-    o.randomizeCurrentShape()
-    obstacleArray.append(o)
-    obstacleNode.removeAllChildren()
-    obstacleNode.addChild(obstacleArray[0])
   }
 
 }
