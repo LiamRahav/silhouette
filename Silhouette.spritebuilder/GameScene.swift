@@ -44,7 +44,6 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     glyphDetector.delegate = self
     // Remove any (if any) preloaded Glyphs
     glyphDetector.removeAllGlyphs()
-    
     // Load up all of the JSON objects
     for (string, shape) in Obstacle.glyphDict {
       let json = Obstacle.convertGlyphToJSON(shape)
@@ -72,17 +71,15 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     if shouldMove {
       // Move the node that spawns the obstacles left to simulate movement
       obstacleNode.position = ccp(obstacleNode.position.x - CGFloat(scrollSpeed) , obstacleNode.position.y)
-      
       // The score is equal to the difference of the obstacle node's movement divided by 100 to make it digestible
       score += abs(Double(obstacleNode.position.x - lastObstacleNodePosition) / 100)
       let formattedString = NSString(format: "%.1f", score)
       scoreLabel.string = "\(formattedString)m"
-      
       // If the score is high enough, increase the speed
       if score % 10 == 0 {
         scrollSpeed += 30
       }
-      
+      // Set the last position equal to the current one
       lastObstacleNodePosition = obstacleNode.position.x
     }
   }
@@ -126,15 +123,14 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   }
   
   func shuffleObstacleArray() {
-    // Randomize it
+    // Randomize current obstacle
     obstacleArray[0].randomizeCurrentShape()
     // Set the current obstacle's position forward
     obstacleArray[0].position.x = CGFloat(lastObstaclePosition + offset)
     lastObstaclePosition = Int(obstacleArray[0].position.x)
-    // Add it to the end of the array
+    // Add current obstacle to the end of the array
     obstacleArray.append(obstacleArray[0])
     // Delete it from the front of the array
     obstacleArray.removeAtIndex(0)
   }
-
 }

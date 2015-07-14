@@ -12,7 +12,9 @@ Kevin MacLeod - [website](http://incompetech.com):
 
 ------------------------------------
 
-## Sprites
+## Graphics
+
+Icons8 - [website](http://icons8.com)
 
 ------------------------------------
 
