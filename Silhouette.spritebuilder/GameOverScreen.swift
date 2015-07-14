@@ -12,4 +12,9 @@ class GameOverScreen: CCNode {
     let newScene = CCBReader.loadAsScene("GameScene")
     CCDirector.sharedDirector().replaceScene(newScene)
   }
+  
+  func returnToMenu() {
+    let newScene = CCBReader.loadAsScene("MenuScene")
+    CCDirector.sharedDirector().replaceScene(newScene)
+  }
 }
