@@ -120,6 +120,7 @@
 		FA27A8F21B50123D00D444ED /* ParticleEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27A8F11B50123D00D444ED /* ParticleEffects.swift */; };
 		FA703DA11B42C8A700E615E0 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA703DA01B42C8A700E615E0 /* Obstacle.swift */; };
 		FA703DA71B42CFF200E615E0 /* JSON in Resources */ = {isa = PBXBuildFile; fileRef = FA703DA61B42CFF200E615E0 /* JSON */; };
+		FA9728C51B56964200D8FC8F /* NSDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */; };
 		FAA608351B417D6800AB3889 /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = FAA608341B417D6800AB3889 /* Audio */; };
 		FAA9F5ED1B442928006C9CCC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9F5EC1B442928006C9CCC /* Keys.swift */; };
 		FAC21DDB1B41C74B00CF1F82 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */; };
@@ -277,6 +278,7 @@
 		FA27A8F11B50123D00D444ED /* ParticleEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleEffects.swift; sourceTree = "<group>"; };
 		FA703DA01B42C8A700E615E0 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Obstacle.swift; path = Source/Obstacle.swift; sourceTree = "<group>"; };
 		FA703DA61B42CFF200E615E0 /* JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSON; sourceTree = "<group>"; };
+		FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDefaultsManager.swift; path = Source/NSDefaultsManager.swift; sourceTree = "<group>"; };
 		FAA608341B417D6800AB3889 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 		FAA9F5EC1B442928006C9CCC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = Source/Keys.swift; sourceTree = "<group>"; };
 		FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = Source/MenuScene.swift; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 				FA703DA01B42C8A700E615E0 /* Obstacle.swift */,
 				FA27A8F11B50123D00D444ED /* ParticleEffects.swift */,
 				FACC11EC1B54367D00BA60F3 /* GameOverScreen.swift */,
+				FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */,
 				FAA9F5EC1B442928006C9CCC /* Keys.swift */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
@@ -951,6 +954,7 @@
 			files = (
 				B73789871807631A0076A88C /* main.m in Sources */,
 				FAC21DDB1B41C74B00CF1F82 /* MenuScene.swift in Sources */,
+				FA9728C51B56964200D8FC8F /* NSDefaultsManager.swift in Sources */,
 				FA703DA11B42C8A700E615E0 /* Obstacle.swift in Sources */,
 				FAA9F5ED1B442928006C9CCC /* Keys.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* IntroScene.swift in Sources */,

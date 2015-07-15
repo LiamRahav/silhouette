@@ -30,6 +30,14 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   var audio = OALSimpleAudio.sharedInstance()
   let audioFiles = ["disquiet" : "Disquiet.mp3"]
   var score: Double = 0
+  var timer: Double = 0
+  var totalTime = 0.8
+  // Every time the timer for the shape to disappear is added or removed, set time back to 0
+  var timerStarted = false {
+    didSet {
+      timer = 0
+    }
+  }
   
   // MARK: Setup Functions
   func didLoadFromCCB() {
@@ -81,12 +89,24 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       }
       // Set the last position equal to the current one
       lastObstacleNodePosition = obstacleNode.position.x
+      // Check for the timer and run the appropriate code
+      if timerStarted {
+        println(delta)
+        timer += Double(delta)
+        if timer > totalTime {
+          obstacleArray[0].shapeImage.spriteFrame = nil
+          timerStarted = false
+          // Line below resets the next obstacle's spriteframe for a hacky solution (doesn't work?)
+          // obstacleArray[1].shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/\(obstacleArray[1].currentShape.toString.lowercaseString).png")
+        }
+      }
     }
   }
   
   override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
     ParticleEffects.createParticleEffectAtTouch(touch, asChildOf: self)
     glyphDetector.addPoint(touch.locationInWorld())
+    timerStarted = true
   }
   
   override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -98,18 +118,28 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     ParticleEffects.createParticleEffectAtTouch(touch, asChildOf: self)
     glyphDetector.addPoint(touch.locationInWorld())
     glyphDetector.detectGlyph()
+    glyphDetector.removeAllPoints()
   }
   
   override func touchCancelled(touch: CCTouch!, withEvent event: CCTouchEvent!) {
     glyphDetector.detectGlyph()
+    glyphDetector.removeAllPoints()
   }
 
   // MARK: Callbacks
   func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, character: CCNode!, obstacle: CCNode!) -> Bool {
     // Stop the sprite from moving
     shouldMove = false
+    // Check if the high score should be updated
+    var highscore = NSDefaultsManager.getHighscore()
+    if score > highscore {
+      highscore = score
+      NSDefaultsManager.setHighscore(highscore)
+    }
     // Load up the game over screen
     let gameOverScreen = CCBReader.load("GameOverScreen") as! GameOverScreen
+    let formattedString = NSString(format: "%.1f", highscore)
+    gameOverScreen.highscoreLabel.string = "High Score: \(formattedString)m"
     self.addChild(gameOverScreen)
     return true
   }
@@ -119,7 +149,6 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     if score > 1.55  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
       shuffleObstacleArray()
     }
-    glyphDetector.removeAllPoints()
   }
   
   func shuffleObstacleArray() {
@@ -132,5 +161,6 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     obstacleArray.append(obstacleArray[0])
     // Delete it from the front of the array
     obstacleArray.removeAtIndex(0)
+    // Reset the sprite frame
   }
 }

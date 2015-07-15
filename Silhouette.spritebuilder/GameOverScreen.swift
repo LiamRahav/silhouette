@@ -8,6 +8,8 @@
 import Foundation
 
 class GameOverScreen: CCNode {
+  weak var highscoreLabel: CCLabelTTF!
+  
   func playAgain() {
     let newScene = CCBReader.loadAsScene("GameScene")
     CCDirector.sharedDirector().replaceScene(newScene)
