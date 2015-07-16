@@ -21,7 +21,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   let numberOfObstaclesInArray = 4
   // Scrolling related logic
   var shouldMove = true
-  var scrollSpeed = 2
+  var scrollSpeed: Double = 3
   let offset = 420 // Blaze it
   let startingObstaclePosition = 420 // Blaze it
   var lastObstaclePosition = 0
@@ -32,12 +32,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   var score: Double = 0
   var timer: Double = 0
   var totalTime = 0.8
-  // Every time the timer for the shape to disappear is added or removed, set time back to 0
-  var timerStarted = false {
-    didSet {
-      timer = 0
-    }
-  }
+  var timerStarted = false
+  var timeElapsed: CGFloat = 0.1
   
   // MARK: Setup Functions
   func didLoadFromCCB() {
@@ -83,22 +79,33 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       score += abs(Double(obstacleNode.position.x - lastObstacleNodePosition) / 100)
       let formattedString = NSString(format: "%.1f", score)
       scoreLabel.string = "\(formattedString)m"
-      // If the score is high enough, increase the speed
-      if score % 10 == 0 {
-        scrollSpeed += 30
-      }
       // Set the last position equal to the current one
       lastObstacleNodePosition = obstacleNode.position.x
-      // Check for the timer and run the appropriate code
+      // Check if the shape needs to disappear
       if timerStarted {
-        println(delta)
-        timer += Double(delta)
-        if timer > totalTime {
-          obstacleArray[0].shapeImage.spriteFrame = nil
-          timerStarted = false
-          // Line below resets the next obstacle's spriteframe for a hacky solution (doesn't work?)
-          // obstacleArray[1].shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/\(obstacleArray[1].currentShape.toString.lowercaseString).png")
-        }
+        println("Timer is begin activated")
+      }
+      checkForTimer(Double(delta))
+      timeElapsed += CGFloat(delta)
+      // TODO: Make this into its own function and make it much smarter and more tiered out.
+      // Increase running speed, decrease time to view the symbols
+      if (Int(timeElapsed) % 10 == 0) && timeElapsed > 1 {
+        scrollSpeed += 0.05
+        totalTime -= 0.1
+        
+        println("SCROLL SPEED CHANGD TO: \(scrollSpeed)\nFROM: \(scrollSpeed - 0.05)")
+        println("\nTOTAL TIME CHANGED TO: \(totalTime)\nFROM: \(totalTime + 0.1)")
+      }
+    }
+  }
+
+  func checkForTimer(delta: Double) {
+    if timerStarted {
+      timer += delta
+      if timer > totalTime {
+        obstacleArray[0].shapeImage.spriteFrame = nil
+        timerStarted = false
+        timer = 0
       }
     }
   }
@@ -106,7 +113,9 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
     ParticleEffects.createParticleEffectAtTouch(touch, asChildOf: self)
     glyphDetector.addPoint(touch.locationInWorld())
-    timerStarted = true
+//    if !timerStarted {
+//      timerStarted = true
+//    }
   }
   
   override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -128,8 +137,9 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
 
   // MARK: Callbacks
   func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, character: CCNode!, obstacle: CCNode!) -> Bool {
-    // Stop the sprite from moving
+    // Stop the sprite from moving and shapes from being detected
     shouldMove = false
+    glyphDetector.removeAllGlyphs()
     // Check if the high score should be updated
     var highscore = NSDefaultsManager.getHighscore()
     if score > highscore {
@@ -161,6 +171,5 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     obstacleArray.append(obstacleArray[0])
     // Delete it from the front of the array
     obstacleArray.removeAtIndex(0)
-    // Reset the sprite frame
   }
 }

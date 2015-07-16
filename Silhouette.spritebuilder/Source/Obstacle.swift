@@ -6,11 +6,13 @@
 
 import Foundation
 
+// MARK: Glyph Enum
 // Be sure to add new shapes to the Dictionary in Obstacle
 enum Glyph {
   case Triangle
   case Z
   case L
+//  case Lightning
   
   // Convert to string by typing shape.toString
   var toString: String {
@@ -18,11 +20,13 @@ enum Glyph {
       case .Z: return "Z"
       case .Triangle: return "Triangle"
       case .L: return "L"
+//      case .Lightning: return "Lightning"
     }
   }
   
 }
 
+// MARK: Obstacle Class
 class Obstacle: CCNode {
   weak var shapeImage: CCSprite!
   weak var blueBar: CCNodeColor!
@@ -38,7 +42,8 @@ class Obstacle: CCNode {
   static var glyphDict = [
     "Triangle" : Glyph.Triangle,
     "Z" : Glyph.Z,
-    "L" :Glyph.L
+    "L" :Glyph.L,
+//    "Lightning": Glyph.Lightning
   ]
   
   func randomizeCurrentShape() {
