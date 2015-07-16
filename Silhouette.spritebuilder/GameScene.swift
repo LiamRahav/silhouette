@@ -7,7 +7,7 @@
 import Foundation
 
 class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
-  // MARK: Variables
+  // MARK: - Variables
   // Code Connections
   weak var line: CCNode!
   weak var character: CCSprite!
@@ -16,17 +16,17 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   weak var scoreLabel: CCLabelTTF!
   // Obstacle related logic
   var obstacleArray: [Obstacle] = []
-  var currentObstacle: Obstacle!
   var glyphDetector: WTMGlyphDetector!
   let numberOfObstaclesInArray = 4
   // Scrolling related logic
   var shouldMove = true
   var scrollSpeed: Double = 3
   let offset = 420 // Blaze it
-  let startingObstaclePosition = 420 // Blaze it
+  let startingObstaclePosition = 540
   var lastObstaclePosition = 0
   var lastObstacleNodePosition: CGFloat = 0
-  // Other
+  var numberOfModulo = 1
+  // Other variables
   var audio = OALSimpleAudio.sharedInstance()
   let audioFiles = ["disquiet" : "Disquiet.mp3"]
   var score: Double = 0
@@ -34,8 +34,9 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   var totalTime = 0.8
   var timerStarted = false
   var timeElapsed: CGFloat = 0.1
+  var lastObstacleForDisappear: Obstacle!
   
-  // MARK: Setup Functions
+  // MARK: - Setup Functions
   func didLoadFromCCB() {
     userInteractionEnabled = true
     gamePhysicsNode.collisionDelegate = self
@@ -70,7 +71,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     }
   }
   
-  // MARK: Update functions
+  // MARK: - Update functions
   override func update(delta: CCTime) {
     if shouldMove {
       // Move the node that spawns the obstacles left to simulate movement
@@ -81,18 +82,16 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       scoreLabel.string = "\(formattedString)m"
       // Set the last position equal to the current one
       lastObstacleNodePosition = obstacleNode.position.x
-      // Check if the shape needs to disappear
-      if timerStarted {
-        println("Timer is begin activated")
-      }
+      // Set everything according to time
       checkForTimer(Double(delta))
       timeElapsed += CGFloat(delta)
-      // TODO: Make this into its own function and make it much smarter and more tiered out.
+      // FIXME: - Make this into its own function and make it much smarter and more tiered out.
       // Increase running speed, decrease time to view the symbols
-      if (Int(timeElapsed) % 10 == 0) && timeElapsed > 1 {
+      if timeElapsed > CGFloat(numberOfModulo * 3) {
         scrollSpeed += 0.05
         totalTime -= 0.1
-        
+        numberOfModulo++
+        timeElapsed = 0
         println("SCROLL SPEED CHANGD TO: \(scrollSpeed)\nFROM: \(scrollSpeed - 0.05)")
         println("\nTOTAL TIME CHANGED TO: \(totalTime)\nFROM: \(totalTime + 0.1)")
       }
@@ -103,7 +102,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     if timerStarted {
       timer += delta
       if timer > totalTime {
-        obstacleArray[0].shapeImage.spriteFrame = nil
+        lastObstacleForDisappear.shapeImage.spriteFrame = nil
         timerStarted = false
         timer = 0
       }
@@ -113,9 +112,10 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
     ParticleEffects.createParticleEffectAtTouch(touch, asChildOf: self)
     glyphDetector.addPoint(touch.locationInWorld())
-//    if !timerStarted {
-//      timerStarted = true
-//    }
+    if !timerStarted {
+      timerStarted = true
+      lastObstacleForDisappear = obstacleArray[0]
+    }
   }
   
   override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -135,7 +135,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     glyphDetector.removeAllPoints()
   }
 
-  // MARK: Callbacks
+  // MARK: - Callbacks
   func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, character: CCNode!, obstacle: CCNode!) -> Bool {
     // Stop the sprite from moving and shapes from being detected
     shouldMove = false
@@ -150,26 +150,29 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     let gameOverScreen = CCBReader.load("GameOverScreen") as! GameOverScreen
     let formattedString = NSString(format: "%.1f", highscore)
     gameOverScreen.highscoreLabel.string = "High Score: \(formattedString)m"
+    gameOverScreen.scoreLabel.string = "Score: \(scoreLabel.string)"
     self.addChild(gameOverScreen)
     return true
   }
   
   func glyphDetected(glyph: WTMGlyph!, withScore score: Float) {
     // The glyph is a match if score is over 1.55 and the glyph returned is the same as the intended glyph
-    if score > 1.55  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
+    if score > 1.8  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
       shuffleObstacleArray()
     }
   }
   
   func shuffleObstacleArray() {
-    // Randomize current obstacle
-    obstacleArray[0].randomizeCurrentShape()
     // Set the current obstacle's position forward
     obstacleArray[0].position.x = CGFloat(lastObstaclePosition + offset)
     lastObstaclePosition = Int(obstacleArray[0].position.x)
+    // Randomize current obstacle
+    obstacleArray[0].randomizeCurrentShape()
     // Add current obstacle to the end of the array
     obstacleArray.append(obstacleArray[0])
     // Delete it from the front of the array
     obstacleArray.removeAtIndex(0)
+    
+    timer = 0
   }
 }

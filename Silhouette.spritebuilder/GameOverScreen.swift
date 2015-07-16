@@ -9,6 +9,7 @@ import Foundation
 
 class GameOverScreen: CCNode {
   weak var highscoreLabel: CCLabelTTF!
+  weak var scoreLabel: CCLabelTTF!
   
   func playAgain() {
     let newScene = CCBReader.loadAsScene("GameScene")
