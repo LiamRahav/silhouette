@@ -92,6 +92,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
         totalTime -= 0.1
         numberOfModulo++
         timeElapsed = 0
+        
         println("SCROLL SPEED CHANGD TO: \(scrollSpeed)\nFROM: \(scrollSpeed - 0.05)")
         println("\nTOTAL TIME CHANGED TO: \(totalTime)\nFROM: \(totalTime + 0.1)")
       }
