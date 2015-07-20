@@ -1203,8 +1203,6 @@
 										</array>
 									</dict>
 								</array>
-								<key>selected</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>UUID</key>
@@ -1278,7 +1276,7 @@
 										<array>
 											<string>Game Over
 </string>
-											<false/>
+											<true/>
 										</array>
 									</dict>
 									<dict>

@@ -102,6 +102,40 @@
 				<string>侧影</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Game Over Screen Header</string>
+			<key>key</key>
+			<string>Game Over
+</string>
+			<key>translations</key>
+			<dict>
+				<key>ar</key>
+				<string>انتهت اللعبة</string>
+				<key>de</key>
+				<string>Spiel Vorbei</string>
+				<key>en</key>
+				<string>Game Over</string>
+				<key>es</key>
+				<string>Juego Terminado</string>
+				<key>fr</key>
+				<string>Jeu Terminé</string>
+				<key>he</key>
+				<string>סוף המשחק</string>
+				<key>ja</key>
+				<string>ゲームオーバー</string>
+				<key>ko</key>
+				<string>게임 끝</string>
+				<key>zh-Hans</key>
+				<string>游戏结束</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>Score:</string>
+			<key>translations</key>
+			<dict/>
+		</dict>
 	</array>
 </dict>
 </plist>
