@@ -34,7 +34,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   var totalTime = 0.8
   var timerStarted = false
   var timeElapsed: CGFloat = 0.1
-  var lastObstacleForDisappear: Obstacle!
+  var lastObstacleForDisappear: Obstacle?
   
   // MARK: - Setup Functions
   func didLoadFromCCB() {
@@ -103,7 +103,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     if timerStarted {
       timer += delta
       if timer > totalTime {
-        lastObstacleForDisappear.shapeImage.spriteFrame = nil
+        lastObstacleForDisappear!.shapeImage.spriteFrame = nil
+        lastObstacleForDisappear = nil
         timerStarted = false
         timer = 0
       }
@@ -173,7 +174,12 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     obstacleArray.append(obstacleArray[0])
     // Delete it from the front of the array
     obstacleArray.removeAtIndex(0)
-    
+    for o in obstacleArray {
+      print(o.currentShape.toString)
+      if o.shapeImage.spriteFrame == nil {
+        o.shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/\(o.currentShape.toString.lowercaseString).png")
+      }
+    }
     timer = 0
   }
 }
