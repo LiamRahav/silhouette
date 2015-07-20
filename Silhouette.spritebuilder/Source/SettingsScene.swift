@@ -1,3 +1,8 @@
+//
+// Silhouette (c) by Liam Rahav
+//
+// Silhouette is licensed under a
+// Creative Commons Attribution-NonCommercial 4.0 International License.
 
 import Foundation
 
@@ -33,7 +38,7 @@ class SettingsScene: CCNode {
   }
   
   func goToCredits() {
-    // TODO: Implement Credits Scene
-    println("Credits Button Pressed")
+    let scene = CCBReader.loadAsScene("CreditsScene")
+    CCDirector.sharedDirector().replaceScene(scene)
   }
 }
