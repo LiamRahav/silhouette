@@ -12,8 +12,10 @@ class MenuScene: CCNode {
   
   func didLoadFromCCB() {
     userInteractionEnabled = true
-    if !audio.bgPlaying {
+    if !audio.bgPlaying && NSDefaultsManager.shouldPlayBG() {
       audio.playBg()
+    } else if !NSDefaultsManager.shouldPlayBG() {
+      audio.stopBg()
     }
   }
   
@@ -25,8 +27,8 @@ class MenuScene: CCNode {
   }
   
   func settings() {
-    // TODO: Add a settings scene
-    println("Settings button pressed")
+    let settingsScene = CCBReader.loadAsScene("SettingsScene")
+    CCDirector.sharedDirector().replaceScene(settingsScene)
   }
   
   func leaderboards() {

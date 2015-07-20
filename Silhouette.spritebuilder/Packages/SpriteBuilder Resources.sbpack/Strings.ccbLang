@@ -131,10 +131,85 @@
 			</dict>
 		</dict>
 		<dict>
+			<key>comment</key>
+			<string>In the Settings Scene:</string>
 			<key>key</key>
-			<string>Score:</string>
+			<string>Background Music:</string>
 			<key>translations</key>
-			<dict/>
+			<dict>
+				<key>ar</key>
+				<string>:موسيقى خلفية</string>
+				<key>de</key>
+				<string>Hintergrundmusik:</string>
+				<key>en</key>
+				<string>Background Music:</string>
+				<key>es</key>
+				<string>Música De Fondo:</string>
+				<key>fr</key>
+				<string>Fond Sonore:</string>
+				<key>he</key>
+				<string>:מוסיקה רקע</string>
+				<key>ja</key>
+				<string>バックグラウンドミュージック:</string>
+				<key>ko</key>
+				<string>배경 음악:</string>
+				<key>zh-Hans</key>
+				<string>背景音乐:</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>In The settings scene</string>
+			<key>key</key>
+			<string>On</string>
+			<key>translations</key>
+			<dict>
+				<key>ar</key>
+				<string>شغل</string>
+				<key>de</key>
+				<string>Einschalten</string>
+				<key>en</key>
+				<string>On</string>
+				<key>es</key>
+				<string>Sobre</string>
+				<key>fr</key>
+				<string>Sur</string>
+				<key>he</key>
+				<string>להדליק</string>
+				<key>ja</key>
+				<string>オン</string>
+				<key>ko</key>
+				<string>켜다</string>
+				<key>zh-Hans</key>
+				<string>于</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>In the settings scene</string>
+			<key>key</key>
+			<string>Off</string>
+			<key>translations</key>
+			<dict>
+				<key>ar</key>
+				<string>أوقف</string>
+				<key>de</key>
+				<string>Ausschalten</string>
+				<key>en</key>
+				<string>Off</string>
+				<key>es</key>
+				<string>Apagar</string>
+				<key>fr</key>
+				<string>Éteindre</string>
+				<key>he</key>
+				<string>לכבות</string>
+				<key>ja</key>
+				<string>消します</string>
+				<key>ko</key>
+				<string>끄다</string>
+				<key>zh-Hans</key>
+				<string>岔</string>
+			</dict>
 		</dict>
 	</array>
 </dict>

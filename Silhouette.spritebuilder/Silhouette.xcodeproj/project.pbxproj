@@ -121,6 +121,7 @@
 		FA703DA11B42C8A700E615E0 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA703DA01B42C8A700E615E0 /* Obstacle.swift */; };
 		FA703DA71B42CFF200E615E0 /* JSON in Resources */ = {isa = PBXBuildFile; fileRef = FA703DA61B42CFF200E615E0 /* JSON */; };
 		FA9728C51B56964200D8FC8F /* NSDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */; };
+		FA9E00791B5D69A800ECEB76 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E00781B5D69A800ECEB76 /* SettingsScene.swift */; };
 		FAA608351B417D6800AB3889 /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = FAA608341B417D6800AB3889 /* Audio */; };
 		FAA9F5ED1B442928006C9CCC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9F5EC1B442928006C9CCC /* Keys.swift */; };
 		FAC21DDB1B41C74B00CF1F82 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */; };
@@ -279,6 +280,7 @@
 		FA703DA01B42C8A700E615E0 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Obstacle.swift; path = Source/Obstacle.swift; sourceTree = "<group>"; };
 		FA703DA61B42CFF200E615E0 /* JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSON; sourceTree = "<group>"; };
 		FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDefaultsManager.swift; path = Source/NSDefaultsManager.swift; sourceTree = "<group>"; };
+		FA9E00781B5D69A800ECEB76 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsScene.swift; path = Source/SettingsScene.swift; sourceTree = "<group>"; };
 		FAA608341B417D6800AB3889 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 		FAA9F5EC1B442928006C9CCC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = Source/Keys.swift; sourceTree = "<group>"; };
 		FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = Source/MenuScene.swift; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 				7A046D7519E84C36004C4763 /* IntroScene.swift */,
 				FA0F10501B4D8C61005B467B /* GameScene.swift */,
 				FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */,
+				FA9E00781B5D69A800ECEB76 /* SettingsScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -973,6 +976,7 @@
 				FA266C871B443D46007BB050 /* NSDictionary_JSONExtensions.m in Sources */,
 				FA266C881B443D46007BB050 /* CJSONDeserializer.m in Sources */,
 				FA266C891B443D46007BB050 /* CJSONScanner.m in Sources */,
+				FA9E00791B5D69A800ECEB76 /* SettingsScene.swift in Sources */,
 				FA266C8A1B443D46007BB050 /* CJSONSerializer.m in Sources */,
 				FA0F10511B4D8C61005B467B /* GameScene.swift in Sources */,
 			);
