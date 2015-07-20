@@ -14,7 +14,10 @@ Kevin MacLeod - [website](http://incompetech.com):
 
 ## Graphics
 
+Trophy by Garrett Knoll from the Noun Project
+play by Alen Krummenacher from the Noun Project
 Icy by Mateo Zlatar from the Noun Project
+Settings by BraveBros. from the Noun Project
 
 ------------------------------------
 

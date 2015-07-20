@@ -8,15 +8,13 @@ import Foundation
 
 class MenuScene: CCNode {
   weak var buttonsBox: CCLayoutBox!
+  let audio = OALSimpleAudio.sharedInstance()
+  
   func didLoadFromCCB() {
     userInteractionEnabled = true
-    schedule("fadeInButtons", interval: 1.29)
-  }
-  
-  func fadeInButtons() {
-    buttonsBox.runAction(CCActionFadeIn(duration: 3))
-    buttonsBox.visible = true
-    unschedule("fadeInButtons")
+    if !audio.bgPlaying {
+      audio.playBg()
+    }
   }
   
   func play() {
@@ -24,6 +22,16 @@ class MenuScene: CCNode {
     audio.stopBg()
     let nextScene = CCBReader.loadAsScene("GameScene")
     CCDirector.sharedDirector().replaceScene(nextScene)
+  }
+  
+  func settings() {
+    // TODO: Add a settings scene
+    println("Settings button pressed")
+  }
+  
+  func leaderboards() {
+    // TODO: Add a leaderboard scene
+    println("Leaderboard button pressed")
   }
   
 }
