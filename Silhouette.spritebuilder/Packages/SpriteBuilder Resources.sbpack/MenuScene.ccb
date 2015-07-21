@@ -79,7 +79,7 @@
 									<key>name</key>
 									<string>position</string>
 									<key>time</key>
-									<real>2.5999999046325684</real>
+									<real>2.4666666984558105</real>
 									<key>type</key>
 									<integer>3</integer>
 									<key>value</key>
@@ -304,8 +304,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>
@@ -365,12 +363,30 @@
 									<key>name</key>
 									<string>position</string>
 									<key>time</key>
-									<real>2.6333334445953369</real>
+									<real>2.5</real>
 									<key>type</key>
 									<integer>3</integer>
 									<key>value</key>
 									<array>
 										<real>0.76044642925262451</real>
+										<real>0.18000000715255737</real>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>position</string>
+									<key>time</key>
+									<real>3.5333333015441895</real>
+									<key>type</key>
+									<integer>3</integer>
+									<key>value</key>
+									<array>
+										<real>0.76272350549697876</real>
 										<real>0.18000000715255737</real>
 									</array>
 								</dict>
@@ -416,7 +432,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.76044642925262451</real>
+							<real>0.76220935583114624</real>
 							<real>0.18000000715255737</real>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -441,8 +457,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.20994366705417633</real>
-							<real>0.20994366705417633</real>
+							<real>0.18083851039409637</real>
+							<real>0.18083851039409637</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -454,7 +470,7 @@
 						<string>Block</string>
 						<key>value</key>
 						<array>
-							<string>leaderboards</string>
+							<string>shop</string>
 							<integer>1</integer>
 						</array>
 					</dict>
@@ -465,8 +481,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>228</real>
-							<real>248</real>
+							<real>279</real>
+							<real>254</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -511,7 +527,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>assets/leaderboard.png</string>
+							<string>assets/shopping_cart.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -522,7 +538,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>assets/leaderboard.png</string>
+							<string>assets/shopping_cart.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -546,7 +562,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>assets/leaderboard.png</string>
+							<string>assets/shopping_cart.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -565,7 +581,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>assets/leaderboard.png</string>
+							<string>assets/shopping_cart.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -768,7 +784,7 @@
 									<key>name</key>
 									<string>position</string>
 									<key>time</key>
-									<real>2.6333334445953369</real>
+									<real>2.5</real>
 									<key>type</key>
 									<integer>3</integer>
 									<key>value</key>
@@ -1171,7 +1187,7 @@
 									<key>name</key>
 									<string>position</string>
 									<key>time</key>
-									<real>2.6666667461395264</real>
+									<real>2.5</real>
 									<key>type</key>
 									<integer>3</integer>
 									<key>value</key>
@@ -1658,7 +1674,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>3.5333333015441895</real>
+			<real>3.2999999523162842</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

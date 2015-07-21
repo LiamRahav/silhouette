@@ -31,9 +31,9 @@ class MenuScene: CCNode {
     CCDirector.sharedDirector().replaceScene(settingsScene)
   }
   
-  func leaderboards() {
-    // TODO: Add a leaderboard scene
-    println("Leaderboard button pressed")
+  func shop() {
+    // TODO: Add a shop scene
+    println("Shopping button pressed")
   }
   
 }

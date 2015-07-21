@@ -14,6 +14,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   weak var obstacleNode: CCNode!
   weak var gamePhysicsNode: CCPhysicsNode!
   weak var scoreLabel: CCLabelTTF!
+  weak var pauseScreen: PauseScreen!
+  weak var gameOverScreen: GameOverScreen!
   // Obstacle related logic
   var obstacleArray: [Obstacle] = []
   var glyphDetector: WTMGlyphDetector!
@@ -92,9 +94,6 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
         totalTime -= 0.1
         numberOfModulo++
         timeElapsed = 0
-        
-        println("SCROLL SPEED CHANGD TO: \(scrollSpeed)\nFROM: \(scrollSpeed - 0.05)")
-        println("\nTOTAL TIME CHANGED TO: \(totalTime)\nFROM: \(totalTime + 0.1)")
       }
     }
   }
@@ -148,12 +147,12 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       highscore = score
       NSDefaultsManager.setHighscore(highscore)
     }
-    // Load up the game over screen
-    let gameOverScreen = CCBReader.load("GameOverScreen") as! GameOverScreen
+    // Move the gameOverScreen to the middle
+    gameOverScreen.position = CGPoint(x: self.contentSizeInPoints.width / 2, y: self.contentSizeInPoints.height / 2)
     let formattedString = NSString(format: "%.1f", highscore)
     gameOverScreen.highscoreLabel.string = "High Score: \(formattedString)m"
     gameOverScreen.scoreLabel.string = "Score: \(scoreLabel.string)"
-    self.addChild(gameOverScreen)
+    userInteractionEnabled = false
     return true
   }
   
@@ -175,11 +174,17 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     // Delete it from the front of the array
     obstacleArray.removeAtIndex(0)
     for o in obstacleArray {
-      print(o.currentShape.toString)
       if o.shapeImage.spriteFrame == nil {
         o.shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/\(o.currentShape.toString.lowercaseString).png")
       }
     }
     timer = 0
+  }
+  
+  func pause() {
+    shouldMove = false
+    userInteractionEnabled = false
+    // Create a pause screen
+    pauseScreen.position = CGPoint(x: self.contentSizeInPoints.width / 2, y: self.contentSizeInPoints.height / 2)
   }
 }

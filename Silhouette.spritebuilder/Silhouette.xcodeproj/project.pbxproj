@@ -94,6 +94,7 @@
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
 		FA0F10511B4D8C61005B467B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F10501B4D8C61005B467B /* GameScene.swift */; };
+		FA0F374E1B5E7F830091D99E /* PauseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F374D1B5E7F830091D99E /* PauseScreen.swift */; };
 		FA266C701B443CBC007BB050 /* WTMGlyph in Resources */ = {isa = PBXBuildFile; fileRef = FA266C6F1B443CBC007BB050 /* WTMGlyph */; };
 		FA266C791B443D00007BB050 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FA266C711B443D00007BB050 /* CDataScanner.m */; };
 		FA266C7A1B443D00007BB050 /* WTMDetectionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA266C721B443D00007BB050 /* WTMDetectionResult.m */; };
@@ -246,6 +247,7 @@
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 		FA0F10501B4D8C61005B467B /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		FA0F374D1B5E7F830091D99E /* PauseScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PauseScreen.swift; path = Source/PauseScreen.swift; sourceTree = "<group>"; };
 		FA266C6F1B443CBC007BB050 /* WTMGlyph */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WTMGlyph; sourceTree = "<group>"; };
 		FA266C711B443D00007BB050 /* CDataScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CDataScanner.m; path = WTMGlyph/CDataScanner.m; sourceTree = "<group>"; };
 		FA266C721B443D00007BB050 /* WTMDetectionResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WTMDetectionResult.m; path = WTMGlyph/WTMDetectionResult.m; sourceTree = "<group>"; };
@@ -521,9 +523,9 @@
 			children = (
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				FA7C3FE21B457D150077846D /* Scenes */,
+				FA0F37571B5E83A90091D99E /* Screens */,
 				FA703DA01B42C8A700E615E0 /* Obstacle.swift */,
 				FA27A8F11B50123D00D444ED /* ParticleEffects.swift */,
-				FACC11EC1B54367D00BA60F3 /* GameOverScreen.swift */,
 				FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */,
 				FAA9F5EC1B442928006C9CCC /* Keys.swift */,
 				D352B48019EC608A00829775 /* MetalShaders */,
@@ -636,6 +638,15 @@
 				B73789861807631A0076A88C /* Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA0F37571B5E83A90091D99E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FACC11EC1B54367D00BA60F3 /* GameOverScreen.swift */,
+				FA0F374D1B5E7F830091D99E /* PauseScreen.swift */,
+			);
+			name = Screens;
 			sourceTree = "<group>";
 		};
 		FA266C931B443E32007BB050 /* Don't Touch */ = {
@@ -974,6 +985,7 @@
 				FACC11ED1B54367D00BA60F3 /* GameOverScreen.swift in Sources */,
 				FA266C7E1B443D00007BB050 /* WTMGlyphStroke.m in Sources */,
 				FA266C7F1B443D00007BB050 /* WTMGlyphTemplate.m in Sources */,
+				FA0F374E1B5E7F830091D99E /* PauseScreen.swift in Sources */,
 				FA27A8F21B50123D00D444ED /* ParticleEffects.swift in Sources */,
 				FA266C801B443D00007BB050 /* WTMGlyphUtilities.m in Sources */,
 				FA266C861B443D46007BB050 /* CDataScanner_Extensions.m in Sources */,

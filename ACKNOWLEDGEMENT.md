@@ -15,7 +15,7 @@ Kevin MacLeod - [website](http://incompetech.com):
 ## Graphics
 
 Film by Yorlmar Campos from the Noun Project
-Trophy by Garrett Knoll from the Noun Project
+Shopping Cart by Bram van Rijen from the Noun Project
 play by Alen Krummenacher from the Noun Project
 Icy by Mateo Zlatar from the Noun Project
 back by iconsmind.com from the Noun Project

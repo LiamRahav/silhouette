@@ -211,6 +211,33 @@
 				<string>岔</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Pause</string>
+			<key>key</key>
+			<string>Paused</string>
+			<key>translations</key>
+			<dict>
+				<key>ar</key>
+				<string>توقف</string>
+				<key>de</key>
+				<string>Pause</string>
+				<key>en</key>
+				<string>Paused</string>
+				<key>es</key>
+				<string>Pausa</string>
+				<key>fr</key>
+				<string>Pause</string>
+				<key>he</key>
+				<string>מושהה</string>
+				<key>ja</key>
+				<string>ポーズ</string>
+				<key>ko</key>
+				<string>중지</string>
+				<key>zh-Hans</key>
+				<string>暂停</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>
