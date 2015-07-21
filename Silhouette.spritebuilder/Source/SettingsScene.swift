@@ -33,12 +33,10 @@ class SettingsScene: CCNode {
   }
   
   func backToMenu() {
-    let scene = CCBReader.loadAsScene("MenuScene")
-    CCDirector.sharedDirector().replaceScene(scene)
+    self.parent.animationManager.runAnimationsForSequenceNamed("Settings Reverse")
   }
   
   func goToCredits() {
-    let scene = CCBReader.loadAsScene("CreditsScene")
-    CCDirector.sharedDirector().replaceScene(scene)
+    self.parent.animationManager.runAnimationsForSequenceNamed("Credits")
   }
 }

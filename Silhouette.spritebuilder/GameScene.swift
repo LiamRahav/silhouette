@@ -148,7 +148,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       NSDefaultsManager.setHighscore(highscore)
     }
     // Move the gameOverScreen to the middle
-    gameOverScreen.position = CGPoint(x: self.contentSizeInPoints.width / 2, y: self.contentSizeInPoints.height / 2)
+    animationManager.runAnimationsForSequenceNamed("Game Over")
     let formattedString = NSString(format: "%.1f", highscore)
     gameOverScreen.highscoreLabel.string = "High Score: \(formattedString)m"
     gameOverScreen.scoreLabel.string = "Score: \(scoreLabel.string)"
@@ -185,6 +185,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     shouldMove = false
     userInteractionEnabled = false
     // Create a pause screen
-    pauseScreen.position = CGPoint(x: self.contentSizeInPoints.width / 2, y: self.contentSizeInPoints.height / 2)
+    pauseScreen.parentNode = self
+    animationManager.runAnimationsForSequenceNamed("Pause")
   }
 }

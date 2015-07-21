@@ -8,7 +8,6 @@ import Foundation
 
 class CreditsScene: CCNode {
   func backToSettings() {
-    let scene = CCBReader.loadAsScene("SettingsScene")
-    CCDirector.sharedDirector().replaceScene(scene)
+    self.parent.animationManager.runAnimationsForSequenceNamed("Credits Reverse")
   }
 }

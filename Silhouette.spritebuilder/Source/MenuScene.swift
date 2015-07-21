@@ -27,8 +27,7 @@ class MenuScene: CCNode {
   }
   
   func settings() {
-    let settingsScene = CCBReader.loadAsScene("SettingsScene")
-    CCDirector.sharedDirector().replaceScene(settingsScene)
+    animationManager.runAnimationsForSequenceNamed("Settings")
   }
   
   func shop() {
