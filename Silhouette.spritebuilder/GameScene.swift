@@ -27,13 +27,13 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   let startingObstaclePosition = 540
   var lastObstaclePosition = 0
   var lastObstacleNodePosition: CGFloat = 0
-  var numberOfModulo = 1
   // Timer related logic
   var timer: Double = 0
-  var totalTime = 0.8
+  var totalTime: Double = 1
   var timerStarted = false
   var timeElapsed: CGFloat = 0.1
   var isPaused = false
+  let randomIncreaseArea = arc4random_uniform(10) + 40
   // Other variables
   var audio = OALSimpleAudio.sharedInstance()
   let audioFiles = ["disquiet" : "Disquiet.mp3"]
@@ -91,15 +91,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       // Set everything according to time
       checkForTimer(Double(delta))
       timeElapsed += CGFloat(delta)
-      // TODO: - Make this into its own function and make it much smarter and more tiered out.
-      // Increase running speed, decrease time to view the symbols
-      if timeElapsed > CGFloat(numberOfModulo * 3) {
-        scrollSpeed += 0.05
-        totalTime -= 0.1
-        numberOfModulo++
-        timeElapsed = 0
+      DificultyManager.increaseDificulty(self, score: score, randomIncreaseArea: Int(randomIncreaseArea))
       }
-    }
   }
 
   func checkForTimer(delta: Double) {
