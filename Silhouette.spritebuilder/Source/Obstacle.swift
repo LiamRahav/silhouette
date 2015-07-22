@@ -12,6 +12,7 @@ enum Glyph {
   case Triangle
   case Z
   case L
+  case V
 //  case Lightning
   
   // Convert to string by typing shape.toString
@@ -20,6 +21,7 @@ enum Glyph {
       case .Z: return "Z"
       case .Triangle: return "Triangle"
       case .L: return "L"
+      case .V: return "V"
 //      case .Lightning: return "Lightning"
     }
   }
@@ -43,6 +45,7 @@ class Obstacle: CCNode {
     "Triangle" : Glyph.Triangle,
     "Z" : Glyph.Z,
     "L" :Glyph.L,
+    "V" : Glyph.V,
 //    "Lightning": Glyph.Lightning
   ]
   
