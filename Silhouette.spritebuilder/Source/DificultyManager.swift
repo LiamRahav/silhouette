@@ -7,7 +7,7 @@
 import Foundation
 
 class DificultyManager {
-  static func increaseDificulty(game: GameScene, score: Double, randomIncreaseArea: Int) {
+  static func increaseDificulty(game: GameScene, score: Double, randomIncreaseArea: Int, often: Int, timesOccured: Int) {
     var randomIncreaseArea = Double(randomIncreaseArea)
     
     if score > 15 && score < 15.1 {
@@ -31,6 +31,23 @@ class DificultyManager {
     else if score > randomIncreaseArea && score < randomIncreaseArea + 0.1 {
       game.scrollSpeed += 0.3
       game.totalTime -= 0.05
+    }
+    
+    else if score > randomIncreaseArea + 10 && score < randomIncreaseArea + 10.1 {
+      game.scrollSpeed += 0.3
+      game.totalTime -= 0.05
+      game.timesOccurred++
+    }
+    
+    // This one is indefinite
+    else if score > randomIncreaseArea + 10.0 + Double((often * timesOccured)) && score < randomIncreaseArea + 10.1 + Double((often * timesOccured)) {
+      if game.scrollSpeed < 5 {
+        game.scrollSpeed += 0.3
+      }
+      if game.totalTime > 0.4 {
+        game.totalTime -= 0.5
+      }
+      game.timesOccurred++
     }
   }
 }

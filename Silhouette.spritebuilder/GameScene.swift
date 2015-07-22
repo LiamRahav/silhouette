@@ -34,6 +34,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   var timeElapsed: CGFloat = 0.1
   var isPaused = false
   let randomIncreaseArea = arc4random_uniform(10) + 40
+  let howOftenForIncrease = 15
+  var timesOccurred = 0
   // Other variables
   var audio = OALSimpleAudio.sharedInstance()
   let audioFiles = ["disquiet" : "Disquiet.mp3"]
@@ -91,7 +93,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       // Set everything according to time
       checkForTimer(Double(delta))
       timeElapsed += CGFloat(delta)
-      DificultyManager.increaseDificulty(self, score: score, randomIncreaseArea: Int(randomIncreaseArea))
+      DificultyManager.increaseDificulty(self, score: score, randomIncreaseArea: Int(randomIncreaseArea), often: howOftenForIncrease, timesOccured: timesOccurred)
       }
   }
 
