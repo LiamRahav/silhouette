@@ -12,6 +12,7 @@ class PauseScreen: CCNode {
   func resume() {
     parentNode.animationManager.runAnimationsForSequenceNamed("Pause Reverse")
     parentNode.userInteractionEnabled = true
+    parentNode.isPaused = false
     parentNode.shouldMove = true
   }
 }

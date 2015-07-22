@@ -128,6 +128,7 @@
 		FAA9F5ED1B442928006C9CCC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9F5EC1B442928006C9CCC /* Keys.swift */; };
 		FAC21DDB1B41C74B00CF1F82 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */; };
 		FACC11ED1B54367D00BA60F3 /* GameOverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC11EC1B54367D00BA60F3 /* GameOverScreen.swift */; };
+		FAF8E6E21B5FDC3000A20625 /* DificultyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8E6E11B5FDC3000A20625 /* DificultyManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -289,6 +290,7 @@
 		FAA9F5EC1B442928006C9CCC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = Source/Keys.swift; sourceTree = "<group>"; };
 		FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = Source/MenuScene.swift; sourceTree = "<group>"; };
 		FACC11EC1B54367D00BA60F3 /* GameOverScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScreen.swift; sourceTree = "<group>"; };
+		FAF8E6E11B5FDC3000A20625 /* DificultyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DificultyManager.swift; path = Source/DificultyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -526,6 +528,7 @@
 				FA0F37571B5E83A90091D99E /* Screens */,
 				FA703DA01B42C8A700E615E0 /* Obstacle.swift */,
 				FA27A8F11B50123D00D444ED /* ParticleEffects.swift */,
+				FAF8E6E11B5FDC3000A20625 /* DificultyManager.swift */,
 				FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */,
 				FAA9F5EC1B442928006C9CCC /* Keys.swift */,
 				D352B48019EC608A00829775 /* MetalShaders */,
@@ -762,6 +765,7 @@
 						CreatedOnToolsVersion = 6.0.1;
 					};
 					B77F1B2D17B978D7009739AE = {
+						DevelopmentTeam = 64TBL58LLF;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -988,6 +992,7 @@
 				FA0F374E1B5E7F830091D99E /* PauseScreen.swift in Sources */,
 				FA27A8F21B50123D00D444ED /* ParticleEffects.swift in Sources */,
 				FA266C801B443D00007BB050 /* WTMGlyphUtilities.m in Sources */,
+				FAF8E6E21B5FDC3000A20625 /* DificultyManager.swift in Sources */,
 				FA266C861B443D46007BB050 /* CDataScanner_Extensions.m in Sources */,
 				FA266C871B443D46007BB050 /* NSDictionary_JSONExtensions.m in Sources */,
 				FA266C881B443D46007BB050 /* CJSONDeserializer.m in Sources */,

@@ -28,14 +28,16 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   var lastObstaclePosition = 0
   var lastObstacleNodePosition: CGFloat = 0
   var numberOfModulo = 1
-  // Other variables
-  var audio = OALSimpleAudio.sharedInstance()
-  let audioFiles = ["disquiet" : "Disquiet.mp3"]
-  var score: Double = 0
+  // Timer related logic
   var timer: Double = 0
   var totalTime = 0.8
   var timerStarted = false
   var timeElapsed: CGFloat = 0.1
+  var isPaused = false
+  // Other variables
+  var audio = OALSimpleAudio.sharedInstance()
+  let audioFiles = ["disquiet" : "Disquiet.mp3"]
+  var score: Double = 0
   var lastObstacleForDisappear: Obstacle?
   
   // MARK: - Setup Functions
@@ -56,6 +58,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       let json = Obstacle.convertGlyphToJSON(shape)
       glyphDetector.addGlyphFromJSON(json, name: string)
     }
+    // Load the reverse triangle to make the triangle detection work properly
+    glyphDetector.addGlyphFromJSON(Obstacle.convertNonGlyphToJSON("reversetriangle"), name: "ReverseTriangle")
   }
 
   func setUpObstacleArray(#numberOfObstacles: Int) {
@@ -87,7 +91,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       // Set everything according to time
       checkForTimer(Double(delta))
       timeElapsed += CGFloat(delta)
-      // FIXME: - Make this into its own function and make it much smarter and more tiered out.
+      // TODO: - Make this into its own function and make it much smarter and more tiered out.
       // Increase running speed, decrease time to view the symbols
       if timeElapsed > CGFloat(numberOfModulo * 3) {
         scrollSpeed += 0.05
@@ -99,7 +103,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   }
 
   func checkForTimer(delta: Double) {
-    if timerStarted {
+    if timerStarted && !isPaused {
       timer += delta
       if timer > totalTime {
         lastObstacleForDisappear!.shapeImage.spriteFrame = nil
@@ -137,7 +141,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   }
 
   // MARK: - Callbacks
-  func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, character: CCNode!, obstacle: CCNode!) -> Bool {
+  func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, character: CCNode!, obstacle: CCNode!) -> ObjCBool {
     // Stop the sprite from moving and shapes from being detected
     shouldMove = false
     glyphDetector.removeAllGlyphs()
@@ -159,6 +163,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   func glyphDetected(glyph: WTMGlyph!, withScore score: Float) {
     // The glyph is a match if score is over 1.55 and the glyph returned is the same as the intended glyph
     if score > 1.8  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
+      shuffleObstacleArray()
+    } else if score > 1.8 && glyph.name.lowercaseString == "reversetriangle" && obstacleArray[0].currentShape.toString.lowercaseString == "triangle" {
       shuffleObstacleArray()
     }
   }
@@ -183,6 +189,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   
   func pause() {
     shouldMove = false
+    isPaused = true
     userInteractionEnabled = false
     // Create a pause screen
     pauseScreen.parentNode = self

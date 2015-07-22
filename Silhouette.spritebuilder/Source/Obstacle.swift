@@ -63,4 +63,10 @@ class Obstacle: CCNode {
     let data = NSData(contentsOfMappedFile: path!)
     return data!
   }
+  
+  static func convertNonGlyphToJSON(fileName: String) -> NSData {
+    let path = NSBundle.mainBundle().pathForResource("JSON/\((fileName).lowercaseString)", ofType: "json")
+    let data = NSData(contentsOfMappedFile: path!)
+    return data!
+  }
 }
