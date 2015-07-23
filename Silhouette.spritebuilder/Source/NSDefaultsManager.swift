@@ -11,19 +11,28 @@ class NSDefaultsManager {
   static let BACKGROUND_MUSIC_KEY = "9EOwshviw7rXZlQXUV"
   static let PARTICLE_EFFECTS_KEY = "wNK7tf3IaF8lW57tVu"
   
-  static func getHighscore() -> Double {
-    let userDefaults = NSUserDefaults.standardUserDefaults()
-    return userDefaults.doubleForKey(HIGHSCORE_KEY)
+   static func syncUserDefaults() {
+    let didWrite = NSUserDefaults.standardUserDefaults().synchronize()
+    if !didWrite {
+      println("WARNING: NSUserDefaults Not Written To Disk Properly!")
+    }
   }
   
   static func setHighscore(newHighscore: Double) {
     let userDefaults = NSUserDefaults.standardUserDefaults()
     userDefaults.setDouble(newHighscore, forKey: HIGHSCORE_KEY)
+    syncUserDefaults()
+  }
+  
+  static func getHighscore() -> Double {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    return userDefaults.doubleForKey(HIGHSCORE_KEY)
   }
   
   static func setShouldPlayBG(shouldPlay: Bool) {
     let userDefaults = NSUserDefaults.standardUserDefaults()
     userDefaults.setBool(shouldPlay, forKey: BACKGROUND_MUSIC_KEY)
+    syncUserDefaults()
   }
   
   static func shouldPlayBG() -> Bool {
@@ -31,9 +40,10 @@ class NSDefaultsManager {
     return userDefaults.boolForKey(BACKGROUND_MUSIC_KEY)
   }
   
-  func setShouldShowParticleEffects(shouldShow: Bool) {
+  static func setShouldShowParticleEffects(shouldShow: Bool) {
     let userDefaults = NSUserDefaults.standardUserDefaults()
-    userDefaults.setBool(shouldShow, forKey: NSDefaultsManager.PARTICLE_EFFECTS_KEY)
+    userDefaults.setBool(shouldShow, forKey: PARTICLE_EFFECTS_KEY)
+    syncUserDefaults()
   }
   
   static func shouldShowParticleEffects() -> Bool {

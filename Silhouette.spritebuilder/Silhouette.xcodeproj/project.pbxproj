@@ -113,7 +113,6 @@
 		FA266C9B1B4450D7007BB050 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA266C9A1B4450D7007BB050 /* CoreLocation.framework */; };
 		FA266C9D1B4450DE007BB050 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA266C9C1B4450DE007BB050 /* MobileCoreServices.framework */; };
 		FA266C9F1B4450EF007BB050 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA266C9E1B4450EF007BB050 /* Security.framework */; };
-		FA266CA11B4450F6007BB050 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA266CA01B4450F6007BB050 /* StoreKit.framework */; };
 		FA266CA31B445100007BB050 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA266CA21B445100007BB050 /* SystemConfiguration.framework */; };
 		FA266CA51B445109007BB050 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA266CA41B445109007BB050 /* libz.dylib */; };
 		FA266CA71B445114007BB050 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA266CA61B445114007BB050 /* libsqlite3.dylib */; };
@@ -128,7 +127,9 @@
 		FAA9F5ED1B442928006C9CCC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9F5EC1B442928006C9CCC /* Keys.swift */; };
 		FAC21DDB1B41C74B00CF1F82 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */; };
 		FACC11ED1B54367D00BA60F3 /* GameOverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC11EC1B54367D00BA60F3 /* GameOverScreen.swift */; };
+		FACE1C491B6136E0009A9C71 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FACE1C481B6136E0009A9C71 /* GameKit.framework */; };
 		FAE6354E1B61230E0094E360 /* SharingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6354D1B61230E0094E360 /* SharingManager.swift */; };
+		FAE635521B6136240094E360 /* GameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE635511B6136240094E360 /* GameCenterManager.swift */; };
 		FAF8E6E21B5FDC3000A20625 /* DificultyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8E6E11B5FDC3000A20625 /* DificultyManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -276,7 +277,6 @@
 		FA266C9A1B4450D7007BB050 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FA266C9C1B4450DE007BB050 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		FA266C9E1B4450EF007BB050 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		FA266CA01B4450F6007BB050 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		FA266CA21B445100007BB050 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FA266CA41B445109007BB050 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FA266CA61B445114007BB050 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -291,7 +291,9 @@
 		FAA9F5EC1B442928006C9CCC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = Source/Keys.swift; sourceTree = "<group>"; };
 		FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = Source/MenuScene.swift; sourceTree = "<group>"; };
 		FACC11EC1B54367D00BA60F3 /* GameOverScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScreen.swift; sourceTree = "<group>"; };
+		FACE1C481B6136E0009A9C71 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		FAE6354D1B61230E0094E360 /* SharingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharingManager.swift; path = Source/SharingManager.swift; sourceTree = "<group>"; };
+		FAE635511B6136240094E360 /* GameCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameCenterManager.swift; path = Source/GameCenterManager.swift; sourceTree = "<group>"; };
 		FAF8E6E11B5FDC3000A20625 /* DificultyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DificultyManager.swift; path = Source/DificultyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -339,7 +341,6 @@
 				FA266CA71B445114007BB050 /* libsqlite3.dylib in Frameworks */,
 				FA266CA51B445109007BB050 /* libz.dylib in Frameworks */,
 				FA266CA31B445100007BB050 /* SystemConfiguration.framework in Frameworks */,
-				FA266CA11B4450F6007BB050 /* StoreKit.framework in Frameworks */,
 				FA266C9F1B4450EF007BB050 /* Security.framework in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
 				FA266C9D1B4450DE007BB050 /* MobileCoreServices.framework in Frameworks */,
@@ -355,6 +356,7 @@
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
 				B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */,
+				FACE1C491B6136E0009A9C71 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +533,7 @@
 				FA703DA01B42C8A700E615E0 /* Obstacle.swift */,
 				FA27A8F11B50123D00D444ED /* ParticleEffects.swift */,
 				FAF8E6E11B5FDC3000A20625 /* DificultyManager.swift */,
+				FAE635511B6136240094E360 /* GameCenterManager.swift */,
 				FAE6354D1B61230E0094E360 /* SharingManager.swift */,
 				FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */,
 				FAA9F5EC1B442928006C9CCC /* Keys.swift */,
@@ -587,10 +590,10 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FACE1C481B6136E0009A9C71 /* GameKit.framework */,
 				FA266CA61B445114007BB050 /* libsqlite3.dylib */,
 				FA266CA41B445109007BB050 /* libz.dylib */,
 				FA266CA21B445100007BB050 /* SystemConfiguration.framework */,
-				FA266CA01B4450F6007BB050 /* StoreKit.framework */,
 				FA266C9E1B4450EF007BB050 /* Security.framework */,
 				FA266C9C1B4450DE007BB050 /* MobileCoreServices.framework */,
 				FA266C9A1B4450D7007BB050 /* CoreLocation.framework */,
@@ -771,6 +774,9 @@
 						DevelopmentTeam = 64TBL58LLF;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 0;
 							};
 						};
@@ -979,6 +985,7 @@
 				B73789871807631A0076A88C /* main.m in Sources */,
 				FAC21DDB1B41C74B00CF1F82 /* MenuScene.swift in Sources */,
 				FAE6354E1B61230E0094E360 /* SharingManager.swift in Sources */,
+				FAE635521B6136240094E360 /* GameCenterManager.swift in Sources */,
 				FA9728C51B56964200D8FC8F /* NSDefaultsManager.swift in Sources */,
 				FA703DA11B42C8A700E615E0 /* Obstacle.swift in Sources */,
 				FAA9F5ED1B442928006C9CCC /* Keys.swift in Sources */,

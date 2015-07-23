@@ -7,37 +7,49 @@
 import Foundation
 
 class SettingsScene: CCNode {
-  weak var onButton: CCButton!
-  weak var offButton: CCButton!
+  weak var backgroundMusicOnButton: CCButton!
+  weak var backgroundMusicOffButton: CCButton!
+  weak var particleEffectsOnButton: CCButton!
+  weak var particleEffectsOffButton: CCButton!
   
   func didLoadFromCCB() {
     if NSDefaultsManager.shouldPlayBG() {
-      offButton.label.opacity = 0.5
+      backgroundMusicOffButton.label.opacity = 0.5
     } else {
-      onButton.label.opacity = 0.5
+      backgroundMusicOnButton.label.opacity = 0.5
+    }
+    
+    if NSDefaultsManager.shouldShowParticleEffects() {
+      particleEffectsOffButton.label.opacity = 0.5
+    } else {
+      particleEffectsOnButton.label.opacity = 0.5
     }
   }
   
   func turnOnBackgroundMusic() {
-    offButton.label.opacity = 0.5
-    onButton.label.opacity = 1
+    backgroundMusicOffButton.label.opacity = 0.5
+    backgroundMusicOnButton.label.opacity = 1
     NSDefaultsManager.setShouldPlayBG(true)
     OALSimpleAudio.sharedInstance().playBg()
   }
   
   func turnOffBackgroundMusic() {
-    onButton.label.opacity = 0.5
-    offButton.label.opacity = 1
+    backgroundMusicOnButton.label.opacity = 0.5
+    backgroundMusicOffButton.label.opacity = 1
     NSDefaultsManager.setShouldPlayBG(false)
     OALSimpleAudio.sharedInstance().stopBg()
   }
   
-  func turnOnParticlesEffects() {
-    
+  func turnOnParticleEffects() {
+    particleEffectsOnButton.label.opacity = 1
+    particleEffectsOffButton.label.opacity = 0.5
+    NSDefaultsManager.setShouldShowParticleEffects(false)
   }
   
   func turnOffParticleEffects() {
-    
+    particleEffectsOnButton.label.opacity = 0.5
+    particleEffectsOffButton.label.opacity = 1
+    NSDefaultsManager.setShouldShowParticleEffects(true)
   }
   
   func backToMenu() {
