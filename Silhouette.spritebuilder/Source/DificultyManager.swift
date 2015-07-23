@@ -41,11 +41,11 @@ class DificultyManager {
     
     // This one is indefinite
     else if score > randomIncreaseArea + 10.0 + Double((often * timesOccured)) && score < randomIncreaseArea + 10.1 + Double((often * timesOccured)) {
-      if game.scrollSpeed < 4 {
-        game.scrollSpeed += 0.3
+      if game.scrollSpeed < 6.5 {
+        game.scrollSpeed += 0.5
       }
-      if game.totalTime > 0.4 {
-        game.totalTime -= 0.5
+      if game.totalTime > 0.1 {
+        game.totalTime -= 0.1
       }
       game.timesOccurred++
     }

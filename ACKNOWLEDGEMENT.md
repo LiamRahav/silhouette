@@ -14,6 +14,7 @@ Kevin MacLeod - [website](http://incompetech.com):
 
 ## Graphics
 
+Share by Pham Thi Dieu Linh from the Noun Project
 Film by Yorlmar Campos from the Noun Project
 Shopping Cart by Bram van Rijen from the Noun Project
 play by Alen Krummenacher from the Noun Project

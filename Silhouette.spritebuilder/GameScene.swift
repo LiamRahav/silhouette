@@ -72,7 +72,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       newObstacle.physicsBody.sensor = true
       newObstacle.randomizeCurrentShape()
       // Each obstacle's position is equal to the last's plus the offset
-      newObstacle.position = CGPoint(x: startingObstaclePosition + (offsetMultiplier * offset), y: 64)
+      newObstacle.position = CGPoint(x: startingObstaclePosition + (offsetMultiplier * offset), y: 32)
       obstacleArray.append(newObstacle)
       obstacleNode.addChild(newObstacle)
       lastObstaclePosition = Int(newObstacle.position.x)

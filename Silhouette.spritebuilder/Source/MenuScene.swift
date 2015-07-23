@@ -30,9 +30,9 @@ class MenuScene: CCNode {
     animationManager.runAnimationsForSequenceNamed("Settings")
   }
   
-  func shop() {
+  func leaderboard() {
     // TODO: Add a shop scene
-    println("Shopping button pressed")
+    SharingManager.sharedInstance.postToTwitter(stringToPost: "Test Tweet!", postWithScreenshot: false)
   }
   
 }
