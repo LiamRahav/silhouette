@@ -32,6 +32,14 @@ class SettingsScene: CCNode {
     OALSimpleAudio.sharedInstance().stopBg()
   }
   
+  func turnOnParticlesEffects() {
+    
+  }
+  
+  func turnOffParticleEffects() {
+    
+  }
+  
   func backToMenu() {
     self.parent.animationManager.runAnimationsForSequenceNamed("Settings Reverse")
   }

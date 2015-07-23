@@ -46,6 +46,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   func didLoadFromCCB() {
     userInteractionEnabled = true
     gamePhysicsNode.collisionDelegate = self
+    gameOverScreen.parentGameScene = self
     setUpGlyphDetector()
     setUpObstacleArray(numberOfObstacles: numberOfObstaclesInArray)
   }

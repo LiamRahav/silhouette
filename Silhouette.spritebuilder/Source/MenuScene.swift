@@ -31,8 +31,7 @@ class MenuScene: CCNode {
   }
   
   func leaderboard() {
-    // TODO: Add a shop scene
-    SharingManager.sharedInstance.postToTwitter(stringToPost: "Test Tweet!", postWithScreenshot: false)
+    // TODO: Add a leaderboars scene
   }
   
 }
