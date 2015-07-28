@@ -23,8 +23,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   // Scrolling related logic
   var shouldMove = true
   var scrollSpeed: Double = 3
-  let offset = 420 // Blaze it
-  let startingObstaclePosition = 540
+  let offset = 600
+  let startingObstaclePosition = 640
   var lastObstaclePosition = 0
   var lastObstacleNodePosition: CGFloat = 0
   // Timer related logic
@@ -153,6 +153,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     gameOverScreen.highscoreLabel.string = "High Score: \(formattedString)m"
     gameOverScreen.scoreLabel.string = "Score: \(scoreLabel.string)"
     userInteractionEnabled = false
+    
+    animationManager.runAnimationsForSequenceNamed("Death")
     return true
   }
   
@@ -160,6 +162,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     // The glyph is a match if score is over 1.55 and the glyph returned is the same as the intended glyph
     if score > 1.8  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
       shuffleObstacleArray()
+      obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
     } else if score > 1.8 && glyph.name.lowercaseString == "reversetriangle" && obstacleArray[0].currentShape.toString.lowercaseString == "triangle" {
       shuffleObstacleArray()
     }
@@ -167,7 +170,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   
   func shuffleObstacleArray() {
     // Set the current obstacle's position forward
-    obstacleArray[0].position.x = CGFloat(lastObstaclePosition + offset)
+//    obstacleArray[0].position.x = CGFloat(lastObstaclePosition + offset)
     lastObstaclePosition = Int(obstacleArray[0].position.x)
     // Randomize current obstacle
     obstacleArray[0].randomizeCurrentShape()
