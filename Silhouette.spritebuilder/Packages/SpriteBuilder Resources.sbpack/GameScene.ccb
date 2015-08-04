@@ -16,7 +16,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>0</integer>
+	<integer>5</integer>
 	<key>docDimensionsType</key>
 	<integer>0</integer>
 	<key>fileType</key>
@@ -805,40 +805,40 @@
 							<key>points</key>
 							<array>
 								<array>
-									<real>0.0</real>
-									<real>0.0</real>
+									<real>154.66796875</real>
+									<real>80.566368103027344</real>
 								</array>
 								<array>
-									<real>0.0</real>
-									<real>54</real>
+									<real>4.863286018371582</real>
+									<real>100.13671875</real>
 								</array>
 								<array>
-									<real>54</real>
-									<real>54</real>
+									<real>193.5546875</real>
+									<real>471.5234375</real>
 								</array>
 								<array>
-									<real>54</real>
-									<real>0.0</real>
+									<real>252.1484375</real>
+									<real>299.4140625</real>
 								</array>
 							</array>
 							<key>polygons</key>
 							<array>
 								<array>
 									<array>
-										<real>54</real>
-										<real>0.0</real>
+										<real>252.1484375</real>
+										<real>299.4140625</real>
 									</array>
 									<array>
-										<real>54</real>
-										<real>54</real>
+										<real>193.5546875</real>
+										<real>471.5234375</real>
 									</array>
 									<array>
-										<real>0.0</real>
-										<real>54</real>
+										<real>4.863286018371582</real>
+										<real>100.13671875</real>
 									</array>
 									<array>
-										<real>0.0</real>
-										<real>0.0</real>
+										<real>154.66796875</real>
+										<real>80.566368103027344</real>
 									</array>
 								</array>
 							</array>
@@ -866,7 +866,7 @@
 								<key>value</key>
 								<array>
 									<real>50</real>
-									<real>28</real>
+									<real>600</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -909,7 +909,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>assets/character/dead.png</string>
+									<string>assets/character/character1.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -945,6 +945,8 @@
 								<array/>
 							</dict>
 						</array>
+						<key>seqExpanded</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -1832,7 +1834,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.66666668653488159</real>
+			<real>0.0</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
@@ -2012,7 +2014,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>2.8333332538604736</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

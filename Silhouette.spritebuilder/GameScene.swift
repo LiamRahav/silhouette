@@ -148,6 +148,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   }
   
   func triggerGameOver() {
+    // Spawn the dope particle effects
+    ParticleEffects.createDeathParticles(character, asChildOf: self)
     // Stop the sprite from moving and shapes from being detected
     shouldMove = false
     glyphDetector.removeAllGlyphs()

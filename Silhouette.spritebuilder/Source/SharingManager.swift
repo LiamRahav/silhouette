@@ -131,6 +131,11 @@ class SharingManager: UIViewController {
     return renderTexture.getUIImage()
   }
   
+  /**
+  Used to open a Sharing Activity, a common iOS interface for interacting with other apps
+  
+  :param: stringToShare - the message you wish to see shared (recommended to add the defaultURL to the end)
+  */
   func share(stringToShare: String) {
     let activityViewController = UIActivityViewController(
       activityItems: [stringToShare as NSString],
