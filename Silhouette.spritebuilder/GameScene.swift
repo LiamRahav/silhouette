@@ -19,7 +19,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   // Obstacle related logic
   var obstacleArray: [Obstacle] = []
   var glyphDetector: WTMGlyphDetector!
-  let numberOfObstaclesInArray = 4
+  let numberOfObstaclesInArray = 5
+  var shouldCollide = true
   // Scrolling related logic
   var shouldMove = true
   var scrollSpeed: Double = 3
@@ -73,7 +74,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       newObstacle.physicsBody.sensor = true
       newObstacle.randomizeCurrentShape()
       // Each obstacle's position is equal to the last's plus the offset
-      newObstacle.position = CGPoint(x: startingObstaclePosition + (offsetMultiplier * offset), y: 32)
+      newObstacle.position = CGPoint(x: startingObstaclePosition + (offsetMultiplier * offset), y: 37)
       obstacleArray.append(newObstacle)
       obstacleNode.addChild(newObstacle)
       lastObstaclePosition = Int(newObstacle.position.x)
@@ -138,6 +139,15 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
 
   // MARK: - Callbacks
   func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, character: CCNode!, obstacle: CCNode!) -> ObjCBool {
+    if shouldCollide {
+     triggerGameOver()
+    } else {
+      shouldCollide = true
+    }
+    return true
+  }
+  
+  func triggerGameOver() {
     // Stop the sprite from moving and shapes from being detected
     shouldMove = false
     glyphDetector.removeAllGlyphs()
@@ -155,42 +165,52 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     userInteractionEnabled = false
     
     animationManager.runAnimationsForSequenceNamed("Death")
-    return true
   }
   
   func glyphDetected(glyph: WTMGlyph!, withScore score: Float) {
     // The glyph is a match if score is over 1.55 and the glyph returned is the same as the intended glyph
     if score > 1.8  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
-      shuffleObstacleArray()
       obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
+      shuffleObstacleArray()
     } else if score > 1.8 && glyph.name.lowercaseString == "reversetriangle" && obstacleArray[0].currentShape.toString.lowercaseString == "triangle" {
+      obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
       shuffleObstacleArray()
     }
   }
   
   func shuffleObstacleArray() {
-    // Set the current obstacle's position forward
-//    obstacleArray[0].position.x = CGFloat(lastObstaclePosition + offset)
-    lastObstaclePosition = Int(obstacleArray[0].position.x)
-    // Randomize current obstacle
-    obstacleArray[0].randomizeCurrentShape()
+    obstacleArray[0].shapeImage.spriteFrame = nil
     // Add current obstacle to the end of the array
     obstacleArray.append(obstacleArray[0])
     // Delete it from the front of the array
     obstacleArray.removeAtIndex(0)
+    // Schedule the movement of the last one to the front so that the sprite can move through
+    self.schedule("moveLastObstacleToFront", interval: 3)
+    shouldCollide = false
+    timer = 0
+  }
+  
+  func moveLastObstacleToFront() {
+    // Set the current obstacle's position forward
+    obstacleArray[obstacleArray.count - 1].position.x = CGFloat(lastObstaclePosition + offset)
+    lastObstaclePosition = Int(obstacleArray[obstacleArray.count - 1].position.x)
+    // Randomize current obstacle
+    obstacleArray[obstacleArray.count - 1].randomizeCurrentShape()
+    // Make sure that all obstacles have an image loaded
+    obstacleArray[obstacleArray.count - 1].animationManager.runAnimationsForSequenceNamed("Default Timeline")
     for o in obstacleArray {
       if o.shapeImage.spriteFrame == nil {
         o.shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/\(o.currentShape.toString.lowercaseString).png")
       }
     }
-    timer = 0
+    self.unschedule("moveLastObstacleToFront")
   }
   
   func pause() {
     shouldMove = false
     isPaused = true
     userInteractionEnabled = false
-    // Create a pause screen
+    // Move in the pause screen
     pauseScreen.parentNode = self
     animationManager.runAnimationsForSequenceNamed("Pause")
   }

@@ -32,6 +32,8 @@ enum Glyph {
 class Obstacle: CCNode {
   weak var shapeImage: CCSprite!
   weak var blueBar: CCNodeColor!
+  weak var towerRight: CCSprite!
+  weak var wallRight: CCSprite!
   
   // Make sure the string always matches the shape
   var currentShape: Glyph =  .Triangle {
@@ -48,6 +50,12 @@ class Obstacle: CCNode {
     "V" : Glyph.V,
 //    "Lightning": Glyph.Lightning
   ]
+  
+  func didLoadFromCCB() {
+    towerRight.zOrder = 1
+    wallRight.zOrder = 1
+    shapeImage.zOrder = 2
+  }
   
   func randomizeCurrentShape() {
     let keyList = Obstacle.glyphDict.keys.array

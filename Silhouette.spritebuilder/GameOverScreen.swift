@@ -24,6 +24,6 @@ class GameOverScreen: CCNode {
   
   func share() {
     let formattedScore = NSString(format: "%.1f", self.parentGameScene.score)
-    SharingManager.sharedInstance.postToTwitter(stringToPost: "I just got \(formattedScore)m on Silhouette! Think you can beat it? Click this link to find out! ", postWithScreenshot: false)
+    SharingManager.sharedInstance.share("I just got \(formattedScore)m on Silhouette! Think you can beat it? Click this link to find out! ")
   }
 }

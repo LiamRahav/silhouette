@@ -130,4 +130,12 @@ class SharingManager: UIViewController {
     
     return renderTexture.getUIImage()
   }
+  
+  func share(stringToShare: String) {
+    let activityViewController = UIActivityViewController(
+      activityItems: [stringToShare as NSString],
+      applicationActivities: nil)
+    
+    CCDirector.sharedDirector().presentViewController(activityViewController, animated: true, completion: nil)
+  }
 }
