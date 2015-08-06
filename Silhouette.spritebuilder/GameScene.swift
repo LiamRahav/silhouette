@@ -19,7 +19,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   // Obstacle related logic
   var obstacleArray: [Obstacle] = []
   var glyphDetector: WTMGlyphDetector!
-  let numberOfObstaclesInArray = 5
+  let numberOfObstaclesInArray = 6
   var shouldCollide = true
   // Scrolling related logic
   var shouldMove = true
@@ -28,6 +28,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   let startingObstaclePosition = 640
   var lastObstaclePosition = 0
   var lastObstacleNodePosition: CGFloat = 0
+  let timeBeforeMoveToFront = 4
   // Timer related logic
   var timer: Double = 0
   var totalTime: Double = 1
@@ -74,7 +75,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       newObstacle.physicsBody.sensor = true
       newObstacle.randomizeCurrentShape()
       // Each obstacle's position is equal to the last's plus the offset
-      newObstacle.position = CGPoint(x: startingObstaclePosition + (offsetMultiplier * offset), y: 37)
+      newObstacle.position = CGPoint(x: startingObstaclePosition + (offsetMultiplier * offset), y: 33)
       obstacleArray.append(newObstacle)
       obstacleNode.addChild(newObstacle)
       lastObstaclePosition = Int(newObstacle.position.x)
@@ -139,6 +140,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
 
   // MARK: - Callbacks
   func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, character: CCNode!, obstacle: CCNode!) -> ObjCBool {
+    println("COLLISION DETECTED")
     if shouldCollide {
      triggerGameOver()
     } else {
@@ -146,7 +148,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     }
     return true
   }
-  
+
   func triggerGameOver() {
     // Spawn the dope particle effects
     ParticleEffects.createDeathParticles(character, asChildOf: self)
@@ -159,14 +161,19 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       highscore = score
       NSDefaultsManager.setHighscore(highscore)
     }
+    // TODO: Actually solve this bug rather than use this hacky solution
+    schedule("gameOverHackSolution", interval: 0.1)
+  }
+  
+  func gameOverHackSolution() {
     // Move the gameOverScreen to the middle
     animationManager.runAnimationsForSequenceNamed("Game Over")
-    let formattedString = NSString(format: "%.1f", highscore)
+    let formattedString = NSString(format: "%.1f", NSDefaultsManager.getHighscore())
     gameOverScreen.highscoreLabel.string = "High Score: \(formattedString)m"
     gameOverScreen.scoreLabel.string = "Score: \(scoreLabel.string)"
     userInteractionEnabled = false
     
-    animationManager.runAnimationsForSequenceNamed("Death")
+    unschedule("gameOverHackSolution")
   }
   
   func glyphDetected(glyph: WTMGlyph!, withScore score: Float) {
@@ -187,7 +194,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     // Delete it from the front of the array
     obstacleArray.removeAtIndex(0)
     // Schedule the movement of the last one to the front so that the sprite can move through
-    self.schedule("moveLastObstacleToFront", interval: 3)
+    self.schedule("moveLastObstacleToFront", interval: CCTime(timeBeforeMoveToFront))
     shouldCollide = false
     timer = 0
   }

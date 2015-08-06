@@ -333,6 +333,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACE1C491B6136E0009A9C71 /* GameKit.framework in Frameworks */,
 				FA266CA71B445114007BB050 /* libsqlite3.dylib in Frameworks */,
 				FA266CA51B445109007BB050 /* libz.dylib in Frameworks */,
 				FA266CA31B445100007BB050 /* SystemConfiguration.framework in Frameworks */,
@@ -351,7 +352,6 @@
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
 				B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */,
-				FACE1C491B6136E0009A9C71 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -238,6 +238,33 @@
 				<string>暂停</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>comment</key>
+			<string>In the settings </string>
+			<key>key</key>
+			<string>Particle Effects:</string>
+			<key>translations</key>
+			<dict>
+				<key>ar</key>
+				<string>الجسيمات آثار</string>
+				<key>de</key>
+				<string>Partikeleffekte</string>
+				<key>en</key>
+				<string>Particle Effects</string>
+				<key>es</key>
+				<string>Efectos de Partículas</string>
+				<key>fr</key>
+				<string>Effets de Particules</string>
+				<key>he</key>
+				<string>אפקטים של חלקיקים</string>
+				<key>ja</key>
+				<string>パーティクルエフェクト</string>
+				<key>ko</key>
+				<string>입자 효과</string>
+				<key>zh-Hans</key>
+				<string>粒子特效</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

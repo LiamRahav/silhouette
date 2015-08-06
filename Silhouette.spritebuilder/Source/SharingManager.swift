@@ -3,6 +3,16 @@
 //
 //  Created by Zachary Espiritu on 7/19/15.
 //  Copyright (c) 2015 Zachary Espiritu. All rights reserved.
+//
+//   ________ __                         __                        ______
+//   |        |  \                       |  \                      /      \
+//   \$$$$$$$| $$____   ______  _______ | $$   __  _______       |  $$$$$$\______ ____   ______  _______
+//   | $$  | $$    \ |      \|       \| $$  /  \/       \      | $$__| $|      \    \ |      \|       \
+//   | $$  | $$$$$$$\ \$$$$$$| $$$$$$$| $$_/  $|  $$$$$$$      | $$    $| $$$$$$\$$$$\ \$$$$$$| $$$$$$$\
+//   | $$  | $$  | $$/      $| $$  | $| $$   $$ \$$    \       | $$$$$$$| $$ | $$ | $$/      $| $$  | $$
+//   | $$  | $$  | $|  $$$$$$| $$  | $| $$$$$$\ _\$$$$$$\      | $$  | $| $$ | $$ | $|  $$$$$$| $$  | $$
+//   | $$  | $$  | $$\$$    $| $$  | $| $$  \$$|       $$      | $$  | $| $$ | $$ | $$\$$    $| $$  | $$
+//   \$$   \$$   \$$ \$$$$$$$\$$   \$$\$$   \$$\$$$$$$$        \$$   \$$\$$  \$$  \$$ \$$$$$$$\$$   \$$
 
 import UIKit
 import Social
@@ -131,16 +141,33 @@ class SharingManager: UIViewController {
     return renderTexture.getUIImage()
   }
   
-  /**
-  Used to open a Sharing Activity, a common iOS interface for interacting with other apps
-  
-  :param: stringToShare - the message you wish to see shared (recommended to add the defaultURL to the end)
-  */
-  func share(stringToShare: String) {
-    let activityViewController = UIActivityViewController(
-      activityItems: [stringToShare as NSString],
-      applicationActivities: nil)
+  private func takePresentScreenshot() -> UIImage {
+    CCDirector.sharedDirector().nextDeltaTimeZero = true
     
-    CCDirector.sharedDirector().presentViewController(activityViewController, animated: true, completion: nil)
+    var size: CGSize = CCDirector.sharedDirector().viewSize()
+    var renderTxture: CCRenderTexture = CCRenderTexture(width: Int32(size.width), height: Int32(size.height))
+    renderTxture.begin()
+    CCDirector.sharedDirector().runningScene.visit()
+    renderTxture.end()
+    
+    return renderTxture.getUIImage()
+  }
+  
+  func share(stringToShare: String) {
+    let screenshot = self.takePresentScreenshot()
+    
+    let objectsToShare = [screenshot, stringToShare]
+    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+
+    if UIDevice.currentDevice().model != "iPad"{
+       CCDirector.sharedDirector().parentViewController!.presentViewController(activityVC, animated: true, completion: nil)
+    } else {
+      
+      var popup = UIPopoverController(contentViewController: activityVC)
+      let screenSize = UIScreen.mainScreen().bounds
+      popup.presentPopoverFromRect(CGRectMake(screenSize.width / 2, screenSize.height / 4, 0, 0), inView: CCDirector.sharedDirector().view, permittedArrowDirections: UIPopoverArrowDirection.Unknown, animated: true)
+      
+    }
+    
   }
 }

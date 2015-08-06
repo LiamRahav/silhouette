@@ -43,13 +43,13 @@ class SettingsScene: CCNode {
   func turnOnParticleEffects() {
     particleEffectsOnButton.label.opacity = 1
     particleEffectsOffButton.label.opacity = 0.5
-    NSDefaultsManager.setShouldShowParticleEffects(false)
+    NSDefaultsManager.setShouldShowParticleEffects(true)
   }
   
   func turnOffParticleEffects() {
     particleEffectsOnButton.label.opacity = 0.5
     particleEffectsOffButton.label.opacity = 1
-    NSDefaultsManager.setShouldShowParticleEffects(true)
+    NSDefaultsManager.setShouldShowParticleEffects(false)
   }
   
   func backToMenu() {

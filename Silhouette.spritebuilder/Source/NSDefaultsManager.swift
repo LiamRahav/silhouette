@@ -5,6 +5,7 @@
 // Creative Commons Attribution-NonCommercial 4.0 International License.
 
 import Foundation
+import GameKit
 
 class NSDefaultsManager {
   static let HIGHSCORE_KEY = "11ACI76k8B8H9RJ1Ml"
@@ -14,6 +15,17 @@ class NSDefaultsManager {
   static func setHighscore(newHighscore: Double) {
     let userDefaults = NSUserDefaults.standardUserDefaults()
     userDefaults.setDouble(newHighscore, forKey: HIGHSCORE_KEY)
+    // Save the high score to GameCenter as well
+    var scoreReporter = GKScore(leaderboardIdentifier: "SilhouetteHighScoreLeaderboard")
+    scoreReporter.value = Int64(newHighscore)
+    var scoreArray: [GKScore] = [scoreReporter]
+    GKScore.reportScores(scoreArray, withCompletionHandler: {(error: NSError!) -> Void in
+      if error != nil {
+        println("Failed to save high score to Game Center")
+      } else {
+        println("Saved new score to Game Center succesfully")
+      }
+    })
   }
   
   static func getHighscore() -> Double {

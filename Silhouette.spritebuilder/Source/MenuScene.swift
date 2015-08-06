@@ -5,23 +5,30 @@
 // Creative Commons Attribution-NonCommercial 4.0 International License.
 
 import Foundation
+import GameKit
 
 class MenuScene: CCNode {
   weak var buttonsBox: CCLayoutBox!
   let audio = OALSimpleAudio.sharedInstance()
+  var shouldRestart = false
   
   func didLoadFromCCB() {
     userInteractionEnabled = true
+    audio.preloadBg("Audio/Disquiet.mp3")
     if !audio.bgPlaying && NSDefaultsManager.shouldPlayBG() {
       audio.playBg()
-    } else if !NSDefaultsManager.shouldPlayBG() {
-      audio.stopBg()
     }
+    audio.bgVolume = 1.0
+    setUpGameCenter()
+  }
+  
+  func setUpGameCenter() {
+    let gameCenterInteractor = GameCenterInteractor.sharedInstance
+    gameCenterInteractor.authenticationCheck()
   }
   
   func play() {
-    let audio = OALSimpleAudio.sharedInstance()
-    audio.stopBg()
+    audio.bgVolume = 0.25
     let nextScene = CCBReader.loadAsScene("GameScene")
     CCDirector.sharedDirector().replaceScene(nextScene)
   }
@@ -31,7 +38,22 @@ class MenuScene: CCNode {
   }
   
   func leaderboard() {
-    // TODO: Add a leaderboars scene
+    showLeaderboard()
   }
   
+}
+
+// MARK: Game Center Handling 
+extension MenuScene: GKGameCenterControllerDelegate {
+  func showLeaderboard() {
+    var viewController = CCDirector.sharedDirector().parentViewController!
+    var gameCenterViewController = GKGameCenterViewController()
+    gameCenterViewController.gameCenterDelegate = self
+    viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
+  }
+
+  // Delegate methods
+  func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
+    gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
+  }
 }
