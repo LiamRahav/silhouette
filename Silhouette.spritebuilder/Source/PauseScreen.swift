@@ -15,5 +15,6 @@ class PauseScreen: CCNode {
     parentNode.userInteractionEnabled = true
     parentNode.isPaused = false
     parentNode.shouldMove = true
+    parentNode.shouldPause = true
   }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E8F83EBE19AC8231B741593 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC04CAF56F5D7B3C53D09778 /* libPods.a */; };
 		5B121030197484FA004C1E1D /* SilhouetteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* SilhouetteActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		7A40360419DDEE84007B6E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A40360319DDEE84007B6E8F /* main.m */; };
@@ -116,12 +117,14 @@
 		FA266CA71B445114007BB050 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA266CA61B445114007BB050 /* libsqlite3.dylib */; };
 		FA266CA91B445200007BB050 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FA266CA81B445200007BB050 /* Podfile */; };
 		FA27A8F21B50123D00D444ED /* ParticleEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27A8F11B50123D00D444ED /* ParticleEffects.swift */; };
+		FA6D76F71B73A67300732A7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA6D76F61B73A67300732A7F /* GoogleService-Info.plist */; };
 		FA703DA11B42C8A700E615E0 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA703DA01B42C8A700E615E0 /* Obstacle.swift */; };
 		FA703DA71B42CFF200E615E0 /* JSON in Resources */ = {isa = PBXBuildFile; fileRef = FA703DA61B42CFF200E615E0 /* JSON */; };
 		FA9728C51B56964200D8FC8F /* NSDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */; };
 		FA9E00791B5D69A800ECEB76 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E00781B5D69A800ECEB76 /* SettingsScene.swift */; };
 		FA9E007D1B5D8B2300ECEB76 /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E007C1B5D8B2300ECEB76 /* CreditsScene.swift */; };
 		FAA608351B417D6800AB3889 /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = FAA608341B417D6800AB3889 /* Audio */; };
+		FAA8E4131B73E27E00B1CE57 /* LoadingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8E4121B73E27E00B1CE57 /* LoadingScene.swift */; };
 		FAC21DDB1B41C74B00CF1F82 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */; };
 		FACC11ED1B54367D00BA60F3 /* GameOverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC11EC1B54367D00BA60F3 /* GameOverScreen.swift */; };
 		FACE1C491B6136E0009A9C71 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FACE1C481B6136E0009A9C71 /* GameKit.framework */; };
@@ -183,6 +186,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04ED14D37CE107B2882A76FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3121FF0FDAE617BE295EC7D3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121011197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -278,18 +283,21 @@
 		FA266CA61B445114007BB050 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FA266CA81B445200007BB050 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		FA27A8F11B50123D00D444ED /* ParticleEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleEffects.swift; sourceTree = "<group>"; };
+		FA6D76F61B73A67300732A7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA703DA01B42C8A700E615E0 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Obstacle.swift; path = Source/Obstacle.swift; sourceTree = "<group>"; };
 		FA703DA61B42CFF200E615E0 /* JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSON; sourceTree = "<group>"; };
 		FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDefaultsManager.swift; path = Source/NSDefaultsManager.swift; sourceTree = "<group>"; };
 		FA9E00781B5D69A800ECEB76 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsScene.swift; path = Source/SettingsScene.swift; sourceTree = "<group>"; };
 		FA9E007C1B5D8B2300ECEB76 /* CreditsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreditsScene.swift; path = Source/CreditsScene.swift; sourceTree = "<group>"; };
 		FAA608341B417D6800AB3889 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
+		FAA8E4121B73E27E00B1CE57 /* LoadingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingScene.swift; path = Source/LoadingScene.swift; sourceTree = "<group>"; };
 		FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = Source/MenuScene.swift; sourceTree = "<group>"; };
 		FACC11EC1B54367D00BA60F3 /* GameOverScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScreen.swift; sourceTree = "<group>"; };
 		FACE1C481B6136E0009A9C71 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		FAE6354D1B61230E0094E360 /* SharingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharingManager.swift; path = Source/SharingManager.swift; sourceTree = "<group>"; };
 		FAE635511B6136240094E360 /* GameCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameCenterManager.swift; path = Source/GameCenterManager.swift; sourceTree = "<group>"; };
 		FAF8E6E11B5FDC3000A20625 /* DificultyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DificultyManager.swift; path = Source/DificultyManager.swift; sourceTree = "<group>"; };
+		FC04CAF56F5D7B3C53D09778 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,12 +360,22 @@
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
 				B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */,
+				0E8F83EBE19AC8231B741593 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AF28292362DCF415C8D00EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				04ED14D37CE107B2882A76FA /* Pods.debug.xcconfig */,
+				3121FF0FDAE617BE295EC7D3 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5B12100D197483EE004C1E1D /* res */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +578,7 @@
 		B77F1B2517B978D7009739AE = {
 			isa = PBXGroup;
 			children = (
+				FA6D76F61B73A67300732A7F /* GoogleService-Info.plist */,
 				FA266CA81B445200007BB050 /* Podfile */,
 				FA266C931B443E32007BB050 /* Don't Touch */,
 				B737893C1807616C0076A88C /* Source */,
@@ -568,6 +587,7 @@
 				B77F1CCF17B978D8009739AE /* Supporting Files */,
 				B77F1B3017B978D7009739AE /* Frameworks */,
 				B77F1B2F17B978D7009739AE /* Products */,
+				1AF28292362DCF415C8D00EC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -613,6 +633,7 @@
 				B77F1B3D17B978D7009739AE /* Foundation.framework */,
 				B77F1B3F17B978D7009739AE /* CoreGraphics.framework */,
 				B77F1B4117B978D7009739AE /* CoreText.framework */,
+				FC04CAF56F5D7B3C53D09778 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -687,6 +708,7 @@
 				FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */,
 				FA9E00781B5D69A800ECEB76 /* SettingsScene.swift */,
 				FA9E007C1B5D8B2300ECEB76 /* CreditsScene.swift */,
+				FAA8E4121B73E27E00B1CE57 /* LoadingScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -735,11 +757,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B77F1CDE17B978D8009739AE /* Build configuration list for PBXNativeTarget "Silhouette iOS" */;
 			buildPhases = (
+				0C06D62DDEA8A4E03B880A07 /* Check Pods Manifest.lock */,
 				D2E0167A18D782EC00927430 /* Run Script */,
 				B77F1B2A17B978D7009739AE /* Sources */,
 				B77F1B2B17B978D7009739AE /* Frameworks */,
 				D352B47A19EC5D8A00829775 /* Compile Metal Shaders */,
 				B77F1B2C17B978D7009739AE /* Resources */,
+				EDF3BC064EE5BB25334644EF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -900,6 +924,7 @@
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
+				FA6D76F71B73A67300732A7F /* GoogleService-Info.plist in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,
 			);
@@ -908,6 +933,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0C06D62DDEA8A4E03B880A07 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		927F619B196C771E000F43EF /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -949,6 +989,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /usr/bin/ruby;
 			shellScript = "# Special thanks to Filip Iliescu at Apple for the help with this.\n\n# Environment variables.\nSDK = ENV[\"PLATFORM_NAME\"]\nOBJECT_FILE_DIR = ENV[\"OBJECT_FILE_DIR\"]\nSRCROOT = ENV[\"SRCROOT\"]\nBUILT_PRODUCTS_DIR = ENV[\"BUILT_PRODUCTS_DIR\"]\nPRODUCT_NAME = ENV[\"PRODUCT_NAME\"]\n\n# User variables\n# Directory with your custom .metal files in it.\nSHADER_DIR = \"#{SRCROOT}/Source/MetalShaders\"\n# Location of the cocos2d library directory.\nCOCOS2D_DIR = \"#{SRCROOT}/Source/libs/cocos2d-iphone/cocos2d\"\n\nMETAL_ARGS = [\n\t\"-arch air64\",\n\t\"-emit-llvm\",\n\t\"-c\",\n\t\"-gline-tables-only\",\n\t\"-ffast-math\",\n\t\"-std=ios-metal1.0\",\n    %{-I \"#{COCOS2D_DIR}\"},\n]\n\ndef system(cmd)\n\tputs cmd\n    Kernel.system cmd\nend\n\nPRODUCTS = \"#{OBJECT_FILE_DIR}/CCMetalShaders\"\nARCHIVE = \"#{PRODUCTS}/default.metal-ar\"\n\ndef compile_shader(src)\n\tdst = \"#{PRODUCTS}/#{File.basename(src, \".metal\")}.air\"\n\t\n\t# Compile and archive the shader.\n\tsystem %{xcrun -sdk #{SDK} metal #{METAL_ARGS.join(\" \")} \"#{src}\" -o \"#{dst}\"}\n\tsystem %{xcrun -sdk #{SDK} ar r \"#{ARCHIVE}\" \"#{dst}\"}\nend\n\nif SDK == \"iphoneos\"\n\t# Cannot use default.metallib to avoid clashing with Xcode build magic.\n\t# This is part of a workaround due to the iOS simulator not supporting Metal and may go away in the future.\n\tmetal_lib = \"#{BUILT_PRODUCTS_DIR}/#{PRODUCT_NAME}.app/CCShaders.metallib\"\n    \n\t# Delete the old products dir and metal lib.\n\tsystem %{rm -rf \"#{PRODUCTS}\"}\n    system %{rm -f \"#{metal_lib}\"}\n    system %{mkdir -p \"#{PRODUCTS}\"}\n    \n    # Compile the builtin shaders.\n    compile_shader(%{#{COCOS2D_DIR}/Platforms/iOS/CCShaders.metal})\n    \n\t# Compile/archive all the shaders in the shader directory.\n    Dir.glob(\"#{SHADER_DIR}/*.metal\").each{|src| compile_shader(src)}\n    \n\t# Link all shaders into default lib.\n\tsystem %{xcrun -sdk #{SDK} metallib -o \"#{metal_lib}\" \"#{ARCHIVE}\"}\nend\n";
+		};
+		EDF3BC064EE5BB25334644EF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -999,6 +1054,7 @@
 				FA266C881B443D46007BB050 /* CJSONDeserializer.m in Sources */,
 				FA266C891B443D46007BB050 /* CJSONScanner.m in Sources */,
 				FA9E00791B5D69A800ECEB76 /* SettingsScene.swift in Sources */,
+				FAA8E4131B73E27E00B1CE57 /* LoadingScene.swift in Sources */,
 				FA266C8A1B443D46007BB050 /* CJSONSerializer.m in Sources */,
 				FA0F10511B4D8C61005B467B /* GameScene.swift in Sources */,
 			);
@@ -1281,6 +1337,7 @@
 		};
 		B77F1CDF17B978D8009739AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04ED14D37CE107B2882A76FA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1320,6 +1377,7 @@
 		};
 		B77F1CE017B978D8009739AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3121FF0FDAE617BE295EC7D3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;

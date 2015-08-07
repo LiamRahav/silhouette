@@ -1,2 +1,3 @@
 platform :ios, '8.0'
 
+pod 'Google/Analytics', '~> 1.0.0'

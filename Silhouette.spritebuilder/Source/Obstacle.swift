@@ -34,6 +34,7 @@ class Obstacle: CCNode {
   weak var blueBar: CCNodeColor!
   weak var towerRight: CCSprite!
   weak var wallRight: CCSprite!
+  weak var ring: CCSprite!
   
   // Make sure the string always matches the shape
   var currentShape: Glyph =  .Triangle {
@@ -54,7 +55,8 @@ class Obstacle: CCNode {
   func didLoadFromCCB() {
     towerRight.zOrder = 1
     wallRight.zOrder = 1
-    shapeImage.zOrder = 2
+    shapeImage.zOrder = 3
+    ring.zOrder = 2
   }
   
   func randomizeCurrentShape() {

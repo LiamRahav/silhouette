@@ -29,8 +29,8 @@ class MenuScene: CCNode {
   
   func play() {
     audio.bgVolume = 0.25
-    let nextScene = CCBReader.loadAsScene("GameScene")
-    CCDirector.sharedDirector().replaceScene(nextScene)
+    let loadingScreen = CCBReader.loadAsScene("LoadingScene")
+    CCDirector.sharedDirector().replaceScene(loadingScreen)
   }
   
   func settings() {

@@ -12,15 +12,18 @@ class DificultyManager {
     
     if score > 15 && score < 15.1 {
       game.scrollSpeed += 0.015
+      game.timeBeforeMoveToFront -= 0.25
     }
     
     else if score > 20 && score < 20.1 {
       game.totalTime -= 0.025
+      game.timeBeforeMoveToFront -= 0.25
     }
     
     else if score > 30 && score < 30.1 {
       game.scrollSpeed += 0.015
       game.totalTime -= 0.025
+      game.timeBeforeMoveToFront -= 0.5
     }
     
     else if score > randomIncreaseArea - 10 && score < randomIncreaseArea - 9.9 {

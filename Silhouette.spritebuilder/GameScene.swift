@@ -28,7 +28,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   let startingObstaclePosition = 640
   var lastObstaclePosition = 0
   var lastObstacleNodePosition: CGFloat = 0
-  let timeBeforeMoveToFront = 4
+  var timeBeforeMoveToFront: Double = 4
   // Timer related logic
   var timer: Double = 0
   var totalTime: Double = 1
@@ -38,11 +38,13 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   let randomIncreaseArea = arc4random_uniform(10) + 40
   let howOftenForIncrease = 15
   var timesOccurred = 0
+  let timeForFadeOut = 0.5
   // Other variables
   var audio = OALSimpleAudio.sharedInstance()
   let audioFiles = ["disquiet" : "Disquiet.mp3"]
   var score: Double = 0
   var lastObstacleForDisappear: Obstacle?
+  var shouldPause = true
   
   // MARK: - Setup Functions
   func didLoadFromCCB() {
@@ -53,6 +55,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     setUpObstacleArray(numberOfObstacles: numberOfObstaclesInArray)
   }
   
+
   func setUpGlyphDetector() {
     glyphDetector = WTMGlyphDetector.detector() as! WTMGlyphDetector
     glyphDetector.delegate = self
@@ -103,8 +106,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   func checkForTimer(delta: Double) {
     if timerStarted && !isPaused {
       timer += delta
-      if timer > totalTime {
-        lastObstacleForDisappear!.shapeImage.spriteFrame = nil
+      if timer > totalTime - timeForFadeOut {
+        lastObstacleForDisappear!.shapeImage.runAction(CCActionFadeOut(duration: timeForFadeOut))
         lastObstacleForDisappear = nil
         timerStarted = false
         timer = 0
@@ -155,6 +158,8 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     // Stop the sprite from moving and shapes from being detected
     shouldMove = false
     glyphDetector.removeAllGlyphs()
+    // Stop the pause button from working
+    shouldPause = false
     // Check if the high score should be updated
     var highscore = NSDefaultsManager.getHighscore()
     if score > highscore {
@@ -216,11 +221,14 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   }
   
   func pause() {
-    shouldMove = false
-    isPaused = true
-    userInteractionEnabled = false
-    // Move in the pause screen
-    pauseScreen.parentNode = self
-    animationManager.runAnimationsForSequenceNamed("Pause")
+    if shouldPause {
+      shouldMove = false
+      isPaused = true
+      shouldPause = false
+      userInteractionEnabled = false
+      // Move in the pause screen
+      pauseScreen.parentNode = self
+      animationManager.runAnimationsForSequenceNamed("Pause")
+    }
   }
 }

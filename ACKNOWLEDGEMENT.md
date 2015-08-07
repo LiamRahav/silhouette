@@ -21,6 +21,7 @@ play by Alen Krummenacher from the Noun Project
 Icy by Mateo Zlatar from the Noun Project
 back by iconsmind.com from the Noun Project
 Settings by BraveBros. from the Noun Project
+inactive by Sylvain Amatoury from the Noun Project
 
 ------------------------------------
 
