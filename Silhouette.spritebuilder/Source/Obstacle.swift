@@ -39,7 +39,7 @@ class Obstacle: CCNode {
   // Make sure the string always matches the shape
   var currentShape: Glyph =  .Triangle {
     didSet {
-      shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/\(currentShape.toString.lowercaseString).png")
+      shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/shapes/\(currentShape.toString.lowercaseString).png")
     }
   }
   

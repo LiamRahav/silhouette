@@ -17,7 +17,7 @@ class NSDefaultsManager {
     userDefaults.setDouble(newHighscore, forKey: HIGHSCORE_KEY)
     // Save the high score to GameCenter as well
     var scoreReporter = GKScore(leaderboardIdentifier: "SilhouetteHighScoreLeaderboard")
-    scoreReporter.value = Int64(newHighscore)
+    scoreReporter.value = Int64(newHighscore * 10)
     var scoreArray: [GKScore] = [scoreReporter]
     GKScore.reportScores(scoreArray, withCompletionHandler: {(error: NSError!) -> Void in
       if error != nil {

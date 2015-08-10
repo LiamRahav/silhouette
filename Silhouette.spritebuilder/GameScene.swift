@@ -16,10 +16,11 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   weak var scoreLabel: CCLabelTTF!
   weak var pauseScreen: PauseScreen!
   weak var gameOverScreen: GameOverScreen!
+  weak var flash: CCNodeColor!
   // Obstacle related logic
   var obstacleArray: [Obstacle] = []
   var glyphDetector: WTMGlyphDetector!
-  let numberOfObstaclesInArray = 6
+  let numberOfObstaclesInArray = 15
   var shouldCollide = true
   // Scrolling related logic
   var shouldMove = true
@@ -28,7 +29,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   let startingObstaclePosition = 640
   var lastObstaclePosition = 0
   var lastObstacleNodePosition: CGFloat = 0
-  var timeBeforeMoveToFront: Double = 4
+  var timeBeforeMoveToFront: Double = 7.5
   // Timer related logic
   var timer: Double = 0
   var totalTime: Double = 1
@@ -143,7 +144,6 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
 
   // MARK: - Callbacks
   func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, character: CCNode!, obstacle: CCNode!) -> ObjCBool {
-    println("COLLISION DETECTED")
     if shouldCollide {
      triggerGameOver()
     } else {
@@ -153,8 +153,6 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   }
 
   func triggerGameOver() {
-    // Spawn the dope particle effects
-    ParticleEffects.createDeathParticles(character, asChildOf: self)
     // Stop the sprite from moving and shapes from being detected
     shouldMove = false
     glyphDetector.removeAllGlyphs()
@@ -173,12 +171,18 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   func gameOverHackSolution() {
     // Move the gameOverScreen to the middle
     animationManager.runAnimationsForSequenceNamed("Game Over")
+    schedule("makeFlashInvisible", interval: 0.5)
     let formattedString = NSString(format: "%.1f", NSDefaultsManager.getHighscore())
     gameOverScreen.highscoreLabel.string = "High Score: \(formattedString)m"
     gameOverScreen.scoreLabel.string = "Score: \(scoreLabel.string)"
     userInteractionEnabled = false
     
     unschedule("gameOverHackSolution")
+  }
+  
+  func makeFlashInvisible() {
+    flash.visible = false
+    unschedule("makeFlashInvisible")
   }
   
   func glyphDetected(glyph: WTMGlyph!, withScore score: Float) {
@@ -214,7 +218,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     obstacleArray[obstacleArray.count - 1].animationManager.runAnimationsForSequenceNamed("Default Timeline")
     for o in obstacleArray {
       if o.shapeImage.spriteFrame == nil {
-        o.shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/\(o.currentShape.toString.lowercaseString).png")
+        o.shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/shapes/\(o.currentShape.toString.lowercaseString).png")
       }
     }
     self.unschedule("moveLastObstacleToFront")

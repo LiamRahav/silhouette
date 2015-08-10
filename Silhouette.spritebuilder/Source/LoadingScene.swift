@@ -5,8 +5,8 @@ class LoadingScene: CCNode {
   var gameScene: CCScene!
   
   func didLoadFromCCB() {
-    schedule("goToGame", interval: 1.5)
-    schedule("startLoading", interval: 0.75)
+    schedule("goToGame", interval: 1)
+    schedule("startLoading", interval: 0.5)
   }
   
   func startLoading() {
