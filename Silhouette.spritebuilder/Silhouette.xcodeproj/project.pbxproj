@@ -118,12 +118,13 @@
 		FA266CA91B445200007BB050 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FA266CA81B445200007BB050 /* Podfile */; };
 		FA27A8F21B50123D00D444ED /* ParticleEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27A8F11B50123D00D444ED /* ParticleEffects.swift */; };
 		FA4A797F1B7A4B6600046F5F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA4A797E1B7A4B6600046F5F /* Images.xcassets */; };
+		FA4A79821B7A748200046F5F /* Disquiet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA4A79801B7A748200046F5F /* Disquiet.mp3 */; };
+		FA4A79861B7A752D00046F5F /* flash.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA4A79851B7A752D00046F5F /* flash.wav */; };
 		FA703DA11B42C8A700E615E0 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA703DA01B42C8A700E615E0 /* Obstacle.swift */; };
 		FA703DA71B42CFF200E615E0 /* JSON in Resources */ = {isa = PBXBuildFile; fileRef = FA703DA61B42CFF200E615E0 /* JSON */; };
 		FA9728C51B56964200D8FC8F /* NSDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */; };
 		FA9E00791B5D69A800ECEB76 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E00781B5D69A800ECEB76 /* SettingsScene.swift */; };
 		FA9E007D1B5D8B2300ECEB76 /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E007C1B5D8B2300ECEB76 /* CreditsScene.swift */; };
-		FAA608351B417D6800AB3889 /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = FAA608341B417D6800AB3889 /* Audio */; };
 		FAA8E4131B73E27E00B1CE57 /* LoadingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8E4121B73E27E00B1CE57 /* LoadingScene.swift */; };
 		FAC21DDB1B41C74B00CF1F82 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */; };
 		FACC11ED1B54367D00BA60F3 /* GameOverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC11EC1B54367D00BA60F3 /* GameOverScreen.swift */; };
@@ -284,12 +285,13 @@
 		FA266CA81B445200007BB050 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		FA27A8F11B50123D00D444ED /* ParticleEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleEffects.swift; sourceTree = "<group>"; };
 		FA4A797E1B7A4B6600046F5F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FA4A79801B7A748200046F5F /* Disquiet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Disquiet.mp3; sourceTree = "<group>"; };
+		FA4A79851B7A752D00046F5F /* flash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flash.wav; sourceTree = "<group>"; };
 		FA703DA01B42C8A700E615E0 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Obstacle.swift; path = Source/Obstacle.swift; sourceTree = "<group>"; };
 		FA703DA61B42CFF200E615E0 /* JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSON; sourceTree = "<group>"; };
 		FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDefaultsManager.swift; path = Source/NSDefaultsManager.swift; sourceTree = "<group>"; };
 		FA9E00781B5D69A800ECEB76 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsScene.swift; path = Source/SettingsScene.swift; sourceTree = "<group>"; };
 		FA9E007C1B5D8B2300ECEB76 /* CreditsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreditsScene.swift; path = Source/CreditsScene.swift; sourceTree = "<group>"; };
-		FAA608341B417D6800AB3889 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 		FAA8E4121B73E27E00B1CE57 /* LoadingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingScene.swift; path = Source/LoadingScene.swift; sourceTree = "<group>"; };
 		FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = Source/MenuScene.swift; sourceTree = "<group>"; };
 		FACC11EC1B54367D00BA60F3 /* GameOverScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScreen.swift; sourceTree = "<group>"; };
@@ -641,8 +643,8 @@
 			isa = PBXGroup;
 			children = (
 				FA4A797E1B7A4B6600046F5F /* Images.xcassets */,
+				FA4A79841B7A748A00046F5F /* Audio */,
 				FA703DA61B42CFF200E615E0 /* JSON */,
-				FAA608341B417D6800AB3889 /* Audio */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
 				5B12100D197483EE004C1E1D /* res */,
 				B73789911807667A0076A88C /* Icons */,
@@ -699,6 +701,15 @@
 				FA266C921B443D79007BB050 /* JSONRepresentation.h */,
 			);
 			name = "Don't Touch";
+			sourceTree = "<group>";
+		};
+		FA4A79841B7A748A00046F5F /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				FA4A79851B7A752D00046F5F /* flash.wav */,
+				FA4A79801B7A748200046F5F /* Disquiet.mp3 */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 		FA7C3FE21B457D150077846D /* Scenes */ = {
@@ -909,6 +920,7 @@
 			files = (
 				FA703DA71B42CFF200E615E0 /* JSON in Resources */,
 				FA4A797F1B7A4B6600046F5F /* Images.xcassets in Resources */,
+				FA4A79821B7A748200046F5F /* Disquiet.mp3 in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
@@ -918,7 +930,7 @@
 				B71F5916188484E7003F4D28 /* iPhone-old@2x.png in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				FA266CA91B445200007BB050 /* Podfile in Resources */,
-				FAA608351B417D6800AB3889 /* Audio in Resources */,
+				FA4A79861B7A752D00046F5F /* flash.wav in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,

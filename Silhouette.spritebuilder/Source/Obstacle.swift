@@ -13,8 +13,7 @@ enum Glyph {
   case Z
   case L
   case V
-//  case Lightning
-  
+
   // Convert to string by typing shape.toString
   var toString: String {
     switch self {
@@ -22,7 +21,6 @@ enum Glyph {
       case .Triangle: return "Triangle"
       case .L: return "L"
       case .V: return "V"
-//      case .Lightning: return "Lightning"
     }
   }
   
@@ -49,7 +47,6 @@ class Obstacle: CCNode {
     "Z" : Glyph.Z,
     "L" :Glyph.L,
     "V" : Glyph.V,
-//    "Lightning": Glyph.Lightning
   ]
   
   func didLoadFromCCB() {

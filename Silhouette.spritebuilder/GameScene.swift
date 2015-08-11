@@ -12,6 +12,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   weak var line: CCNode!
   weak var character: CCSprite!
   weak var obstacleNode: CCNode!
+  weak var rightCastleNode: CCNode!
   weak var gamePhysicsNode: CCPhysicsNode!
   weak var scoreLabel: CCLabelTTF!
   weak var pauseScreen: PauseScreen!
@@ -42,7 +43,6 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   let timeForFadeOut = 0.5
   // Other variables
   var audio = OALSimpleAudio.sharedInstance()
-  let audioFiles = ["disquiet" : "Disquiet.mp3"]
   var score: Double = 0
   var lastObstacleForDisappear: Obstacle?
   var shouldPause = true
@@ -56,13 +56,6 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     setUpGlyphDetector()
     setUpObstacleArray(numberOfObstacles: numberOfObstaclesInArray)
   }
-  
-  override func onEnter() {
-    super.onEnter()
-    Mixpanel.sharedInstance().track("Loading Time")
-    Mixpanel.sharedInstance().timeEvent("Time Before First Death")
-  }
-  
 
   func setUpGlyphDetector() {
     glyphDetector = WTMGlyphDetector.detector() as! WTMGlyphDetector
@@ -122,11 +115,17 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       timer += delta
       if timer > totalTime - timeForFadeOut {
         lastObstacleForDisappear!.shapeImage.runAction(CCActionFadeOut(duration: timeForFadeOut))
-        lastObstacleForDisappear = nil
+        schedule("makeShapeImageNil", interval: timeForFadeOut)
         timerStarted = false
         timer = 0
       }
     }
+  }
+  
+  func makeShapeImageNil() {
+    lastObstacleForDisappear!.shapeImage.spriteFrame = nil
+    lastObstacleForDisappear = nil
+    unschedule("makeShapeImageNil")
   }
   
   override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -159,7 +158,6 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, character: CCNode!, obstacle: CCNode!) -> ObjCBool {
     if shouldCollide {
       triggerGameOver()
-      Mixpanel.sharedInstance().track("Time Before First Death")
       Mixpanel.sharedInstance().track("Number of Obstacles Solved", properties: ["Number": objectsPassed])
     } else {
       shouldCollide = true
@@ -169,6 +167,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   }
 
   func triggerGameOver() {
+    audio.playEffect("flash.wav")
     // Stop the sprite from moving and shapes from being detected
     shouldMove = false
     glyphDetector.removeAllGlyphs()

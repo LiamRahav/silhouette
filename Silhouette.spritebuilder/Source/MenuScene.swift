@@ -16,7 +16,8 @@ class MenuScene: CCNode {
   
   func didLoadFromCCB() {
     userInteractionEnabled = true
-    audio.preloadBg("Audio/Disquiet.mp3")
+    audio.preloadBg("Disquiet.mp3")
+    audio.preloadEffect("flash.wav")
     if !audio.bgPlaying && NSDefaultsManager.shouldPlayBG() {
       audio.playBg()
     }
@@ -34,7 +35,6 @@ class MenuScene: CCNode {
     audio.bgVolume = 0.25
     let loadingScreen = CCBReader.loadAsScene("LoadingScene")
     CCDirector.sharedDirector().replaceScene(loadingScreen)
-    Mixpanel.sharedInstance().timeEvent("Loading Time")
   }
   
   func settings() {
