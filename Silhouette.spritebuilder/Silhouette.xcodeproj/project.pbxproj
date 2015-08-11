@@ -117,6 +117,7 @@
 		FA266CA71B445114007BB050 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA266CA61B445114007BB050 /* libsqlite3.dylib */; };
 		FA266CA91B445200007BB050 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FA266CA81B445200007BB050 /* Podfile */; };
 		FA27A8F21B50123D00D444ED /* ParticleEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27A8F11B50123D00D444ED /* ParticleEffects.swift */; };
+		FA4A797F1B7A4B6600046F5F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA4A797E1B7A4B6600046F5F /* Images.xcassets */; };
 		FA703DA11B42C8A700E615E0 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA703DA01B42C8A700E615E0 /* Obstacle.swift */; };
 		FA703DA71B42CFF200E615E0 /* JSON in Resources */ = {isa = PBXBuildFile; fileRef = FA703DA61B42CFF200E615E0 /* JSON */; };
 		FA9728C51B56964200D8FC8F /* NSDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */; };
@@ -282,6 +283,7 @@
 		FA266CA61B445114007BB050 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FA266CA81B445200007BB050 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		FA27A8F11B50123D00D444ED /* ParticleEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleEffects.swift; sourceTree = "<group>"; };
+		FA4A797E1B7A4B6600046F5F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA703DA01B42C8A700E615E0 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Obstacle.swift; path = Source/Obstacle.swift; sourceTree = "<group>"; };
 		FA703DA61B42CFF200E615E0 /* JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSON; sourceTree = "<group>"; };
 		FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDefaultsManager.swift; path = Source/NSDefaultsManager.swift; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA4A797E1B7A4B6600046F5F /* Images.xcassets */,
 				FA703DA61B42CFF200E615E0 /* JSON */,
 				FAA608341B417D6800AB3889 /* Audio */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
@@ -905,6 +908,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA703DA71B42CFF200E615E0 /* JSON in Resources */,
+				FA4A797F1B7A4B6600046F5F /* Images.xcassets in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
