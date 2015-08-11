@@ -46,6 +46,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   var score: Double = 0
   var lastObstacleForDisappear: Obstacle?
   var shouldPause = true
+  var objectsPassed = 0
   
   // MARK: - Setup Functions
   func didLoadFromCCB() {
@@ -54,6 +55,12 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     gameOverScreen.parentGameScene = self
     setUpGlyphDetector()
     setUpObstacleArray(numberOfObstacles: numberOfObstaclesInArray)
+  }
+  
+  override func onEnter() {
+    super.onEnter()
+    Mixpanel.sharedInstance().track("Loading Time")
+    Mixpanel.sharedInstance().timeEvent("Time Before First Death")
   }
   
 
@@ -145,9 +152,12 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   // MARK: - Callbacks
   func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, character: CCNode!, obstacle: CCNode!) -> ObjCBool {
     if shouldCollide {
-     triggerGameOver()
+      triggerGameOver()
+      Mixpanel.sharedInstance().track("Time Before First Death")
+      Mixpanel.sharedInstance().track("Number of Obstacles Solved", properties: ["Number": objectsPassed])
     } else {
       shouldCollide = true
+      objectsPassed++
     }
     return true
   }
@@ -197,7 +207,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   }
   
   func shuffleObstacleArray() {
-    obstacleArray[0].shapeImage.spriteFrame = nil
+    println(obstacleArray[0].positionInPoints.x)
     // Add current obstacle to the end of the array
     obstacleArray.append(obstacleArray[0])
     // Delete it from the front of the array
@@ -212,6 +222,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     // Set the current obstacle's position forward
     obstacleArray[obstacleArray.count - 1].position.x = CGFloat(lastObstaclePosition + offset)
     lastObstaclePosition = Int(obstacleArray[obstacleArray.count - 1].position.x)
+    println(obstacleArray[obstacleArray.count - 1].positionInPoints.x)
     // Randomize current obstacle
     obstacleArray[obstacleArray.count - 1].randomizeCurrentShape()
     // Make sure that all obstacles have an image loaded

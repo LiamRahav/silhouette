@@ -17,4 +17,9 @@ class PauseScreen: CCNode {
     parentNode.shouldMove = true
     parentNode.shouldPause = true
   }
+  
+  func backToMenu() {
+    Mixpanel.sharedInstance().track("Back To Menu From Pause Screen")
+    CCDirector.sharedDirector().replaceScene(CCBReader.loadAsScene("MenuScene"))
+  }
 }

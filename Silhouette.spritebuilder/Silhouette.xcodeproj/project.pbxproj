@@ -117,7 +117,6 @@
 		FA266CA71B445114007BB050 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA266CA61B445114007BB050 /* libsqlite3.dylib */; };
 		FA266CA91B445200007BB050 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FA266CA81B445200007BB050 /* Podfile */; };
 		FA27A8F21B50123D00D444ED /* ParticleEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27A8F11B50123D00D444ED /* ParticleEffects.swift */; };
-		FA6D76F71B73A67300732A7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA6D76F61B73A67300732A7F /* GoogleService-Info.plist */; };
 		FA703DA11B42C8A700E615E0 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA703DA01B42C8A700E615E0 /* Obstacle.swift */; };
 		FA703DA71B42CFF200E615E0 /* JSON in Resources */ = {isa = PBXBuildFile; fileRef = FA703DA61B42CFF200E615E0 /* JSON */; };
 		FA9728C51B56964200D8FC8F /* NSDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */; };
@@ -283,7 +282,6 @@
 		FA266CA61B445114007BB050 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FA266CA81B445200007BB050 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		FA27A8F11B50123D00D444ED /* ParticleEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleEffects.swift; sourceTree = "<group>"; };
-		FA6D76F61B73A67300732A7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA703DA01B42C8A700E615E0 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Obstacle.swift; path = Source/Obstacle.swift; sourceTree = "<group>"; };
 		FA703DA61B42CFF200E615E0 /* JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSON; sourceTree = "<group>"; };
 		FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDefaultsManager.swift; path = Source/NSDefaultsManager.swift; sourceTree = "<group>"; };
@@ -578,7 +576,6 @@
 		B77F1B2517B978D7009739AE = {
 			isa = PBXGroup;
 			children = (
-				FA6D76F61B73A67300732A7F /* GoogleService-Info.plist */,
 				FA266CA81B445200007BB050 /* Podfile */,
 				FA266C931B443E32007BB050 /* Don't Touch */,
 				B737893C1807616C0076A88C /* Source */,
@@ -924,7 +921,6 @@
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
-				FA6D76F71B73A67300732A7F /* GoogleService-Info.plist in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,
 			);
@@ -1360,14 +1356,17 @@
 					"Source/libs/cocos2d-iphone/external/Chipmunk/include",
 					"\"Source/libs/cocos2d-iphone/cocos2d-ui\"/**",
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = Silhouette;
 				PROVISIONING_PROFILE = "";
@@ -1401,13 +1400,16 @@
 					"Source/libs/cocos2d-iphone/external/Chipmunk/include",
 					"\"Source/libs/cocos2d-iphone/cocos2d-ui\"/**",
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = Silhouette;
 				PROVISIONING_PROFILE = "";

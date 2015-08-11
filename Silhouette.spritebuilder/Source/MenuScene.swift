@@ -28,16 +28,20 @@ class MenuScene: CCNode {
   }
   
   func play() {
+    Mixpanel.sharedInstance().track("Play Button Pressed")
     audio.bgVolume = 0.25
     let loadingScreen = CCBReader.loadAsScene("LoadingScene")
     CCDirector.sharedDirector().replaceScene(loadingScreen)
+    Mixpanel.sharedInstance().timeEvent("Loading Time")
   }
   
   func settings() {
+    Mixpanel.sharedInstance().track("Settings Button Pressed")
     animationManager.runAnimationsForSequenceNamed("Settings")
   }
   
   func leaderboard() {
+     Mixpanel.sharedInstance().track("Leaderboard Button Pressed")
     showLeaderboard()
   }
   
