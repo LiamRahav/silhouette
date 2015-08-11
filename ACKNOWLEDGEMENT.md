@@ -10,6 +10,8 @@ Kevin MacLeod - [website](http://incompetech.com):
 
 - Disquiet
 
+"Flash Remix" by KevinT1001 
+
 ------------------------------------
 
 ## Graphics

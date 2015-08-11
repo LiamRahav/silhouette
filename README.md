@@ -27,7 +27,7 @@ For this reason, **all assets used are free for use** by anyone. However, you **
 
 -------------------------
 
-Sorry for all the legal talk, but it's necessary when open sourcing an application on the market. It is important to not that you **cannot, under any circumstance, introduce a version of this application or a build based off this application  to the App Store which pulls in any kind of revenue** If you have any questions feel free to send me a message. If you see any issues in the code, feel free to open up an issue. And, most importantly, feel to clone or branch this repo and see what you can do with the app. 
+Sorry for all the legal talk, but it's necessary when open sourcing an application on the market. It is important to not that you **cannot, under any circumstance, introduce a version of this application or a build based off this application  to the App Store which pulls in any kind of revenue**. If you have any questions feel free to send me a message. If you see any issues in the code, feel free to open up an issue. And, most importantly, feel to clone or branch this repo and take a look at how I implemented the code.
 
 Also a quick note, I have a file called Keys.swift that I have ignored with all my API keys and such, so if you are implementing something similar it is important to keep that in mind.
 
