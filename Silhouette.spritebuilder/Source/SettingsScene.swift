@@ -11,6 +11,7 @@ class SettingsScene: CCNode {
   weak var backgroundMusicOffButton: CCButton!
   weak var particleEffectsOnButton: CCButton!
   weak var particleEffectsOffButton: CCButton!
+  var parentNode: MenuScene!
   
   func didLoadFromCCB() {
     if NSDefaultsManager.shouldPlayBG() {
@@ -58,5 +59,6 @@ class SettingsScene: CCNode {
   
   func goToCredits() {
     self.parent.animationManager.runAnimationsForSequenceNamed("Credits")
+    self.parentNode.creditsScene.animationManager.runAnimationsForSequenceNamed("Credits Scroll")
   }
 }

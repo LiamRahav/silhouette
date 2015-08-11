@@ -9,6 +9,8 @@ import GameKit
 
 class MenuScene: CCNode {
   weak var buttonsBox: CCLayoutBox!
+  weak var creditsScene: CreditsScene!
+  weak var settingsScene: SettingsScene!
   let audio = OALSimpleAudio.sharedInstance()
   var shouldRestart = false
   
@@ -38,6 +40,7 @@ class MenuScene: CCNode {
   func settings() {
     Mixpanel.sharedInstance().track("Settings Button Pressed")
     animationManager.runAnimationsForSequenceNamed("Settings")
+    settingsScene.parentNode = self
   }
   
   func leaderboard() {

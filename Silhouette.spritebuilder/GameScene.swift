@@ -76,6 +76,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     }
     // Load the reverse triangle to make the triangle detection work properly
     glyphDetector.addGlyphFromJSON(Obstacle.convertNonGlyphToJSON("reversetriangle"), name: "ReverseTriangle")
+    glyphDetector.addGlyphFromJSON(Obstacle.convertNonGlyphToJSON("trianglefromtop"), name: "TriangleFromTop")
   }
 
   func setUpObstacleArray(#numberOfObstacles: Int) {
@@ -98,6 +99,11 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     if shouldMove {
       // Move the node that spawns the obstacles left to simulate movement
       obstacleNode.position = ccp(obstacleNode.position.x - CGFloat(scrollSpeed) , obstacleNode.position.y)
+      // Check if the obstacle needs to move forward
+      let currentObstaclePos = convertToWorldSpace(obstacleArray[0].position).x + CGFloat(obstacleArray[0].contentSize.width / 2)
+      if  currentObstaclePos < 0 {
+        moveLastObstacleToFront()
+      }
       // The score is equal to the difference of the obstacle node's movement divided by 100 to make it digestible
       score += abs(Double(obstacleNode.position.x - lastObstacleNodePosition) / 100)
       let formattedString = NSString(format: "%.1f", score)
@@ -199,21 +205,30 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     // The glyph is a match if score is over 1.55 and the glyph returned is the same as the intended glyph
     if score > 1.8  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
       obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
-      shuffleObstacleArray()
-    } else if score > 1.8 && glyph.name.lowercaseString == "reversetriangle" && obstacleArray[0].currentShape.toString.lowercaseString == "triangle" {
-      obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
-      shuffleObstacleArray()
+      shouldCollide = false
+      moveLastObstacleToEndOfArray()
     }
+    
+    else if score > 1.8 && glyph.name.lowercaseString == "reversetriangle" && obstacleArray[0].currentShape.toString.lowercaseString == "triangle" {
+      obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
+      shouldCollide = false
+      moveLastObstacleToEndOfArray()
+    }
+    
+    else if score > 1.8 && glyph.name.lowercaseString == "trianglefromtop" && obstacleArray[0].currentShape.toString.lowercaseString == "triangle" {
+      obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
+      shouldCollide = false
+      moveLastObstacleToEndOfArray()
+    }
+    
   }
   
-  func shuffleObstacleArray() {
-    println(obstacleArray[0].positionInPoints.x)
+  func moveLastObstacleToEndOfArray() {
     // Add current obstacle to the end of the array
     obstacleArray.append(obstacleArray[0])
     // Delete it from the front of the array
     obstacleArray.removeAtIndex(0)
     // Schedule the movement of the last one to the front so that the sprite can move through
-    self.schedule("moveLastObstacleToFront", interval: CCTime(timeBeforeMoveToFront))
     shouldCollide = false
     timer = 0
   }
@@ -222,7 +237,6 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     // Set the current obstacle's position forward
     obstacleArray[obstacleArray.count - 1].position.x = CGFloat(lastObstaclePosition + offset)
     lastObstaclePosition = Int(obstacleArray[obstacleArray.count - 1].position.x)
-    println(obstacleArray[obstacleArray.count - 1].positionInPoints.x)
     // Randomize current obstacle
     obstacleArray[obstacleArray.count - 1].randomizeCurrentShape()
     // Make sure that all obstacles have an image loaded
@@ -232,7 +246,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
         o.shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/shapes/\(o.currentShape.toString.lowercaseString).png")
       }
     }
-    self.unschedule("moveLastObstacleToFront")
+    
   }
   
   func pause() {

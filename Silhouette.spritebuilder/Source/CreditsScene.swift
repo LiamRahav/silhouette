@@ -9,5 +9,6 @@ import Foundation
 class CreditsScene: CCNode {
   func backToSettings() {
     self.parent.animationManager.runAnimationsForSequenceNamed("Credits Reverse")
+    animationManager.runAnimationsForSequenceNamed("Default Timeline")
   }
 }
