@@ -122,10 +122,12 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     if timerStarted && !isPaused {
       timer += delta
       if timer > totalTime - timeForFadeOut {
-        lastObstacleForDisappear!.shapeImage.runAction(CCActionFadeOut(duration: timeForFadeOut))
-        schedule("makeShapeImageNil", interval: timeForFadeOut)
-        timerStarted = false
-        timer = 0
+        if lastObstacleForDisappear != nil {
+          lastObstacleForDisappear!.shapeImage.runAction(CCActionFadeOut(duration: timeForFadeOut))
+          schedule("makeShapeImageNil", interval: timeForFadeOut)
+          timerStarted = false
+          timer = 0
+        }
       }
     }
   }
