@@ -12,7 +12,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   weak var line: CCNode!
   weak var character: CCSprite!
   weak var obstacleNode: CCNode!
-  weak var rightCastleNode: CCNode!
+  weak var leftObstacleNode: CCNode!
   weak var gamePhysicsNode: CCPhysicsNode!
   weak var scoreLabel: CCLabelTTF!
   weak var pauseScreen: PauseScreen!
@@ -20,6 +20,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   weak var flash: CCNodeColor!
   // Obstacle related logic
   var obstacleArray: [Obstacle] = []
+  var leftObstacleArray: [CCNode] = []
   var glyphDetector: WTMGlyphDetector!
   let numberOfObstaclesInArray = 15
   var shouldCollide = true
@@ -76,13 +77,19 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     // Spawn the set number of obstacles
     for offsetMultiplier in 0..<numberOfObstacles {
       let newObstacle = CCBReader.load("Obstacle") as! Obstacle
+      let newLeftObstacle = CCBReader.load("LeftObstacle") as CCNode
       // Make the obstacle a physics sensor so it can detect collisions but not stop the sprite
       newObstacle.physicsBody.sensor = true
       newObstacle.randomizeCurrentShape()
       // Each obstacle's position is equal to the last's plus the offset
       newObstacle.position = CGPoint(x: startingObstaclePosition + (offsetMultiplier * offset), y: 33)
+      newLeftObstacle.position = CGPoint(x: startingObstaclePosition + (offsetMultiplier * offset), y: 33)
+      // Add them to the arrays and parents respectively
       obstacleArray.append(newObstacle)
+      leftObstacleArray.append(newLeftObstacle)
       obstacleNode.addChild(newObstacle)
+      leftObstacleNode.addChild(newLeftObstacle)
+      // Set the first last position equal to the first obstacle
       lastObstaclePosition = Int(newObstacle.position.x)
     }
   }
@@ -92,6 +99,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     if shouldMove {
       // Move the node that spawns the obstacles left to simulate movement
       obstacleNode.position = ccp(obstacleNode.position.x - CGFloat(scrollSpeed) , obstacleNode.position.y)
+      leftObstacleNode.position = ccp(obstacleNode.position.x - CGFloat(scrollSpeed) , obstacleNode.position.y)
       // Check if the obstacle needs to move forward
       let currentObstaclePos = convertToWorldSpace(obstacleArray[0].position).x + CGFloat(obstacleArray[0].contentSize.width / 2)
       if  currentObstaclePos < 0 {
@@ -203,19 +211,19 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   func glyphDetected(glyph: WTMGlyph!, withScore score: Float) {
     // The glyph is a match if score is over 1.55 and the glyph returned is the same as the intended glyph
     if score > 1.8  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
-      obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
+      leftObstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
       shouldCollide = false
       moveLastObstacleToEndOfArray()
     }
     
     else if score > 1.8 && glyph.name.lowercaseString == "reversetriangle" && obstacleArray[0].currentShape.toString.lowercaseString == "triangle" {
-      obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
+      leftObstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
       shouldCollide = false
       moveLastObstacleToEndOfArray()
     }
     
     else if score > 1.8 && glyph.name.lowercaseString == "trianglefromtop" && obstacleArray[0].currentShape.toString.lowercaseString == "triangle" {
-      obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
+      leftObstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
       shouldCollide = false
       moveLastObstacleToEndOfArray()
     }
@@ -225,8 +233,10 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   func moveLastObstacleToEndOfArray() {
     // Add current obstacle to the end of the array
     obstacleArray.append(obstacleArray[0])
+    leftObstacleArray.append(leftObstacleArray[0])
     // Delete it from the front of the array
     obstacleArray.removeAtIndex(0)
+    leftObstacleArray.removeAtIndex(0)
     // Schedule the movement of the last one to the front so that the sprite can move through
     shouldCollide = false
     timer = 0
@@ -235,11 +245,12 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   func moveLastObstacleToFront() {
     // Set the current obstacle's position forward
     obstacleArray[obstacleArray.count - 1].position.x = CGFloat(lastObstaclePosition + offset)
+    leftObstacleArray[leftObstacleArray.count - 1].position.x = CGFloat(lastObstaclePosition + offset)
     lastObstaclePosition = Int(obstacleArray[obstacleArray.count - 1].position.x)
     // Randomize current obstacle
     obstacleArray[obstacleArray.count - 1].randomizeCurrentShape()
     // Make sure that all obstacles have an image loaded
-    obstacleArray[obstacleArray.count - 1].animationManager.runAnimationsForSequenceNamed("Default Timeline")
+    leftObstacleArray[leftObstacleArray.count - 1].animationManager.runAnimationsForSequenceNamed("Default Timeline")
     for o in obstacleArray {
       if o.shapeImage.spriteFrame == nil {
         o.shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/shapes/\(o.currentShape.toString.lowercaseString).png")
