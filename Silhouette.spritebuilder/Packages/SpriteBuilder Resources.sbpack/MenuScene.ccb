@@ -572,7 +572,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.76272350549697876</real>
+							<real>0.76183050870895386</real>
 							<real>0.18000000715255737</real>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -1724,7 +1724,7 @@
 									<key>type</key>
 									<integer>10</integer>
 									<key>value</key>
-									<real>0.10000000149011612</real>
+									<real>0.11999999731779099</real>
 								</dict>
 							</array>
 							<key>name</key>
@@ -2168,7 +2168,7 @@
 							<real>1</real>
 							<real>1</real>
 							<real>1</real>
-							<real>0.10000000149011612</real>
+							<real>0.11999999731779099</real>
 						</array>
 					</dict>
 					<dict>
@@ -2179,7 +2179,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.10000000149011612</real>
+						<real>0.11999999731779099</real>
 					</dict>
 				</array>
 				<key>seqExpanded</key>
@@ -2798,7 +2798,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>4</real>
+			<real>2.8666665554046631</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

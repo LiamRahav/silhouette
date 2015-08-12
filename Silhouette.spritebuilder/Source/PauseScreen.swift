@@ -20,6 +20,9 @@ class PauseScreen: CCNode {
   
   func backToMenu() {
     Mixpanel.sharedInstance().track("Back To Menu From Pause Screen")
+    if parentNode.score > NSDefaultsManager.getHighscore() {
+      NSDefaultsManager.setHighscore(parentNode.score)
+    }
     CCDirector.sharedDirector().replaceScene(CCBReader.loadAsScene("MenuScene"))
   }
 }

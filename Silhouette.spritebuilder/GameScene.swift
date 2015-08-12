@@ -177,6 +177,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   }
 
   func triggerGameOver() {
+    println("GAME OVER")
     audio.playEffect("flash.wav")
     // Stop the sprite from moving and shapes from being detected
     shouldMove = false

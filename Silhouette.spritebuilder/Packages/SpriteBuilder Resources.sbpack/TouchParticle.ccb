@@ -212,16 +212,16 @@
 				<key>value</key>
 				<array>
 					<array>
-						<real>0.57138466835021973</real>
-						<real>0.57480472326278687</real>
-						<real>0.57250028848648071</real>
-						<real>0.69999998807907104</real>
+						<real>0.93333333730697632</real>
+						<real>0.14509804546833038</real>
+						<real>0.82745099067687988</real>
+						<real>1</real>
 					</array>
 					<array>
-						<real>0.93170833587646484</real>
-						<real>0.94695991277694702</real>
-						<real>0.82745838165283203</real>
-						<real>0.86000001430511475</real>
+						<real>0.34509804844856262</real>
+						<real>0.33725491166114807</real>
+						<real>0.83921569585800171</real>
+						<real>1</real>
 					</array>
 				</array>
 			</dict>
@@ -233,15 +233,15 @@
 				<key>value</key>
 				<array>
 					<array>
-						<real>0.83255785703659058</real>
-						<real>0.89539515972137451</real>
-						<real>0.028460411354899406</real>
-						<real>0.61000001430511475</real>
+						<real>0.7764706015586853</real>
+						<real>0.26274511218070984</real>
+						<real>0.98823529481887817</real>
+						<real>1</real>
 					</array>
 					<array>
-						<real>0.20832681655883789</real>
-						<real>0.99195283651351929</real>
-						<real>1</real>
+						<real>0.34509804844856262</real>
+						<real>0.33725491166114807</real>
+						<real>0.83921569585800171</real>
 						<real>1</real>
 					</array>
 				</array>
