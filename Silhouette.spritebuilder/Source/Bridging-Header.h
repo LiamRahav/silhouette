@@ -17,4 +17,5 @@
 
 #import "libs/WTMGlyph/WTMGlyphDetector.h"
 #import "Mixpanel.h"
+#import "iAdHelper.h"
 //#import "Google/Analytics.h"

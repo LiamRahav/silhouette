@@ -121,6 +121,9 @@
 		FA4A797F1B7A4B6600046F5F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA4A797E1B7A4B6600046F5F /* Images.xcassets */; };
 		FA4A79821B7A748200046F5F /* Disquiet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA4A79801B7A748200046F5F /* Disquiet.mp3 */; };
 		FA4A79861B7A752D00046F5F /* flash.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA4A79851B7A752D00046F5F /* flash.wav */; };
+		FA59E1781B7E44C2001B40F5 /* iAdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E1771B7E44C2001B40F5 /* iAdHelper.m */; };
+		FA59E17A1B7E4538001B40F5 /* iAdHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59E1791B7E4538001B40F5 /* iAdHandler.swift */; };
+		FA59E17D1B7E469D001B40F5 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = FA59E17C1B7E469D001B40F5 /* close.png */; };
 		FA703DA11B42C8A700E615E0 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA703DA01B42C8A700E615E0 /* Obstacle.swift */; };
 		FA703DA71B42CFF200E615E0 /* JSON in Resources */ = {isa = PBXBuildFile; fileRef = FA703DA61B42CFF200E615E0 /* JSON */; };
 		FA9728C51B56964200D8FC8F /* NSDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */; };
@@ -290,6 +293,10 @@
 		FA4A797E1B7A4B6600046F5F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA4A79801B7A748200046F5F /* Disquiet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Disquiet.mp3; sourceTree = "<group>"; };
 		FA4A79851B7A752D00046F5F /* flash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flash.wav; sourceTree = "<group>"; };
+		FA59E1761B7E4493001B40F5 /* iAdHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = iAdHelper.h; path = Source/iAdHelper.h; sourceTree = "<group>"; };
+		FA59E1771B7E44C2001B40F5 /* iAdHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iAdHelper.m; path = Source/iAdHelper.m; sourceTree = "<group>"; };
+		FA59E1791B7E4538001B40F5 /* iAdHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iAdHandler.swift; sourceTree = "<group>"; };
+		FA59E17C1B7E469D001B40F5 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		FA703DA01B42C8A700E615E0 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Obstacle.swift; path = Source/Obstacle.swift; sourceTree = "<group>"; };
 		FA703DA61B42CFF200E615E0 /* JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSON; sourceTree = "<group>"; };
 		FA9728C41B56964200D8FC8F /* NSDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDefaultsManager.swift; path = Source/NSDefaultsManager.swift; sourceTree = "<group>"; };
@@ -549,6 +556,7 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				FA7C3FE21B457D150077846D /* Scenes */,
 				FA0F37571B5E83A90091D99E /* Screens */,
+				FA59E17B1B7E4545001B40F5 /* Ad Handlers */,
 				FA703DA01B42C8A700E615E0 /* Obstacle.swift */,
 				FA27A8F11B50123D00D444ED /* ParticleEffects.swift */,
 				FAF8E6E11B5FDC3000A20625 /* DificultyManager.swift */,
@@ -647,6 +655,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA59E17C1B7E469D001B40F5 /* close.png */,
 				FA4A797E1B7A4B6600046F5F /* Images.xcassets */,
 				FA4A79841B7A748A00046F5F /* Audio */,
 				FA703DA61B42CFF200E615E0 /* JSON */,
@@ -715,6 +724,16 @@
 				FA4A79801B7A748200046F5F /* Disquiet.mp3 */,
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		FA59E17B1B7E4545001B40F5 /* Ad Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				FA59E1761B7E4493001B40F5 /* iAdHelper.h */,
+				FA59E1791B7E4538001B40F5 /* iAdHandler.swift */,
+				FA59E1771B7E44C2001B40F5 /* iAdHelper.m */,
+			);
+			name = "Ad Handlers";
 			sourceTree = "<group>";
 		};
 		FA7C3FE21B457D150077846D /* Scenes */ = {
@@ -933,6 +952,7 @@
 				FA266C701B443CBC007BB050 /* WTMGlyph in Resources */,
 				B71F5916188484E7003F4D28 /* iPhone-old@2x.png in Resources */,
 				FA266CA91B445200007BB050 /* Podfile in Resources */,
+				FA59E17D1B7E469D001B40F5 /* close.png in Resources */,
 				FA4A79861B7A752D00046F5F /* flash.wav in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
 				FA32D9281B7A806E00F86F1C /* Published-iOS in Resources */,
@@ -1060,6 +1080,7 @@
 				FA266C7B1B443D00007BB050 /* WTMGlyph.m in Sources */,
 				FA266C7C1B443D00007BB050 /* WTMGlyphDefaults.m in Sources */,
 				FA266C7D1B443D00007BB050 /* WTMGlyphDetector.m in Sources */,
+				FA59E1781B7E44C2001B40F5 /* iAdHelper.m in Sources */,
 				FACC11ED1B54367D00BA60F3 /* GameOverScreen.swift in Sources */,
 				FA266C7E1B443D00007BB050 /* WTMGlyphStroke.m in Sources */,
 				FA266C7F1B443D00007BB050 /* WTMGlyphTemplate.m in Sources */,
@@ -1067,6 +1088,7 @@
 				FA27A8F21B50123D00D444ED /* ParticleEffects.swift in Sources */,
 				FA266C801B443D00007BB050 /* WTMGlyphUtilities.m in Sources */,
 				FAF8E6E21B5FDC3000A20625 /* DificultyManager.swift in Sources */,
+				FA59E17A1B7E4538001B40F5 /* iAdHandler.swift in Sources */,
 				FA266C861B443D46007BB050 /* CDataScanner_Extensions.m in Sources */,
 				FA266C871B443D46007BB050 /* NSDictionary_JSONExtensions.m in Sources */,
 				FA266C881B443D46007BB050 /* CJSONDeserializer.m in Sources */,
@@ -1394,6 +1416,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1436,6 +1459,7 @@
 				PRODUCT_NAME = Silhouette;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

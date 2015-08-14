@@ -210,6 +210,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   }
   
   func gameOverHackSolution() {
+    iAdHandler.sharedInstance.displayInterstitialAd()
     // Move the gameOverScreen to the middle
     animationManager.runAnimationsForSequenceNamed("Game Over")
     schedule("makeFlashInvisible", interval: 0.5)
