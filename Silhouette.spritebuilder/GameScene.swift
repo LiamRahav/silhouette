@@ -5,6 +5,7 @@
 // Creative Commons Attribution-NonCommercial 4.0 International License.
 
 import Foundation
+import iAd
 
 class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   // MARK: - Variables
@@ -23,7 +24,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   var obstacleArray: [Obstacle] = []
   var leftObstacleArray: [CCNode] = []
   var glyphDetector: WTMGlyphDetector!
-  let numberOfObstaclesInArray = 6
+  let numberOfObstaclesInArray = 10
   var shouldCollide = true
   // Scrolling related logic
   var shouldMove = true
