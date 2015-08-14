@@ -116,6 +116,7 @@
 		FA27A8F21B50123D00D444ED /* ParticleEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27A8F11B50123D00D444ED /* ParticleEffects.swift */; };
 		FA32D9271B7A806E00F86F1C /* Published-Android in Resources */ = {isa = PBXBuildFile; fileRef = FA32D9251B7A806E00F86F1C /* Published-Android */; };
 		FA32D9281B7A806E00F86F1C /* Published-iOS in Resources */ = {isa = PBXBuildFile; fileRef = FA32D9261B7A806E00F86F1C /* Published-iOS */; };
+		FA401D241B7CE6EC009D4C13 /* TutorialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA401D231B7CE6EC009D4C13 /* TutorialScene.swift */; };
 		FA4A797F1B7A4B6600046F5F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA4A797E1B7A4B6600046F5F /* Images.xcassets */; };
 		FA4A79821B7A748200046F5F /* Disquiet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA4A79801B7A748200046F5F /* Disquiet.mp3 */; };
 		FA4A79861B7A752D00046F5F /* flash.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA4A79851B7A752D00046F5F /* flash.wav */; };
@@ -283,6 +284,7 @@
 		FA27A8F11B50123D00D444ED /* ParticleEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleEffects.swift; sourceTree = "<group>"; };
 		FA32D9251B7A806E00F86F1C /* Published-Android */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Published-Android"; sourceTree = "<group>"; };
 		FA32D9261B7A806E00F86F1C /* Published-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Published-iOS"; sourceTree = "<group>"; };
+		FA401D231B7CE6EC009D4C13 /* TutorialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialScene.swift; path = Source/TutorialScene.swift; sourceTree = "<group>"; };
 		FA4A797E1B7A4B6600046F5F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA4A79801B7A748200046F5F /* Disquiet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Disquiet.mp3; sourceTree = "<group>"; };
 		FA4A79851B7A752D00046F5F /* flash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flash.wav; sourceTree = "<group>"; };
@@ -716,6 +718,7 @@
 			children = (
 				FA0F10501B4D8C61005B467B /* GameScene.swift */,
 				FAC21DDA1B41C74B00CF1F82 /* MenuScene.swift */,
+				FA401D231B7CE6EC009D4C13 /* TutorialScene.swift */,
 				FA9E00781B5D69A800ECEB76 /* SettingsScene.swift */,
 				FA9E007C1B5D8B2300ECEB76 /* CreditsScene.swift */,
 				FAA8E4121B73E27E00B1CE57 /* LoadingScene.swift */,
@@ -1039,6 +1042,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA401D241B7CE6EC009D4C13 /* TutorialScene.swift in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				FAC21DDB1B41C74B00CF1F82 /* MenuScene.swift in Sources */,
 				FAE6354E1B61230E0094E360 /* SharingManager.swift in Sources */,

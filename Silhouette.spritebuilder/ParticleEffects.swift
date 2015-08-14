@@ -15,4 +15,13 @@ class ParticleEffects {
       parent.addChild(touchParticle)
     }
   }
+  
+  static func createParticleEffectAtTouch(touch: CCTouch, asChildOf parent: TutorialScene) {
+    if NSDefaultsManager.shouldShowParticleEffects() {
+      let touchParticle = CCBReader.load("TouchParticle") as! CCParticleSystem
+      touchParticle.autoRemoveOnFinish = true
+      touchParticle.position = CGPoint(x: touch.locationInWorld().x, y: touch.locationInWorld().y)
+      parent.addChild(touchParticle)
+    }
+  }
 }

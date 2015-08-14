@@ -14,6 +14,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   weak var obstacleNode: CCNode!
   weak var leftObstacleNode: CCNode!
   weak var gamePhysicsNode: CCPhysicsNode!
+  weak var detectorNode: CCNode!
   weak var scoreLabel: CCLabelTTF!
   weak var pauseScreen: PauseScreen!
   weak var gameOverScreen: GameOverScreen!
@@ -22,7 +23,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   var obstacleArray: [Obstacle] = []
   var leftObstacleArray: [CCNode] = []
   var glyphDetector: WTMGlyphDetector!
-  let numberOfObstaclesInArray = 15
+  let numberOfObstaclesInArray = 6
   var shouldCollide = true
   // Scrolling related logic
   var shouldMove = true
@@ -80,6 +81,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       let newLeftObstacle = CCBReader.load("LeftObstacle") as CCNode
       // Make the obstacle a physics sensor so it can detect collisions but not stop the sprite
       newObstacle.physicsBody.sensor = true
+      newLeftObstacle.physicsBody.sensor = true
       newObstacle.randomizeCurrentShape()
       // Each obstacle's position is equal to the last's plus the offset
       newObstacle.position = CGPoint(x: startingObstaclePosition + (offsetMultiplier * offset), y: 33)
@@ -100,11 +102,6 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       // Move the node that spawns the obstacles left to simulate movement
       obstacleNode.position = ccp(obstacleNode.position.x - CGFloat(scrollSpeed) , obstacleNode.position.y)
       leftObstacleNode.position = ccp(obstacleNode.position.x - CGFloat(scrollSpeed) , obstacleNode.position.y)
-      // Check if the obstacle needs to move forward
-      let currentObstaclePos = convertToWorldSpace(obstacleArray[0].position).x + CGFloat(obstacleArray[0].contentSize.width / 2)
-      if  currentObstaclePos < 0 {
-        moveLastObstacleToFront()
-      }
       // The score is equal to the difference of the obstacle node's movement divided by 100 to make it digestible
       score += abs(Double(obstacleNode.position.x - lastObstacleNodePosition) / 100)
       let formattedString = NSString(format: "%.1f", score)
@@ -175,6 +172,23 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     }
     return true
   }
+  
+  func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, detectorNode: CCNode!, obstacle: Obstacle!) -> ObjCBool {
+    let obstacle: Obstacle = obstacle
+    moveLastObstacleToFront(obstacle)
+    return true
+  }
+  
+  func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, detectorNode: CCNode!, leftObstacle: CCNode!) -> ObjCBool {
+    moveLastLeftObstacleToFront(leftObstacle)
+    return true
+  }
+  
+  func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, spriteFrameCheck: CCNode!, obstacle: Obstacle!) -> ObjCBool {
+    // Fade in instead of forcing the shape image because I used fade out before
+    obstacle.shapeImage.runAction(CCActionFadeIn(duration: 0.1))
+    return true
+  }
 
   func triggerGameOver() {
     println("GAME OVER")
@@ -190,7 +204,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
       highscore = score
       NSDefaultsManager.setHighscore(highscore)
     }
-    // TODO: Actually solve this bug rather than use this hacky solution
+    // TODO: - Actually solve this bug rather than use this hacky solution
     schedule("gameOverHackSolution", interval: 0.1)
   }
   
@@ -216,21 +230,27 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     if score > 1.8  && glyph.name.lowercaseString == obstacleArray[0].currentShape.toString.lowercaseString {
       leftObstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
       shouldCollide = false
+      obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Flash Green")
       moveLastObstacleToEndOfArray()
     }
     
     else if score > 1.8 && glyph.name.lowercaseString == "reversetriangle" && obstacleArray[0].currentShape.toString.lowercaseString == "triangle" {
       leftObstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
       shouldCollide = false
+      obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Flash Green")
       moveLastObstacleToEndOfArray()
     }
     
     else if score > 1.8 && glyph.name.lowercaseString == "trianglefromtop" && obstacleArray[0].currentShape.toString.lowercaseString == "triangle" {
       leftObstacleArray[0].animationManager.runAnimationsForSequenceNamed("Gate Up")
       shouldCollide = false
+      obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Flash Green")
       moveLastObstacleToEndOfArray()
     }
     
+    else {
+      obstacleArray[0].animationManager.runAnimationsForSequenceNamed("Flash")
+    }
   }
   
   func moveLastObstacleToEndOfArray() {
@@ -245,21 +265,19 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     timer = 0
   }
   
-  func moveLastObstacleToFront() {
+  func moveLastObstacleToFront(obstacle: Obstacle) {
     // Set the current obstacle's position forward
-    obstacleArray[obstacleArray.count - 1].position.x = CGFloat(lastObstaclePosition + offset)
-    leftObstacleArray[leftObstacleArray.count - 1].position.x = CGFloat(lastObstaclePosition + offset)
-    lastObstaclePosition = Int(obstacleArray[obstacleArray.count - 1].position.x)
+    obstacle.position.x = CGFloat(lastObstaclePosition + offset)
+    lastObstaclePosition = Int(obstacle.position.x)
     // Randomize current obstacle
-    obstacleArray[obstacleArray.count - 1].randomizeCurrentShape()
+    obstacle.randomizeCurrentShape()
     // Make sure that all obstacles have an image loaded
-    leftObstacleArray[leftObstacleArray.count - 1].animationManager.runAnimationsForSequenceNamed("Default Timeline")
-    for o in obstacleArray {
-      if o.shapeImage.spriteFrame == nil {
-        o.shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/shapes/\(o.currentShape.toString.lowercaseString).png")
-      }
-    }
-    
+    obstacle.shapeImage.spriteFrame = CCSpriteFrame(imageNamed: "assets/shapes/\(obstacle.currentShape.toString.lowercaseString).png")
+  }
+  
+  func moveLastLeftObstacleToFront(leftObstacle: CCNode) {
+    leftObstacle.position.x = CGFloat(lastObstaclePosition + offset)
+    leftObstacle.animationManager.runAnimationsForSequenceNamed("Default Timeline")
   }
   
   func pause() {

@@ -23,6 +23,11 @@ class MenuScene: CCNode {
     }
     audio.bgVolume = 1.0
     setUpGameCenter()
+    
+    if !NSDefaultsManager.isFirstTimePlaying() {
+      NSDefaultsManager.setShouldShowParticleEffects(true)
+      NSDefaultsManager.setShouldPlayBG(true)
+    }
   }
   
   func setUpGameCenter() {

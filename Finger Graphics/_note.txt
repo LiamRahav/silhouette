@@ -1,0 +1,65 @@
+Files
+-----
+- "All view" files have all the gestures and are arranged to view all of them
+- "Single view" files have all the gestures but arranged to only view single gesture
+- CS5 and CS folders have symbol library file too
+
+
+
+Tips & Notes
+------------
+- Use the "List-p..." jpg files for name reference and layer location to the gestures in "Single View" files; each gesture in the files grouped and put in a layer with the gesture name, also in CS and CS5 files they are grouped in layer with page name as reference to the jpg list files. Turn on the visibility of the gesture layer you want for viewing, as the initial visibility of all the layer are set to off except one.   
+
+- Use "All view" files to modify the overall look of the artworks if you need to use more than one gesture, as its easier to modify and compare between artworks than a single artwork file
+
+- In "All view" files, each gesture is grouped so it's easy to click and pick the gesture
+
+- The "All view" files in CS5 have 4 artboard, the same as the image list. The previous cs and 8 version don't have more than 1 artboard so some artworks are outside the artboard area. The CS and CS5 files are also layered, it grouped the gestures based on its artboard and gesture type so its easier to find.
+
+
+
+Tips on Modifying The Artworks in Illustrator
+---------------------------------------------
+These files were made using Illustrator CS5, so below tips might not work or work differently with previous version. 
+Included in the pack are eps files for Illustrator 8 and CS, there were also ai files for CS5. The "All View..." CS5 ai files have "Help" layer, it contains some of the below tips to modify the overall style of the artworks.
+
+- The swatches panel in the files already filled with global colors, using global swatches you can easily change the artworks color; to do this follow these steps:
+
+> open Window>Swatches to open Swatches panel
+
+> double click one of the colors with  white triangle sign at bottom right corner, modify the color to the desired one then click OK; all the artwork's components that using that color will change to the new color
+
+Note : this method also works in "Single view" file
+
+
+- In the "...using symbols" files, you can modify a symbol and all copy of it will change too; to do this follow these steps:
+
+> open Window>Symbols to open Symbols panel
+
+> double click the symbol you want to modify; a temporary instance of the symbol will appear in the center of the artboard
+
+> edit or modify the artwork. When finished, exit isolation mode by clicking the Exit Isolation Mode button  at the upper-left corner of the artboard or in the Control panel  or pressing Esc.
+
+
+- In the non "...using symbols" files, you can use the ¡°Select Same¡± tool to select all the artworks that have the same color, after all are selected then you can modify their color, style or others; to do this follow these steps: 
+
+> as the gestures are grouped you can select the components using "direct selection tool (A)", click/select one of the shape in the gesture (or in CS/CS5 files there are shapes at the left side of the artboard that represent the gestures' components, they are not grouped so you can easily click/select it)
+
+> open Select>Same>Color/Appearance
+All the artworks that have the same color or appearance will be selected; you then can change the color, modify outline, add filter, gradient, etc.(in CS5 files you can use Eyedropper Tool(I) to pick one of the preset styles included  at the left side of the artboard)
+
+>the hand¡¯s shades component in CS and CS5 files are using overlay and have 50% opacity so you can just change the base hand's color (but certain color or other's component style may make them invisible or will have unintended outcome, you can change it in Appearance panel)
+the hand¡¯s shades component in Illustrator 8 files are using basic color, so to modify the hand's color you may need to change the shade's color too
+Note : this method may works in "Single View" file only if all the layers are visible
+
+
+- In the CS5 folder also has "Modified sample" file, you can use direct select tool and eyedropper tool as mentioned above 
+to copy the appearance in the "Modified sample" file. The steps are the same as previous tips but first copy the gesture with the style that you like from the "Modified sample" file to the "All view" file, it will be used as preset styles as mentioned in the previous "Select Same" steps.
+Note : the "Modified sample" file not included in other folder as some of the styles are not available in previous version. 
+
+
+Contact Us 
+----------
+For questions and Suggestions, contact us at :
+monstermindworks&gmail.com
+monstermindworks@outlook.com

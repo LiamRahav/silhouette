@@ -11,6 +11,7 @@ class NSDefaultsManager {
   static let HIGHSCORE_KEY = "11ACI76k8B8H9RJ1Ml"
   static let BACKGROUND_MUSIC_KEY = "9EOwshviw7rXZlQXUV"
   static let PARTICLE_EFFECTS_KEY = "wNK7tf3IaF8lW57tVu"
+  static let FIRST_TIME_PLAYING_KEY = "wNK7dgkWMKfF8lW57tVu"
   
   static func setHighscore(newHighscore: Double) {
     let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -51,5 +52,15 @@ class NSDefaultsManager {
   static func shouldShowParticleEffects() -> Bool {
     let userDefaults = NSUserDefaults.standardUserDefaults()
     return userDefaults.boolForKey(PARTICLE_EFFECTS_KEY)
+  }
+  
+  static func setFirstTimePlaying(isFirstTime: Bool) {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    userDefaults.setBool(isFirstTime, forKey: FIRST_TIME_PLAYING_KEY)
+  }
+  
+  static func isFirstTimePlaying() -> Bool {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    return userDefaults.boolForKey(FIRST_TIME_PLAYING_KEY)
   }
 }

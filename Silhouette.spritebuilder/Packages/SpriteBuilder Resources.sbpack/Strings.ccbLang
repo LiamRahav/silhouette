@@ -265,6 +265,33 @@
 				<string>粒子特效</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>comment</key>
+			<string>In the tutorial</string>
+			<key>key</key>
+			<string>Press Play</string>
+			<key>translations</key>
+			<dict>
+				<key>ar</key>
+				<string>الصحافة اللعب</string>
+				<key>de</key>
+				<string>Play</string>
+				<key>en</key>
+				<string>Press Play</string>
+				<key>es</key>
+				<string>Pulse Play</string>
+				<key>fr</key>
+				<string>Appuyez sur Play</string>
+				<key>he</key>
+				<string>לחץ על שחק</string>
+				<key>ja</key>
+				<string>プレスプレイ</string>
+				<key>ko</key>
+				<string>를 눌러 재생</string>
+				<key>zh-Hans</key>
+				<string>按播放</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

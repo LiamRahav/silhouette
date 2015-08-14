@@ -16,7 +16,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>docDimensionsType</key>
 	<integer>1</integer>
 	<key>fileType</key>
@@ -131,7 +131,7 @@
 						<key>value</key>
 						<array>
 							<real>0.43000000715255737</real>
-							<real>0.40000000596046448</real>
+							<real>0.16500000655651093</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -433,6 +433,71 @@
 		<string></string>
 		<key>memberVarAssignmentType</key>
 		<integer>1</integer>
+		<key>physicsBody</key>
+		<dict>
+			<key>affectedByGravity</key>
+			<true/>
+			<key>allowsRotation</key>
+			<true/>
+			<key>bodyShape</key>
+			<integer>0</integer>
+			<key>collisionCategories</key>
+			<array/>
+			<key>collisionMask</key>
+			<array/>
+			<key>collisionType</key>
+			<string>leftObstacle</string>
+			<key>cornerRadius</key>
+			<real>0.0</real>
+			<key>density</key>
+			<real>1</real>
+			<key>dynamic</key>
+			<false/>
+			<key>elasticity</key>
+			<real>0.30000001192092896</real>
+			<key>friction</key>
+			<real>0.30000001192092896</real>
+			<key>points</key>
+			<array>
+				<array>
+					<real>92.40234375</real>
+					<real>-0.57421875</real>
+				</array>
+				<array>
+					<real>120.28125</real>
+					<real>98.38671875</real>
+				</array>
+				<array>
+					<real>139.60546875</real>
+					<real>101.25</real>
+				</array>
+				<array>
+					<real>168.921875</real>
+					<real>-6.69140625</real>
+				</array>
+			</array>
+			<key>polygons</key>
+			<array>
+				<array>
+					<array>
+						<real>168.921875</real>
+						<real>-6.69140625</real>
+					</array>
+					<array>
+						<real>139.60546875</real>
+						<real>101.25</real>
+					</array>
+					<array>
+						<real>120.28125</real>
+						<real>98.38671875</real>
+					</array>
+					<array>
+						<real>92.40234375</real>
+						<real>-0.57421875</real>
+					</array>
+				</array>
+			</array>
+		</dict>
 		<key>properties</key>
 		<array>
 			<dict>
@@ -495,6 +560,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
@@ -550,7 +617,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>1.1000000238418579</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
