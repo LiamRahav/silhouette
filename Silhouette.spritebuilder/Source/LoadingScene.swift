@@ -19,7 +19,7 @@ class LoadingScene: CCNode {
   }
   
   func startLoading() {
-    gameScene = CCBReader.loadAsScene(sceneToLoad)
+    gameScene = CCBReader.loadAsScene(sceneToLoad) 
     unschedule("startLoading")
   }
   
