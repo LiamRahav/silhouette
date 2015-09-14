@@ -24,12 +24,7 @@ class TutorialScene: CCNode, WTMGlyphDelegate {
     glyphDetector.addGlyphFromJSON(Obstacle.convertNonGlyphToJSON("reversetriangle"), name: "ReverseTriangle")
     glyphDetector.addGlyphFromJSON(Obstacle.convertNonGlyphToJSON("trianglefromtop"), name: "TriangleFromTop")
     rightObstacle.animationManager.runAnimationsForSequenceNamed("Flash Repeating")
-    self.schedule("allowTouches", interval: 2)
-  }
-  
-  func allowTouches() {
     self.userInteractionEnabled = true
-    unschedule("allowTouches")
   }
   
   func play() {
@@ -56,7 +51,7 @@ class TutorialScene: CCNode, WTMGlyphDelegate {
 
   func glyphDetected(glyph: WTMGlyph!, withScore score: Float) {
     if score >= 2.5 {
-      rightObstacle.animationManager.runAnimationsForSequenceNamed("Flash Green")
+      rightObstacle.animationManager.runAnimationsForSequenceNamed("Flash Green Repeating")
       leftObstacle.animationManager.runAnimationsForSequenceNamed("Gate Up")
       self.animationManager.runAnimationsForSequenceNamed("Run Through Castle")
     }

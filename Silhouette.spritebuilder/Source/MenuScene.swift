@@ -28,9 +28,6 @@ class MenuScene: CCNode {
       NSDefaultsManager.setShouldShowParticleEffects(true)
       NSDefaultsManager.setShouldPlayBG(true)
     }
-    
-    // TODO: - DELTE THIS LINE
-    NSDefaultsManager.setFirstTimePlaying(false)
   }
   
   func setUpGameCenter() {

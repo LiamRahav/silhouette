@@ -2516,7 +2516,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.27818524837493896</real>
+							<real>0.27642467617988586</real>
 							<real>0.57855600118637085</real>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -3297,6 +3297,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>

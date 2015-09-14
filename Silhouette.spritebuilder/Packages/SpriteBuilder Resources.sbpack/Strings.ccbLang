@@ -292,6 +292,31 @@
 				<string>按播放</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>key</key>
+			<string>Draw Anywhere</string>
+			<key>translations</key>
+			<dict>
+				<key>ar</key>
+				<string>رسم في أي مكان</string>
+				<key>de</key>
+				<string>Zeichnen Überall</string>
+				<key>en</key>
+				<string>Draw Anywhere</string>
+				<key>es</key>
+				<string>Dibuje en cualquier lugar</string>
+				<key>fr</key>
+				<string>Dessinez Partout</string>
+				<key>he</key>
+				<string>לצייר בכל מקום</string>
+				<key>ja</key>
+				<string>どこでも描きます</string>
+				<key>ko</key>
+				<string>어디서나 그리기</string>
+				<key>zh-Hans</key>
+				<string>任何地方画</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>
