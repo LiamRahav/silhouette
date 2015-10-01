@@ -54,11 +54,11 @@ class SettingsScene: CCNode {
   }
   
   func backToMenu() {
-    self.parent.animationManager.runAnimationsForSequenceNamed("Settings Reverse")
+    self.parent!.animationManager.runAnimationsForSequenceNamed("Settings Reverse")
   }
   
   func goToCredits() {
-    self.parent.animationManager.runAnimationsForSequenceNamed("Credits")
+    self.parent!.animationManager.runAnimationsForSequenceNamed("Credits")
     self.parentNode.creditsScene.animationManager.runAnimationsForSequenceNamed("Credits Scroll")
   }
 }

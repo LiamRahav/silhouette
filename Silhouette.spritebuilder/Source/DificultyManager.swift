@@ -8,7 +8,7 @@ import Foundation
 
 class DificultyManager {
   static func increaseDificulty(game: GameScene, score: Double, randomIncreaseArea: Int, often: Int, timesOccured: Int) {
-    var randomIncreaseArea = Double(randomIncreaseArea)
+    let randomIncreaseArea = Double(randomIncreaseArea)
     
     if score > 15 && score < 15.1 {
       game.scrollSpeed += 0.015

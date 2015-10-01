@@ -60,7 +60,7 @@ class Obstacle: CCNode {
   }
   
   func randomizeCurrentShape() {
-    let keyList = Obstacle.glyphDict.keys.array
+    let keyList = Array(Obstacle.glyphDict.keys)
     let randomKey = keyList[Int(arc4random_uniform(UInt32(keyList.count)))]
     currentShape = Obstacle.glyphDict[randomKey]!
   }
@@ -68,8 +68,8 @@ class Obstacle: CCNode {
   /**
   This function takes in a Glyph enum and spits back the matching JSON file (if it exists)
   
-  :param: Glyph
-  :returns: JSON data
+  - parameter Glyph:
+  - returns: JSON data
   */
   static func convertGlyphToJSON(glyph: Glyph) -> NSData {
     let path = NSBundle.mainBundle().pathForResource("JSON/\((glyph.toString).lowercaseString)", ofType: "json")

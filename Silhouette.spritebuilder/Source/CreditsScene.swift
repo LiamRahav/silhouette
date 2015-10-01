@@ -8,7 +8,7 @@ import Foundation
 
 class CreditsScene: CCNode {
   func backToSettings() {
-    self.parent.animationManager.runAnimationsForSequenceNamed("Credits Reverse")
+    self.parent!.animationManager.runAnimationsForSequenceNamed("Credits Reverse")
     self.schedule("goBackToDefault", interval: 1)
   }
   

@@ -75,7 +75,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
     glyphDetector.addGlyphFromJSON(Obstacle.convertNonGlyphToJSON("trianglefromtop"), name: "TriangleFromTop")
   }
 
-  func setUpObstacleArray(#numberOfObstacles: Int) {
+  func setUpObstacleArray(numberOfObstacles numberOfObstacles: Int) {
     // Spawn the set number of obstacles
     for offsetMultiplier in 0..<numberOfObstacles {
       let newObstacle = CCBReader.load("Obstacle") as! Obstacle
@@ -192,7 +192,7 @@ class GameScene: CCNode, WTMGlyphDelegate, CCPhysicsCollisionDelegate {
   }
 
   func triggerGameOver() {
-    println("GAME OVER")
+    print("GAME OVER")
     audio.playEffect("flash.wav")
     // Stop the sprite from moving and shapes from being detected
     shouldMove = false

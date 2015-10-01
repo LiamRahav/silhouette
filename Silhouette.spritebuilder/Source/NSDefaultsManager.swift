@@ -17,14 +17,14 @@ class NSDefaultsManager {
     let userDefaults = NSUserDefaults.standardUserDefaults()
     userDefaults.setDouble(newHighscore, forKey: HIGHSCORE_KEY)
     // Save the high score to GameCenter as well
-    var scoreReporter = GKScore(leaderboardIdentifier: "SilhouetteHighScoreLeaderboard")
+    let scoreReporter = GKScore(leaderboardIdentifier: "SilhouetteHighScoreLeaderboard")
     scoreReporter.value = Int64(newHighscore * 10)
-    var scoreArray: [GKScore] = [scoreReporter]
-    GKScore.reportScores(scoreArray, withCompletionHandler: {(error: NSError!) -> Void in
+    let scoreArray: [GKScore] = [scoreReporter]
+    GKScore.reportScores(scoreArray, withCompletionHandler: {(error: NSError?) -> Void in
       if error != nil {
-        println("Failed to save high score to Game Center")
+        print("Failed to save high score to Game Center")
       } else {
-        println("Saved new score to Game Center succesfully")
+        print("Saved new score to Game Center succesfully")
       }
     })
   }
